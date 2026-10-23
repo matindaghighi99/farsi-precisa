@@ -63,7 +63,7 @@
   var summary = screen.querySelector('.sj-p-summary');
   var pushText = screen.querySelector('.sj-p-push-text');
   var pick = { service: '', day: '', time: '' };
-  var pushTimer = 0, saveTimer = 0, tipTimer = 0, tipShown = false;
+  var pushTimer = 0, saveTimer = 0, tipTimer = 0, tipShown = false, modalAt = 0;
   var CLOSE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
 
   function openPhone(withKeyboard) {
@@ -108,11 +108,14 @@
       modal.setAttribute('aria-label', 'نسخه‌ی موبایل سایت نمونه');
       modal.innerHTML = '<div class="sj-pm-frame"></div><button type="button" class="sj-pm-close" aria-label="بستن">' + CLOSE_SVG + '</button>';
       document.body.appendChild(modal);
-      modal.addEventListener('click', function (e) { if (e.target === modal) closePhone(); });
+      /* a tap on the backdrop closes it — but not the click a touch tap on
+         the small phone sends after it opened the overlay under the finger */
+      modal.addEventListener('click', function (e) { if (e.target === modal && performance.now() - modalAt > 500) closePhone(); });
       modal.querySelector('.sj-pm-close').addEventListener('click', closePhone);
     }
     modal.firstChild.appendChild(screen);
     modalOpen = true;
+    modalAt = performance.now();
     document.documentElement.classList.add('sj-pm-lock');
     void modal.offsetWidth;                /* start the fade from the closed state */
     modal.classList.add('is-open');

@@ -898,13 +898,11 @@ html.sj-pm-lock .msbug-fab { visibility: hidden; }
   .sj-ctas { gap: 10px; margin-top: 24px; justify-content: center; }
   .sj-ctas .btn-gold, .sj-ctas .btn-ghost { padding: 12px 18px; font-size: 14px; gap: 8px; }
   .sj-ctas .btn-gold svg { width: 15px; height: 15px; }
-  /* a calmer scene: just the browser. The phone opens full size from its
-     button (the script uses the overlay at this size), so its small copy,
-     the orbs and the drag hint go */
-  .sj-phone, .sj-cube, .sj-hint { display: none; }
-  .sj-stage { margin-bottom: calc(-72px * var(--sj-scale, 1)); }   /* the room the phone stood in */
-  .sj-controls { gap: 10px; margin-top: 18px; }
-  .sj-layers-btn, .sj-phone-btn { padding: 8px 14px 8px 12px; font-size: 13px; }
+  /* a calmer scene: the browser and the phone, no controls under it. A
+     tap on the phone opens it full size (the script uses the overlay at
+     this size); its «امتحانش کنید» tip says so. The orbs go. */
+  .sj-cube, .sj-controls { display: none; }
+  .sj-phone { left: 16px; }   /* fully on screen, its tip too */
 }
 
 /* With reduced motion the scene stays at its resting angle (the script
