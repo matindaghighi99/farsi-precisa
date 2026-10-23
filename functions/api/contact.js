@@ -19,7 +19,7 @@ const ALLOWED_SYSTEM = [
   'Appointment booking system', 'Dashboard & reporting', 'Website + funnel system',
   'Not sure yet — need guidance'
 ];
-const ALLOWED_BUDGET = ['', 'Under $1,500', '$1,500 – $4,000', '$4,000 – $7,500', '$7,500+', 'Not sure yet'];
+const ALLOWED_BUDGET = ['', 'Under 50M toman', '50M – 150M toman', '150M – 300M toman', '300M+ toman', 'Not sure yet'];  // in Toman (تومان)
 const ALLOWED_TIMELINE = ['', 'As soon as possible', 'Within 1–2 months', 'This quarter', 'Just exploring'];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
