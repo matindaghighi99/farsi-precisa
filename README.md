@@ -1,7 +1,7 @@
-# سنجه (Sanjeh) — Persian website
+# رسا (Rasa) — Persian website
 
 The Persian website of Precisa Solutions, for clients in Iran, under its own
-brand: **سنجه** (a gauge — something that measures precisely). A static site
+brand: **رسا** (clear, far-reaching — a message that gets across). A static site
 with two small Cloudflare Pages Functions for its forms. No build step.
 
 ## Pages
@@ -53,9 +53,9 @@ For local testing with the functions: copy `.dev.vars.example` to
   spacing, mirrored rules).
 - **The home page hero** — its text, including the sample clinic site in the
   browser and on the phone, is in `index.html`. Styles:
-  `assets/sanjeh-hero.css`; behaviour (the 3D scene, the layers view and the
-  working phone): `assets/sanjeh-hero.js`.
-- **Logo** — `images/sanjeh-mark.svg`; favicons `images/sanjeh-favicon-*.png`
+  `assets/rasa-hero.css`; behaviour (the 3D scene, the layers view and the
+  working phone): `assets/rasa-hero.js`.
+- **Logo** — `images/rasa-mark.svg`; favicons `images/rasa-favicon-*.png`
   and `favicon.ico`.
 - After changing any CSS or JS, run `node stamp-assets.mjs` so browsers pick
   up the new version (it updates the `?v=…` on every reference).

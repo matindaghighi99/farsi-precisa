@@ -1,4 +1,4 @@
-/* Sanjeh — Persian home hero runtime. Loaded by fa/index.html.
+/* Rasa — Persian home hero runtime. Loaded by fa/index.html.
    1 fit: the 3D scene is laid out at 560×430 and scaled to its column
    2 entrance, once the site preloader lifts: the copy rises, and the
      sample site fades in pulled apart into its layers, then comes together

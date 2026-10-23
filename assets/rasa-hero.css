@@ -1,5 +1,5 @@
 /* ============================================================
-   Sanjeh — Persian home hero
+   Rasa — Persian home hero
    Loaded by fa/index.html only, after fa.css. Written right-to-left
    first: the copy column comes first in the markup, so it sits on the
    right, where a Persian reader starts.
@@ -9,7 +9,7 @@
    devices have real thickness and the site's layers float at their own
    depths. The scene is laid out at a fixed design size (560×430) in
    .sj-world, which the script scales to fit its column.
-   Runtime: assets/sanjeh-hero.js (fit, entrance, pointer tilt, drag,
+   Runtime: assets/rasa-hero.js (fit, entrance, pointer tilt, drag,
    the layers view .is-exploded, and the phone: .is-phone brings it
    forward in the scene, .sj-pm shows it full size on small screens).
    One rule for this scene: a box that keeps its children in 3D must
@@ -786,7 +786,7 @@
 .sj-p-push b { font-weight: 800; }
 .sj-p-push b small { margin-right: .4em; font-weight: 500; color: rgba(11,59,54,.5); }
 
-/* ── floating cubes, after the tiles of the Sanjeh mark ─────────────── */
+/* ── floating cubes, after the tiles of the Rasa mark ─────────────── */
 .sj-cube {
   position: absolute; left: var(--x); top: var(--y);
   width: var(--s); height: var(--s);
