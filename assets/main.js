@@ -9,14 +9,14 @@
   /* ---------- Preloader (home only) ---------- */
   const preloader = document.getElementById('preloader');
   if (preloader) {
-    /* The رسا intro (assets/rasa-loader.css). It starts once the logo and
+    /* The رهنو intro (assets/rahno-loader.css). It starts once the logo and
        the display font are ready, so neither pops in late; the ring and
        counter follow real progress — they run to 92% on a clock and only
        close once the page has loaded. FLOOR lets the entrance play out
        (logo, sheen, wordmark); CAP stops a slow load holding the page. */
     const FLOOR = 2100;
     const CAP   = 4200;
-    const IRIS  = 1000;   /* the exit: .done opens the iris (rasa-loader.css) */
+    const IRIS  = 1000;   /* the exit: .done opens the iris (rahno-loader.css) */
     const num   = preloader.querySelector('.rl-num');
     const faDigits = (n) => String(n).replace(/\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[d]);
     let loaded = document.readyState === 'complete';

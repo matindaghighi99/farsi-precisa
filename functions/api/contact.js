@@ -64,7 +64,7 @@ export async function onRequestPost({ request, env }) {
   const budget = ALLOWED_BUDGET.includes(body.budget) ? body.budget : '';
   const timeline = ALLOWED_TIMELINE.includes(body.timeline) ? body.timeline : '';
   const message = clean(body.message, MAX_LEN.message);
-  // The Persian site (fa/, brand "Rasa") posts the same English field values
+  // The Persian site (fa/, brand "Rahno") posts the same English field values
   // plus lang: 'fa', so its leads can be told apart in the inbox and dashboard.
   const persian = body.lang === 'fa';
 
@@ -105,14 +105,14 @@ export async function onRequestPost({ request, env }) {
   const html = emailShell({
     eyebrow: 'New lead',
     title: name + (company ? ' · ' + company : ''),
-    intro: 'A new strategy-call request just came in through your ' + (persian ? 'Persian (Rasa) site.' : 'site.'),
+    intro: 'A new strategy-call request just came in through your ' + (persian ? 'Persian (Rahno) site.' : 'site.'),
     contentHtml:
       detailTable([
         ['Name', name], ['Email', email], ['Company', company], ['Website', website],
         ['System', system], ['Tools', tools], ['Budget', budget], ['Timeline', timeline]
       ]) +
       quote('What feels manual or messy', message),
-    cta: { href: 'mailto:' + email + '?subject=' + encodeURIComponent(persian ? 'پاسخ به درخواست شما از رسا' : 'Re: your Precisa Solutions inquiry'), label: 'Reply to ' + name.split(' ')[0] },
+    cta: { href: 'mailto:' + email + '?subject=' + encodeURIComponent(persian ? 'پاسخ به درخواست شما از رهنو' : 'Re: your Precisa Solutions inquiry'), label: 'Reply to ' + name.split(' ')[0] },
     theme: 'lead',
     preheader: (persian ? '[FA] ' : '') + 'New lead — ' + name + (company ? ' (' + company + ')' : '')
   });

@@ -1,7 +1,7 @@
-# رسا (Rasa) — Persian website
+# رهنو (Rahno) — Persian website
 
 The Persian website of Precisa Solutions, for clients in Iran, under its own
-brand: **رسا** (clear, far-reaching — a message that gets across). A static site
+brand: **رهنو** (Rahno — "a new path"). A static site
 with two small Cloudflare Pages Functions for its forms. No build step.
 
 ## Pages
@@ -54,9 +54,9 @@ For local testing with the functions: copy `.dev.vars.example` to
   spacing, mirrored rules).
 - **The home page hero** — its text, including the sample clinic site in the
   browser and on the phone, is in `index.html`. Styles:
-  `assets/rasa-hero.css`; behaviour (the 3D scene, the layers view and the
-  working phone): `assets/rasa-hero.js`.
-- **Logo** — `images/rasa-mark.png`; favicons `images/rasa-favicon-*.png`
+  `assets/rahno-hero.css`; behaviour (the 3D scene, the layers view and the
+  working phone): `assets/rahno-hero.js`.
+- **Logo** — `images/rahno-mark.png`; favicons `images/rahno-favicon-*.png`
   and `favicon.ico`.
 - After changing any CSS, JS or the logo/favicons, run `node stamp-assets.mjs` so browsers pick
   up the new version (it updates the `?v=…` on every reference).

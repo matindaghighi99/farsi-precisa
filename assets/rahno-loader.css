@@ -1,5 +1,5 @@
 /* ============================================================
-   رسا intro — the home page preloader.
+   رهنو intro — the home page preloader.
    main.js adds .is-go once the logo and font are ready, drives --p
    (0–100, the progress ring and counter) and adds .done to open the
    iris from the logo's centre (--cx/--cy) onto the page.
@@ -79,7 +79,7 @@
   opacity: 0;
 }
 
-/* sound-wave rings: رسا, a voice that carries */
+/* rings spreading out from the logo: رهنو, a new path opening */
 .rl-wave {
   position: absolute; inset: 14%;
   border-radius: 50%;
@@ -105,8 +105,8 @@
   background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, .7) 50%, transparent 62%) no-repeat;
   background-size: 260% 100%;
   background-position: 160% 0;
-  -webkit-mask: url('../images/rasa-mark-480.webp') center / contain no-repeat;
-          mask: url('../images/rasa-mark-480.webp') center / contain no-repeat;
+  -webkit-mask: url('../images/rahno-mark-480.webp') center / contain no-repeat;
+          mask: url('../images/rahno-mark-480.webp') center / contain no-repeat;
   mix-blend-mode: soft-light;
   opacity: 0;
 }

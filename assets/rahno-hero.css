@@ -1,5 +1,5 @@
 /* ============================================================
-   Rasa — Persian home hero
+   Rahno — Persian home hero
    Loaded by fa/index.html only, after fa.css. Written right-to-left
    first: the copy column comes first in the markup, so it sits on the
    right, where a Persian reader starts.
@@ -9,7 +9,7 @@
    devices have real thickness and the site's layers float at their own
    depths. The scene is laid out at a fixed design size (560×430) in
    .sj-world, which the script scales to fit its column.
-   Runtime: assets/rasa-hero.js (fit, entrance, pointer tilt, drag,
+   Runtime: assets/rahno-hero.js (fit, entrance, pointer tilt, drag,
    the layers view .is-exploded, and the phone: .is-phone brings it
    forward in the scene, .sj-pm shows it full size on small screens).
    One rule for this scene: a box that keeps its children in 3D must
@@ -759,7 +759,7 @@
 .sj-p-push b { font-weight: 800; }
 .sj-p-push b small { margin-right: .4em; font-weight: 500; color: rgba(11,26,58,.5); }
 
-/* ── floating orbs, glossy like the رسا logo ─────────────────────────
+/* ── floating orbs, glossy like the رهنو logo ─────────────────────────
    (the markup keeps its cube faces; they are hidden, and the box that
    used to turn is lit as a sphere and only bobs) */
 .sj-cube {

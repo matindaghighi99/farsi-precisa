@@ -1,6 +1,6 @@
 /* Cache-busting stamper.
    Rewrites every local  assets/*.css | assets/*.js  reference (and the
-   logo and favicons, images/rasa-*.svg|png) in the .html
+   logo and favicons, images/rahno-*.svg|png) in the .html
    files at the site root to  assets/x.css?v=<hash>  where <hash> comes from
    that file's contents. Unchanged files keep their long browser cache;
    edited ones bust it immediately.
@@ -23,8 +23,8 @@ function assetHash(full) {
   return h;
 }
 
-// (href|src)="assets/name.css" or "images/rasa-….svg", with an optional existing ?query
-const REF = /((?:href|src)=")(assets\/[^"?]+\.(?:css|js)|images\/rasa-[^"?]+\.(?:svg|png|webp))(?:\?[^"]*)?(")/g;
+// (href|src)="assets/name.css" or "images/rahno-….svg", with an optional existing ?query
+const REF = /((?:href|src)=")(assets\/[^"?]+\.(?:css|js)|images\/rahno-[^"?]+\.(?:svg|png|webp))(?:\?[^"]*)?(")/g;
 
 let filesChanged = 0;
 let refsStamped = 0;

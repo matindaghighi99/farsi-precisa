@@ -1,5 +1,5 @@
 /* ============================================================
-   Rasa (رسا) — Persian / right-to-left layer
+   Rahno (رهنو) — Persian / right-to-left layer
    Loaded AFTER the shared stylesheets on every page under fa/.
    The English design system stays the source of truth; this file
    only swaps the type and mirrors what reads wrong right-to-left.
@@ -14,7 +14,7 @@
    · 'Vazirmatn' sets the running text, one variable file for every
      weight. Licence: fonts/vazirmatn/OFL.txt
      The Persian copy writes its numbers in Persian numerals itself.
-   · 'Rasa Digits' is only 0-9 from Vazirmatn's Farsi-Digits build, for
+   · 'Rahno Digits' is only 0-9 from Vazirmatn's Farsi-Digits build, for
      the few places a script writes numbers at runtime (see the end of
      this block). It can't be the page font: the `ch` unit the shared
      styles size their text columns with is measured from the "0" glyph,
@@ -22,11 +22,11 @@
      came out a third narrower. */
 @font-face { font-family: 'Baloo Bhaijaan 2'; font-style: normal; font-weight: 400 800; font-display: swap; src: url('fonts/baloo-bhaijaan-2/BalooBhaijaan2-Variable.woff2') format('woff2'); }
 @font-face { font-family: 'Vazirmatn'; font-style: normal; font-weight: 100 900; font-display: swap; src: url('fonts/vazirmatn/Vazirmatn-Variable.woff2') format('woff2'); }
-@font-face { font-family: 'Rasa Digits'; font-weight: 300; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Light.woff2') format('woff2'); }
-@font-face { font-family: 'Rasa Digits'; font-weight: 400; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Regular.woff2') format('woff2'); }
-@font-face { font-family: 'Rasa Digits'; font-weight: 500; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Medium.woff2') format('woff2'); }
-@font-face { font-family: 'Rasa Digits'; font-weight: 600; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-SemiBold.woff2') format('woff2'); }
-@font-face { font-family: 'Rasa Digits'; font-weight: 700; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'Rahno Digits'; font-weight: 300; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Light.woff2') format('woff2'); }
+@font-face { font-family: 'Rahno Digits'; font-weight: 400; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Rahno Digits'; font-weight: 500; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Medium.woff2') format('woff2'); }
+@font-face { font-family: 'Rahno Digits'; font-weight: 600; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-SemiBold.woff2') format('woff2'); }
+@font-face { font-family: 'Rahno Digits'; font-weight: 700; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Bold.woff2') format('woff2'); }
 
 :root {
   --font-display: 'Baloo Bhaijaan 2', 'Vazirmatn', Tahoma, sans-serif;
@@ -40,7 +40,7 @@
 /* numbers written by scripts: the intake console's step number and
    character counters */
 #icStepNum, #icCount,
-.icp-row[data-track="message"] .icp-value { font-family: 'Rasa Digits', var(--font-body); }
+.icp-row[data-track="message"] .icp-value { font-family: 'Rahno Digits', var(--font-body); }
 
 /* Letter-spacing pulls Persian letters apart and breaks the joins
    between them; there is no true Persian italic (browsers fake a
