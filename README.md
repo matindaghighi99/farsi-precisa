@@ -55,7 +55,7 @@ For local testing with the functions: copy `.dev.vars.example` to
   browser and on the phone, is in `index.html`. Styles:
   `assets/rasa-hero.css`; behaviour (the 3D scene, the layers view and the
   working phone): `assets/rasa-hero.js`.
-- **Logo** — `images/rasa-mark.svg`; favicons `images/rasa-favicon-*.png`
+- **Logo** — `images/rasa-mark.png`; favicons `images/rasa-favicon-*.png`
   and `favicon.ico`.
 - After changing any CSS, JS or the logo/favicons, run `node stamp-assets.mjs` so browsers pick
   up the new version (it updates the `?v=…` on every reference).
