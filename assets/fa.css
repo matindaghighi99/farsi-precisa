@@ -170,3 +170,10 @@ svg text[text-anchor="end"] { text-anchor: start; }
 .legal-prose li + li { margin-top: 6px; }
 .legal-prose a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
 .legal-prose .legal-law { font-size: 13.5px; color: var(--ink-mute); }
+
+/* the floating bug-report button, smaller on phones so it doesn't sit on
+   the content (its base styles are injected by main.js) */
+@media (max-width: 600px) {
+  .msbug-fab { padding: 10px !important; box-shadow: 0 6px 16px rgba(12,21,36,.22) !important; }
+  .msbug-fab svg { width: 15px; height: 15px; }
+}

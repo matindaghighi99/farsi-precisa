@@ -92,7 +92,7 @@
   color: var(--ink-soft);
 }
 .sj-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
-.sj-ctas .btn-gold, .sj-ctas .btn-ghost { padding: 17px 30px; }
+.sj-ctas .btn-gold, .sj-ctas .btn-ghost { padding: 15px 28px; font-size: 15px; }
 
 /* ── the scene ──────────────────────────────────────────────────────── */
 .sj-visual { width: 100%; }
@@ -891,13 +891,20 @@ html.sj-pm-lock .msbug-fab { visibility: hidden; }
   .sj-bg-floor { --floor-x: 50%; }
 }
 @media (max-width: 600px) {
-  .sj-hero { padding: calc(var(--nav-h) + 20px) 16px 44px; }
+  .sj-hero { padding: calc(var(--nav-h) + 20px) 16px 36px; }
   .sj-copy h1 { font-size: clamp(2.1rem, 10.4cqi, 2.6rem); }
-  .sj-ctas { flex-direction: column; }
-  .sj-ctas .btn-gold, .sj-ctas .btn-ghost { width: 100%; }
-  .sj-controls { gap: 10px; }
-  .sj-layers-btn, .sj-phone-btn { padding: 9px 15px 9px 13px; font-size: 13px; }
-  .sj-hint { width: 100%; justify-content: center; font-size: 12px; }
+  .sj-sub { margin-top: 16px; font-size: .95rem; line-height: 1.95; }
+  /* two compact buttons side by side, not two full-width bars */
+  .sj-ctas { gap: 10px; margin-top: 24px; justify-content: center; }
+  .sj-ctas .btn-gold, .sj-ctas .btn-ghost { padding: 12px 18px; font-size: 14px; gap: 8px; }
+  .sj-ctas .btn-gold svg { width: 15px; height: 15px; }
+  /* a calmer scene: just the browser. The phone opens full size from its
+     button (the script uses the overlay at this size), so its small copy,
+     the orbs and the drag hint go */
+  .sj-phone, .sj-cube, .sj-hint { display: none; }
+  .sj-stage { margin-bottom: calc(-72px * var(--sj-scale, 1)); }   /* the room the phone stood in */
+  .sj-controls { gap: 10px; margin-top: 18px; }
+  .sj-layers-btn, .sj-phone-btn { padding: 8px 14px 8px 12px; font-size: 13px; }
 }
 
 /* With reduced motion the scene stays at its resting angle (the script
