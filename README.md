@@ -57,7 +57,7 @@ For local testing with the functions: copy `.dev.vars.example` to
   working phone): `assets/rasa-hero.js`.
 - **Logo** — `images/rasa-mark.svg`; favicons `images/rasa-favicon-*.png`
   and `favicon.ico`.
-- After changing any CSS or JS, run `node stamp-assets.mjs` so browsers pick
+- After changing any CSS, JS or the logo/favicons, run `node stamp-assets.mjs` so browsers pick
   up the new version (it updates the `?v=…` on every reference).
 - There are no inline scripts — the security policy (in `_headers` and in
   each page's `<meta>`) blocks them. Put any new script in a file under

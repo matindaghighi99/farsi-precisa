@@ -145,3 +145,7 @@ svg text[text-anchor="end"] { text-anchor: start; }
    with a note on how to unzip it properly. Only this stylesheet hides it,
    so the note shows exactly when the page was opened without its files. */
 .zip-note { display: none !important; }
+
+/* The logo carries its own shading; a CSS filter on it makes Safari draw it
+   at low resolution on retina screens. */
+.nav-logo .brand-mark { filter: none; }
