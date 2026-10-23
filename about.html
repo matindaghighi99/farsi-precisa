@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-src 'none'" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<title>درباره‌ی ما — استودیوی اتوماسیون هوش مصنوعی با هدایت بنیان‌گذار | سنجه</title>
+<meta name="description" content="سنجه استودیویی کوچک برای ساخت سامانه‌های اتوماسیون است که بر یک باور ساده بنا شده: کارهای تکراری باید از چشم پنهان شوند و سامانه‌های خوب باید آرام کار کنند." />
+<link rel="icon" type="image/png" sizes="32x32" href="images/sanjeh-favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="images/sanjeh-favicon-192.png" />
+<link rel="apple-touch-icon" href="images/sanjeh-favicon-180.png" />
+<link rel="stylesheet" href="assets/styles.css?v=d7fb3064" />
+<link rel="stylesheet" href="assets/enhance.css?v=0a8f33a8" />
+<link rel="stylesheet" href="assets/fa.css?v=050605b1" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">رفتن به محتوا</a>
+
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<nav class="nav" id="nav" aria-label="منوی اصلی">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="سنجه — صفحه‌ی اصلی">
+      <img class="brand-mark" src="images/sanjeh-mark.svg" alt="" aria-hidden="true" />
+      <span class="wm-text">سنجه</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">خانه</a></li>
+      <li><a href="services.html">خدمات</a></li>
+      <li><a href="projects.html">نمونه‌کارها</a></li>
+      <li><a href="about.html" class="active">درباره‌ی ما</a></li>
+      <li><a href="contact.html">تماس</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta magnetic">رزرو جلسه‌ی مشاوره</a>
+      <button class="nav-burger" id="burger" aria-label="باز کردن منو" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">خانه</a>
+  <a href="services.html">خدمات</a>
+  <a href="projects.html">نمونه‌کارها</a>
+  <a href="about.html">درباره‌ی ما</a>
+  <a href="contact.html">تماس</a>
+  <a href="contact.html" class="build-link">رزرو جلسه‌ی مشاوره</a>
+</div>
+
+<!-- ============ PAGE HERO ============ -->
+<header class="page-hero page-enter">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="container page-hero-inner">
+    <h1>استودیوی کوچک. استانداردهای <span class="gold-word">وسواس‌گونه</span>.</h1>
+    <p class="section-sub">
+      سنجه بر پایه‌ی یک مشاهده‌ی ساده شکل گرفت: ارزشمندترین آدم‌های هر شرکت،
+      نیمی از هفته‌شان را صرف کارهایی می‌کنند که باید ماشین انجام دهد.
+      ما هستیم تا آن زمان را — با آرامش — به آن‌ها برگردانیم.
+    </p>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ BIG QUOTE ============ -->
+<section class="section" style="padding-top: clamp(40px, 6vw, 80px);">
+  <div class="container reveal">
+    <p class="big-quote">
+      «تجمل، ورق طلا و سنگ مرمر نیست. تجمل یعنی عصر یک سه‌شنبه که هیچ چیز
+      آتش نگرفته — چون سامانه‌ها به سادگی <span class="gold-word">کار می‌کنند</span>.»
+    </p>
+    <p class="big-quote-author">— اصل بنیادین سنجه</p>
+  </div>
+</section>
+
+<!-- ============ FOUNDER STORY ============ -->
+<section class="section" id="founder" style="padding-top: clamp(30px, 5vw, 60px);">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-title">طراحی به دست <span class="gold-word">متین</span>. شخصاً. همیشه.</h2>
+    </div>
+
+    <div class="founder-panel">
+      <div class="founder-mark reveal" data-photo="images/Founder.jpg">
+        <img alt="متین، بنیان‌گذار سنجه" loading="lazy" />
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="rgba(12,21,36,.03)" stroke="rgba(47,107,224,.5)" stroke-width=".6"/>
+          <image href="images/sanjeh-mark.svg" x="6" y="9" width="20" height="15" preserveAspectRatio="xMidYMid meet"/>
+          
+        </svg>
+        <span class="fm-name">متین دقیقی</span>
+        <span class="fm-role">بنیان‌گذار و طراح سامانه</span>
+        <div class="fm-plate">
+          <b>متین دقیقی</b>
+        </div>
+      </div>
+
+      <div class="founder-copy reveal" style="--d:.12s">
+        <h3>کاری که مدام تکرار می‌شود، یعنی کسی یادش رفته راه حذفش را طراحی کند.</h3>
+        <p>
+          متین سنجه را بعد از دیدن داستانی راه انداخت که در شرکت‌های خوب بارها
+          تکرار می‌شد: آدم‌های توانمندی که داده را از یک ابزار به ابزار دیگر کپی
+          می‌کنند، پیگیری‌ها را به حافظه‌شان می‌سپارند و به یک سؤال تکراری هفته‌ای
+          چهل بار جواب می‌دهند. نه چون کسی این را انتخاب کرده — چون هیچ‌کس
+          جایگزینی برایش طراحی نکرده بود.
+        </p>
+        <p>
+          پس استودیو همان جایگزین را طراحی می‌کند. نه «اتوماسیون» به معنای انبوهی
+          از تریگرهای Zapier، بلکه یک سامانه‌ی سنجیده: منطبق بر روش واقعی کار
+          کسب‌وکارتان، ساخته‌شده با کمترین قطعه‌ی متحرکی که کار را انجام دهد،
+          مستندشده مثل یک محصول، و «کسل‌کننده» به بهترین معنای ممکن.
+        </p>
+        <p>
+          متین همه‌ی نقشه‌ها را خودش طراحی می‌کند و برای هر پروژه متخصصان مورد
+          اعتمادش را کنار خود می‌آورد — صوت، داده، یکپارچه‌سازی — تا هر سامانه با
+          دستان باتجربه ساخته شود و یک نفر پاسخ‌گوی کل آن باشد: خود او.
+        </p>
+        <ul class="founder-points">
+          <li><span class="fp-num">۰۱</span><span><b>اول مشاهده، بعد ساخت.</b> هر همکاری با یک هفته حضور در دل فرایندهای واقعی شما شروع می‌شود.</span></li>
+          <li><span class="fp-num">۰۲</span><span><b>«نه» را زود بگو.</b> اگر اتوماسیونی هزینه‌ی خودش را برنگرداند، همان جلسه‌ی اول می‌شنوید.</span></li>
+          <li><span class="fp-num">۰۳</span><span><b>چیزی قابل‌یادگیری تحویل بده.</b> مستندات تحویل آن‌قدر روشن که نیروی بعدی‌تان در یک بعدازظهر به آن مسلط شود.</span></li>
+        </ul>
+        <div class="founder-actions">
+          <a href="contact.html" class="btn-primary magnetic">
+            <span>رزرو جلسه‌ی مشاوره</span>
+            <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALUES ============ -->
+<section class="section process">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-title">سه قانونی که هرگز <span class="gold-word">زیر پا نمی‌گذاریم</span>.</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-num">قانون / ۰۱</div>
+        <h3>کسل‌کننده، زیباست</h3>
+        <p>
+          بهترین اتوماسیون آن است که وجودش را فراموش کنید. ما برای سامانه‌هایی
+          بهینه‌سازی می‌کنیم که سال‌ها بی‌دردسر کار کنند — نه دموهایی که یک
+          هفته چشم را می‌گیرند.
+        </p>
+      </div>
+      <div class="value-card reveal" style="--d:.1s">
+        <div class="value-num">قانون / ۰۲</div>
+        <h3>ارزش، پیش از کد</h3>
+        <p>
+          هر فرایندی که پیشنهاد می‌دهیم باید ارزشش را ثابت کند — ساعت‌هایی که
+          برمی‌گردد، مشتریانی که پاسخ می‌گیرند، فاکتورهایی که پرداخت می‌شوند. اگر
+          نتوانیم بازده‌اش را روشن بگوییم، نمی‌سازیمش.
+        </p>
+      </div>
+      <div class="value-card reveal" style="--d:.2s">
+        <div class="value-num">قانون / ۰۳</div>
+        <h3>مشتری کم، کار عمیق</h3>
+        <p>
+          هر فصل فقط چهار مشتری جدید می‌پذیریم. نه برای اینکه انحصاری به نظر
+          برسد — چون سامانه‌های سفارشی توجهی می‌خواهند که نمی‌شود آن را میان
+          چهل نفر تقسیم کرد.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ BELIEFS / NEVER BUILD ============ -->
+<section class="section" style="padding-top: clamp(30px, 5vw, 60px);">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-title">آنچه به آن باور داریم — و آنچه <span class="gold-word">نمی‌سازیم</span>.</h2>
+    </div>
+
+    <div class="belief-cols">
+      <div class="belief-card reveal">
+        <h3>باورهای سنجه</h3>
+        <ul>
+          <li>اتوماسیون باید ساده کند، نه پیچیده.</li>
+          <li>هوش مصنوعی باید به آدم‌ها کمک کند بهتر کار کنند — نه اینکه جای وجه انسانی کسب‌وکار را بگیرد.</li>
+          <li>به سامانه‌های زیبا راحت‌تر می‌شود اعتماد کرد و پایش و نگهداری‌شان آسان‌تر است.</li>
+          <li>استراتژی مهم‌تر از ابزار است. همیشه.</li>
+          <li>هر فرایند باید یک مسئول روشن، یک راه جایگزین و یک هدف داشته باشد.</li>
+          <li>بهترین اتوماسیون وقتی کار می‌کند بی‌صداست و وقتی به توجه نیاز دارد، کاملاً پیداست.</li>
+        </ul>
+      </div>
+      <div class="belief-card no reveal" style="--d:.1s">
+        <h3>آنچه هرگز نمی‌سازیم</h3>
+        <ul>
+          <li>اتوماسیون‌های درهم‌وبرهم بدون هیچ استراتژی‌ای پشتشان.</li>
+          <li>دموهای نمایشی هوش مصنوعی که در کار واقعی دوام نمی‌آورند.</li>
+          <li>سامانه‌هایی که وقتی اتفاقی غیرعادی می‌افتد، هیچ انسانی پشتشان نیست.</li>
+          <li>مجموعه‌ابزارهایی که مشتری نه از آن سر درمی‌آورد و نه می‌تواند نگهش دارد.</li>
+          <li>فرایندهای بیش از حد پیچیده که فقط برای پیشرفته به نظر رسیدن ساخته شده‌اند.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STUDIO PRINCIPLES (honest, no invented numbers) ============ -->
+<section class="principles" aria-label="روش کار استودیو">
+  <div class="container">
+    <div class="principles-grid">
+      <div class="principle reveal">
+        <h3>با هدایت بنیان‌گذار</h3>
+        <p>یک طراح پاسخ‌گو برای هر سامانه، از ابتدا تا انتها.</p>
+      </div>
+      <div class="principle reveal" style="--d:.1s">
+        <h3>اول نقشه، بعد ساخت</h3>
+        <p>پیش از اتصال هر چیزی، کل سامانه را روی کاغذ می‌بینید.</p>
+      </div>
+      <div class="principle reveal" style="--d:.2s">
+        <h3>چهار مشتری در هر فصل</h3>
+        <p>عمداً کوچک، تا هر پروژه توجه کامل یک متخصص باتجربه را داشته باشد.</p>
+      </div>
+      <div class="principle reveal" style="--d:.3s">
+        <h3>مستندشده مثل یک محصول</h3>
+        <p>هر سامانه همراه با پایش و یک راهنمای ساده و روشن به زبان فارسی تحویل می‌شود.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-panel reveal">
+      <div class="cta-grid-bg" aria-hidden="true"></div>
+      <div class="cta-orb cta-orb-1" aria-hidden="true"></div>
+      <div class="cta-orb cta-orb-2" aria-hidden="true"></div>
+      <div class="cta-content">
+        <h2>همان <span class="gold-word">شریکی</span> است که دنبالش بودید؟</h2>
+        <p>
+          سی دقیقه با متین. درهم‌ترین فرایندتان را بیاورید — و با نقشه‌ای برای
+          درست کردنش بروید، چه آن را با هم بسازیم چه نه.
+        </p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-gold magnetic">
+            <span>رزرو جلسه‌ی مشاوره</span>
+            <svg class="rtl-flip" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="سنجه — صفحه‌ی اصلی">
+          <img class="brand-mark" src="images/sanjeh-mark.svg" alt="" aria-hidden="true" />
+          <span class="wm-text">سنجه</span>
+        </a>
+        <p>استودیوی اتوماسیون هوش مصنوعی با هدایت بنیان‌گذار. سازوکار بی‌صدای پشت کسب‌وکارهای درجه‌یک را می‌سازیم.</p>
+      </div>
+      <div>
+        <h4>استودیو</h4>
+        <ul>
+          <li><a href="services.html">خدمات</a></li>
+          <li><a href="projects.html">نمونه‌کارها</a></li>
+          <li><a href="about.html">درباره‌ی ما</a></li>
+          <li><a href="contact.html">تماس</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>شرکت</h4>
+        <ul>
+          <li><a href="about.html">داستان ما</a></li>
+          <li><a href="about.html#founder">بنیان‌گذار</a></li>
+          <li><a href="contact.html#faq">پرسش‌های متداول</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>تماس</h4>
+        <ul>
+          <li><a href="mailto:info@precisasolutions.ca" dir="ltr">info@precisasolutions.ca</a></li>
+          <li><a href="contact.html">رزرو جلسه‌ی مشاوره</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© ۲۰۲۶ استودیو سنجه. تمامی حقوق محفوظ است.</span>
+      <span class="footer-legal">
+        <a href="https://precisasolutions.ca/privacy.html" hreflang="en">حریم خصوصی <small>(انگلیسی)</small></a>
+        <a href="https://precisasolutions.ca/terms.html" hreflang="en">شرایط استفاده <small>(انگلیسی)</small></a>
+        <a href="https://precisasolutions.ca/refund.html" hreflang="en">بازپرداخت <small>(انگلیسی)</small></a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/observe.js?v=75a89b3e"></script>
+<script src="assets/cookies.js?v=c6eeff89"></script>
+<script src="assets/main.js?v=ed1001ba"></script>
+</body>
+</html>

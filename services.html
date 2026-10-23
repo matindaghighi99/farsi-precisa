@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-src 'none'" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<title>خدمات — طراحی وب‌سایت، نرم‌افزار اختصاصی و اتوماسیون هوش مصنوعی | سنجه</title>
+<meta name="description" content="سه تخصص در یک استودیو: طراحی و توسعه‌ی وب‌سایت، نرم‌افزار اختصاصی و اتوماسیون هوش مصنوعی — وب‌سایت و پنل مشتری، ابزارهای داخلی و داشبورد، دستیار تلفنی و خودکارسازی فرایندها، همه به شکل یک سامانه‌ی یکپارچه." />
+<link rel="icon" type="image/png" sizes="32x32" href="images/sanjeh-favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="images/sanjeh-favicon-192.png" />
+<link rel="apple-touch-icon" href="images/sanjeh-favicon-180.png" />
+<link rel="stylesheet" href="assets/styles.css?v=d7fb3064" />
+<link rel="stylesheet" href="assets/enhance.css?v=0a8f33a8" />
+<link rel="stylesheet" href="assets/fa.css?v=050605b1" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">رفتن به محتوا</a>
+
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<nav class="nav" id="nav" aria-label="منوی اصلی">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="سنجه — صفحه‌ی اصلی">
+      <img class="brand-mark" src="images/sanjeh-mark.svg" alt="" aria-hidden="true" />
+      <span class="wm-text">سنجه</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">خانه</a></li>
+      <li><a href="services.html" class="active">خدمات</a></li>
+      <li><a href="projects.html">نمونه‌کارها</a></li>
+      <li><a href="about.html">درباره‌ی ما</a></li>
+      <li><a href="contact.html">تماس</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta magnetic">رزرو جلسه‌ی مشاوره</a>
+      <button class="nav-burger" id="burger" aria-label="باز کردن منو" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">خانه</a>
+  <a href="services.html">خدمات</a>
+  <a href="projects.html">نمونه‌کارها</a>
+  <a href="about.html">درباره‌ی ما</a>
+  <a href="contact.html">تماس</a>
+  <a href="contact.html" class="build-link">رزرو جلسه‌ی مشاوره</a>
+</div>
+
+<!-- ============ PAGE HERO ============ -->
+<header class="page-hero page-hero--wide page-enter">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="container page-hero-inner">
+    <h1>سه تخصص،<br/> یک <span class="gold-word">استاندارد مهندسی</span>.</h1>
+    <p class="section-sub">
+      سایتی که مشتریانتان می‌بینند، نرم‌افزاری که تیمتان با آن کار می‌کند، و
+      اتوماسیونی که کارهای میان این دو را انجام می‌دهد را می‌سازیم — طراحی‌شده
+      تا مثل یک سامانه کار کنند، نه سه سامانه‌ی جدا.
+    </p>
+  </div>
+</header>
+
+<main id="main">
+<!-- ============ THE ENGINEERING STANDARD ============
+     What every build ships with. Replaces the old three-box pillar
+     index; the studio principles that used to sit above this now
+     lead the home page's "Built for" strip. -->
+<section class="section standard-section" aria-label="استاندارد مهندسی">
+  <div class="container">
+
+    <!-- Six disciplines, each shown working rather than described.
+         Every card carries a live diagram of the thing it names;
+         the loops only start once the card is revealed (.in). -->
+    <div class="wd-index-head reveal">
+      <span class="wd-index-label">آنچه هر پروژه می‌تواند داشته باشد</span>
+      <span class="wd-index-rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="wd-grid">
+
+      <!-- 01 · the layout composes itself -->
+      <article class="wd-card reveal">
+        <div class="wdc-stage" aria-hidden="true">
+          <div class="viz-compose">
+            <span class="vc-el vc-bar"   style="--d:0s"></span>
+            <span class="vc-el vc-hero"  style="--d:.14s"></span>
+            <span class="vc-el vc-side"  style="--d:.26s"></span>
+            <span class="vc-el vc-col"   style="--d:.38s"></span>
+            <span class="vc-el vc-col"   style="--d:.46s"></span>
+            <span class="vc-el vc-col"   style="--d:.54s"></span>
+            <i class="vc-guide"></i>
+          </div>
+        </div>
+        <div class="wdc-body">
+          <span class="wdc-meta"><i class="wdc-rule"></i></span>
+          <h4>طراحی و هدایت هنری</h4>
+          <p>مخصوص کسب‌وکار شما طراحی می‌شود، نه برگرفته از قالب‌های آماده — تا بازدیدکننده پیش از خواندن اولین کلمه، شما را انتخابی معتبر ببیند.</p>
+        </div>
+      </article>
+
+      <!-- 02 · code writes itself, line by line -->
+      <article class="wd-card reveal" style="--d:.06s">
+        <div class="wdc-stage" aria-hidden="true">
+          <div class="viz-code">
+            <span class="vk-line" style="--w:76%;--d:0s"></span>
+            <span class="vk-line vk-in" style="--w:62%;--d:.5s"></span>
+            <span class="vk-line vk-in" style="--w:84%;--d:1s"></span>
+            <span class="vk-line" style="--w:38%;--d:1.5s"></span>
+          </div>
+        </div>
+        <div class="wdc-body">
+          <span class="wdc-meta"><i class="wdc-rule"></i></span>
+          <h4>کدنویسی دستی</h4>
+          <p>HTML، CSS و JavaScript تمیز، بدون انبوه افزونه — کدی که کاملاً مال شماست و هر برنامه‌نویسی می‌تواند ادامه‌اش دهد.</p>
+        </div>
+      </article>
+
+      <!-- 03 · the vitals race into budget -->
+      <article class="wd-card reveal" style="--d:.12s">
+        <div class="wdc-stage" aria-hidden="true">
+          <div class="viz-perf">
+            <span class="vp-row"><i class="vp-key">LCP</i><i class="vp-track"><b style="--w:92%;--d:0s"></b></i></span>
+            <span class="vp-row"><i class="vp-key">CLS</i><i class="vp-track"><b style="--w:97%;--d:.12s"></b></i></span>
+            <span class="vp-row"><i class="vp-key">INP</i><i class="vp-track"><b style="--w:88%;--d:.24s"></b></i></span>
+            <i class="vp-sweep"></i>
+          </div>
+        </div>
+        <div class="wdc-body">
+          <span class="wdc-meta"><i class="wdc-rule"></i></span>
+          <h4>سرعت و کارایی</h4>
+          <p>شاخص‌های Core Web Vitals از ابتدا یک الزام است، نه کاری برای بعد — هر ثانیه‌ی اضافه‌ی بارگذاری، یعنی درخواستی که هرگز نمی‌رسد.</p>
+        </div>
+      </article>
+
+      <!-- 04 · the listing climbs to first -->
+      <article class="wd-card reveal" style="--d:.18s">
+        <div class="wdc-stage" aria-hidden="true">
+          <div class="viz-rank">
+            <span class="vr-query"><i></i></span>
+            <span class="vr-list">
+              <i class="vr-row vr-shift"></i>
+              <i class="vr-row vr-shift"></i>
+              <i class="vr-row vr-you"></i>
+            </span>
+          </div>
+        </div>
+        <div class="wdc-body">
+          <span class="wdc-meta"><i class="wdc-rule"></i></span>
+          <h4>زیرساخت سئو</h4>
+          <p>ساختار معنایی، داده‌ی ساخت‌یافته و نقشه‌ی سایتی که دقیقاً مسیر فروش کسب‌وکارتان را بازتاب می‌دهد — تا کسانی که دنبالتان می‌گردند پیدایتان کنند.</p>
+        </div>
+      </article>
+
+      <!-- 05 · a block is edited and saved -->
+      <article class="wd-card reveal" style="--d:.24s">
+        <div class="wdc-stage" aria-hidden="true">
+          <div class="viz-edit">
+            <span class="ve-line ve-head"></span>
+            <span class="ve-field"><i class="ve-fill"></i><i class="ve-caret"></i></span>
+            <span class="ve-line ve-foot"></span>
+            <i class="ve-chip">ذخیره شد</i>
+          </div>
+        </div>
+        <div class="wdc-body">
+          <span class="wdc-meta"><i class="wdc-rule"></i></span>
+          <h4>مدیریت محتوا</h4>
+          <p>ساختاری که تیمتان با خیال راحت ویرایشش کند، یا به‌روزرسانی‌های مداوم به دست ما — تا سایت همپای کسب‌وکار پیش برود.</p>
+        </div>
+      </article>
+
+      <!-- 06 · tools stream into the hub, care flows back out -->
+      <article class="wd-card reveal" style="--d:.3s">
+        <div class="wdc-stage" aria-hidden="true">
+          <svg class="viz-hub" viewBox="0 0 320 80" fill="none">
+            <path class="vh-wire" d="M16 12 C 110 12 130 40 200 40"/>
+            <path class="vh-wire" d="M16 40 L 200 40"/>
+            <path class="vh-wire" d="M16 68 C 110 68 130 40 200 40"/>
+            <path class="vh-wire vh-wire-out" d="M221 40 L 284 40"/>
+            <circle class="vh-node" cx="16" cy="12" r="5"/>
+            <circle class="vh-node" cx="16" cy="40" r="5"/>
+            <circle class="vh-node" cx="16" cy="68" r="5"/>
+            <circle class="vh-ring" cx="210" cy="40" r="12"/>
+            <circle class="vh-core" cx="210" cy="40" r="8.5"/>
+            <rect class="vh-care" x="286" y="31" width="18" height="18" rx="5"/>
+            <circle class="vh-pkt" r="2.8" style="offset-path:path('M16 12 C 110 12 130 40 200 40');--dur:2.8s;--d:0s"/>
+            <circle class="vh-pkt" r="2.8" style="offset-path:path('M16 40 L 200 40');--dur:2.4s;--d:.7s"/>
+            <circle class="vh-pkt" r="2.8" style="offset-path:path('M16 68 C 110 68 130 40 200 40');--dur:3.1s;--d:1.3s"/>
+            <circle class="vh-pkt vh-pkt-out" r="2.8" style="offset-path:path('M221 40 L 284 40');--dur:2.2s;--d:1.8s"/>
+          </svg>
+        </div>
+        <div class="wdc-body">
+          <span class="wdc-meta"><i class="wdc-rule"></i></span>
+          <h4>یکپارچه‌سازی و پشتیبانی</h4>
+          <p>فرم‌ها، CRM، آمار بازدید و نوبت‌دهی از همان ابتدا متصل می‌شوند؛ میزبانی، پایش و پشتیبان‌گیری هم مدت‌ها بعد از راه‌اندازی با ماست.</p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 01 · WEB DEVELOPMENT ============ -->
+<section class="section pillar" id="web">
+  <div class="container">
+    <div class="pillar-head reveal">
+      <span class="pillar-num">۰۱</span>
+      <div>
+        <h2 class="section-title">ویترین کسب‌وکار، مهندسی‌شده.</h2>
+        <p class="pillar-lead">
+          سایت‌های معرفی، صفحه‌های فرود و پنل‌های مشتری — در استودیو طراحی و با دست
+          کدنویسی می‌شوند و از روز اول به سامانه‌هایی وصل‌اند که پشت آن‌ها پاسخ می‌دهند،
+          مشتری را می‌سنجند و نوبت ثبت می‌کنند.
+        </p>
+      </div>
+    </div>
+
+    <div class="pillar-body">
+      <ul class="pillar-list reveal">
+        <li>
+          <b>وب‌سایت معرفی و بازاریابی</b>
+          <span>جایگاه‌سازی، طراحی و ساخت سایتی که باید مشتری را جذب کند — نه اینکه فقط شرکت را معرفی کند.</span>
+        </li>
+        <li>
+          <b>صفحه‌ی فرود</b>
+          <span>صفحه‌های کمپین با یک هدف تبدیل مشخص، همراه با ابزار اندازه‌گیری تا ببینید هزینه‌ی تبلیغات واقعاً چه بازدهی دارد.</span>
+        </li>
+        <li>
+          <b>فروشگاه اینترنتی و نوبت‌دهی</b>
+          <span>سبد خرید، بیعانه و زمان‌بندی، همراه با اتصال درگاه پرداخت، تقویم و یادآورها در پشت صحنه.</span>
+        </li>
+        <li>
+          <b>پنل مشتری</b>
+          <span>فضای اختصاصی که مشتریان در آن پیشرفت کار را دنبال می‌کنند، کار را تأیید و فاکتورها را تسویه می‌کنند — بی‌نیاز از رفت و برگشت ایمیل.</span>
+        </li>
+      </ul>
+
+      <aside class="pillar-aside reveal" style="--d:.1s">
+        <h3>آنچه تحویل می‌گیرید</h3>
+        <ul class="pillar-deliver">
+          <li>یک سیستم طراحی و مجموعه‌ی کامل صفحه‌ها، نه یک قالب</li>
+          <li>کد دست‌نویس که کاملاً مال شماست</li>
+          <li>محتوایی که تیمتان ویرایش می‌کند، یا ویرایش به دست ما</li>
+          <li>آمار بازدید و رهگیری تبدیل، از روز راه‌اندازی</li>
+          <li>میزبانی مدیریت‌شده، پایش و پشتیبان‌گیری</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · SOFTWARE DEVELOPMENT ============ -->
+<section class="section band pillar" id="software">
+  <div class="container">
+    <div class="pillar-head reveal">
+      <span class="pillar-num">۰۲</span>
+      <div>
+        <h2 class="section-title">وقتی نرم‌افزارهای آماده دیگر جواب نمی‌دهند.</h2>
+        <p class="pillar-lead">
+          ابزارهای داخلی، داشبوردها و اتصال سامانه‌ها، ساخته‌شده بر اساس روش واقعی
+          کار تیم شما — به جای اکسل‌ها، کارهای دستی و اشتراک‌های پولی‌ای که دیگر
+          ارزش هزینه‌شان را ندارند.
+        </p>
+      </div>
+    </div>
+
+    <div class="pillar-body">
+      <ul class="pillar-list reveal">
+        <li>
+          <b>ابزارهای داخلی</b>
+          <span>پنل مدیریت، تابلوی کارها و نرم‌افزارهای پشتیبانی که بر اساس فرایند شما شکل می‌گیرند، نه فرایند یک فروشنده‌ی نرم‌افزار.</span>
+        </li>
+        <li>
+          <b>داشبورد و گزارش‌گیری</b>
+          <span>گزارش عملیاتی از همه‌ی سامانه‌هایتان، روی یک صفحه که تیمتان به آن اعتماد دارد.</span>
+        </li>
+        <li>
+          <b>API و یکپارچه‌سازی</b>
+          <span>لایه‌ی میانی‌ای که ابزارهای ناهمزبان را مثل یک سامانه به کار می‌اندازد، همراه با تلاش مجدد خودکار و هشدار.</span>
+        </li>
+        <li>
+          <b>نوسازی سامانه‌های قدیمی</b>
+          <span>اکسل‌ها و روال‌های دستی، بازسازی‌شده به شکل نرم‌افزار — با سطح دسترسی، اعتبارسنجی و سابقه‌ی تغییرات.</span>
+        </li>
+      </ul>
+
+      <aside class="pillar-aside reveal" style="--d:.1s">
+        <h3>آنچه تحویل می‌گیرید</h3>
+        <ul class="pillar-deliver">
+          <li>شرح کار مکتوب، پیش از نوشتن حتی یک خط کد</li>
+          <li>تحویل مرحله‌ای که هر مرحله را بررسی می‌کنید</li>
+          <li>تست روی مسیرهایی که خطایشان برایتان هزینه دارد</li>
+          <li>مستندات و جلسه‌ی تحویل</li>
+          <li>کد منبع در مخزن خودتان، زیر حساب خودتان</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · AI AUTOMATIONS ============ -->
+<section class="section pillar" id="ai">
+  <div class="container">
+    <div class="pillar-head reveal">
+      <span class="pillar-num">۰۳</span>
+      <div>
+        <h2 class="section-title">سامانه‌ای که <span class="gold-word">پشت</span> سایت کار می‌کند.</h2>
+        <p class="pillar-lead">
+          وب‌سایت گفتگو را شروع می‌کند. این پنج تخصص آن را تا جایی پیش می‌برند که
+          کار رزرو، ثبت و پیگیری شود — بی‌آنکه کسی در تیم شما چیزی را دوباره
+          تایپ کند.
+        </p>
+      </div>
+    </div>
+
+    <!-- the capability index, moved here from the home page -->
+    <ol class="cap-index reveal">
+      <li class="cap-row">
+        <span class="cap-num">۰۱</span>
+        <span class="cap-ico" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M5.6 18.4l2.1-2.1M12 18v3M16.3 16.3l2.1 2.1M18 12h3M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg>
+        </span>
+        <span class="cap-body">
+          <b>خودکارسازی فرایندها</b>
+          <span>جریان‌هایی که ابزارهایتان را سر تا ته به هم وصل می‌کنند، تا هیچ کاری دوباره وارد نشود، فراموش نشود یا بی‌صدا از قلم نیفتد.</span>
+        </span>
+        <span class="cap-tag">هماهنگ‌سازی</span>
+      </li>
+      <li class="cap-row">
+        <span class="cap-num">۰۲</span>
+        <span class="cap-ico" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        </span>
+        <span class="cap-body">
+          <b>دستیار تلفنی هوش مصنوعی</b>
+          <span>دستیار صوتی‌ای که به همه‌ی تماس‌ها پاسخ می‌دهد، تماس‌گیرنده را با معیارهای شما می‌سنجد و کار را در تقویمتان ثبت می‌کند.</span>
+        </span>
+        <span class="cap-tag">صوتی</span>
+      </li>
+      <li class="cap-row">
+        <span class="cap-num">۰۳</span>
+        <span class="cap-ico" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v4h-4"/><circle cx="12" cy="11" r="2.5"/><path d="M8 17a4.5 4.5 0 0 1 8 0"/></svg>
+        </span>
+        <span class="cap-body">
+          <b>اتوماسیون CRM</b>
+          <span>تکمیل اطلاعات، ارجاع و پیگیری خودکار که قیف فروش را بدون حتی یک خط ورود دستی دقیق نگه می‌دارد.</span>
+        </span>
+        <span class="cap-tag">قیف فروش</span>
+      </li>
+      <li class="cap-row">
+        <span class="cap-num">۰۴</span>
+        <span class="cap-ico" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M8 3v4M16 3v4M4 11h16"/></svg>
+        </span>
+        <span class="cap-body">
+          <b>نوبت‌دهی</b>
+          <span>بیعانه، یادآوری و پر کردن نوبت‌های خالی از لیست انتظار — زمان‌بندی‌ای که خودش کار را تمام می‌کند و تقویم را از غیبت‌ها حفظ می‌کند.</span>
+        </span>
+        <span class="cap-tag">زمان‌بندی</span>
+      </li>
+      <li class="cap-row">
+        <span class="cap-num">۰۵</span>
+        <span class="cap-ico" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 15l4-6 4 3 5-8"/></svg>
+        </span>
+        <span class="cap-body">
+          <b>داشبورد و گزارش‌گیری</b>
+          <span>گزارش عملیاتی زنده: چه چیزی رسید، کدام به فروش تبدیل شد، و این هفته چه چیزی به توجه شما نیاز دارد.</span>
+        </span>
+        <span class="cap-tag">گزارش</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-panel reveal">
+      <div class="cta-grid-bg" aria-hidden="true"></div>
+      <div class="cta-orb cta-orb-1" aria-hidden="true"></div>
+      <div class="cta-orb cta-orb-2" aria-hidden="true"></div>
+      <div class="cta-content">
+        <h2>بزرگ‌ترین <span class="gold-word">گلوگاه</span> کارتان را بگویید. بقیه‌اش با ما.</h2>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-gold magnetic">
+            <span>رزرو جلسه‌ی مشاوره</span>
+            <svg class="rtl-flip" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="سنجه — صفحه‌ی اصلی">
+          <img class="brand-mark" src="images/sanjeh-mark.svg" alt="" aria-hidden="true" />
+          <span class="wm-text">سنجه</span>
+        </a>
+        <p>یک استودیوی کوچک و تخصصی اتوماسیون هوش مصنوعی. سازوکار بی‌صدای پشت کسب‌وکارهای درجه‌یک را می‌سازیم.</p>
+      </div>
+      <div>
+        <h4>استودیو</h4>
+        <ul>
+          <li><a href="services.html">خدمات</a></li>
+          <li><a href="projects.html">نمونه‌کارها</a></li>
+          <li><a href="about.html">درباره‌ی ما</a></li>
+          <li><a href="contact.html">تماس</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>شرکت</h4>
+        <ul>
+          <li><a href="about.html">داستان ما</a></li>
+          <li><a href="about.html#founder">بنیان‌گذار</a></li>
+          <li><a href="contact.html#faq">پرسش‌های متداول</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>تماس</h4>
+        <ul>
+          <li><a href="mailto:info@precisasolutions.ca" dir="ltr">info@precisasolutions.ca</a></li>
+          <li><a href="contact.html">رزرو جلسه‌ی مشاوره</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© ۲۰۲۶ استودیو سنجه. تمامی حقوق محفوظ است.</span>
+      <span class="footer-legal">
+        <a href="https://precisasolutions.ca/privacy.html" hreflang="en">حریم خصوصی <small>(انگلیسی)</small></a>
+        <a href="https://precisasolutions.ca/terms.html" hreflang="en">شرایط استفاده <small>(انگلیسی)</small></a>
+        <a href="https://precisasolutions.ca/refund.html" hreflang="en">بازپرداخت <small>(انگلیسی)</small></a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/observe.js?v=75a89b3e"></script>
+<script src="assets/cookies.js?v=c6eeff89"></script>
+<script src="assets/main.js?v=ed1001ba"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+# local secrets for `npx wrangler pages dev .`
+.dev.vars
+node_modules/
+.DS_Store

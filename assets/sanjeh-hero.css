@@ -1,0 +1,947 @@
+/* ============================================================
+   Sanjeh — Persian home hero
+   Loaded by fa/index.html only, after fa.css. Written right-to-left
+   first: the copy column comes first in the markup, so it sits on the
+   right, where a Persian reader starts.
+   Beside it, a small 3D scene: a sample client site in a browser and
+   on a phone. It is all CSS 3D — one perspective on the stage, and
+   every box on the way down to a moving part keeps preserve-3d — so the
+   devices have real thickness and the site's layers float at their own
+   depths. The scene is laid out at a fixed design size (560×430) in
+   .sj-world, which the script scales to fit its column.
+   Runtime: assets/sanjeh-hero.js (fit, entrance, pointer tilt, drag,
+   the layers view .is-exploded, and the phone: .is-phone brings it
+   forward in the scene, .sj-pm shows it full size on small screens).
+   One rule for this scene: a box that keeps its children in 3D must
+   not take opacity below 1, filter, overflow or clip-path — each of
+   those flattens it — so fades happen on leaves or on the stage.
+   ============================================================ */
+
+.sj-hero {
+  /* the sample client's own brand — deliberately not ours */
+  --c-deep:   #0B3B36;
+  --c-teal:   #0F766E;
+  --c-bright: #14B8A6;
+  --c-mint:   #E6FAF5;
+  position: relative;
+  min-height: min(100svh, 920px);
+  display: flex; align-items: center;
+  padding: calc(var(--nav-h) + 40px) clamp(20px, 5vw, 64px) 64px;
+  overflow: hidden;
+}
+/* ── background: slow colour, a grid floor under the scene (the script
+   turns it with the scene), and a glow that follows the mouse ─────── */
+.sj-bg { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.sj-bg-aurora {
+  position: absolute; inset: -25% -10%;
+  background:
+    radial-gradient(32% 36% at 25% 50%, rgba(59,120,238,.20), rgba(59,120,238,0) 70%),
+    radial-gradient(24% 28% at 10% 84%, rgba(20,184,166,.14), rgba(20,184,166,0) 70%),
+    radial-gradient(28% 32% at 46% 14%, rgba(129,140,248,.12), rgba(129,140,248,0) 70%),
+    radial-gradient(34% 38% at 90% 80%, rgba(96,165,250,.11), rgba(96,165,250,0) 72%);
+  animation: sj-aurora 24s ease-in-out infinite alternate;
+}
+@keyframes sj-aurora { from { transform: translate3d(-2%, 1%, 0) scale(1); } to { transform: translate3d(3%, -2%, 0) scale(1.06); } }
+.sj-bg-floor {                                 /* a plane laid back toward a horizon behind the scene */
+  position: absolute; left: var(--floor-x, 26%); bottom: 0;
+  width: 1500px; height: 1400px; margin-left: -750px;
+  background-image:
+    linear-gradient(rgba(47,107,224,.24) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(47,107,224,.24) 1.5px, transparent 1.5px);
+  background-size: 60px 60px;
+  background-position: 50% 100%;
+  transform-origin: 50% 100%;
+  /* the script turns it a little with the scene, through --fx and --fz */
+  transform: perspective(900px) rotateX(calc(61deg - var(--fx, 0deg))) rotateZ(var(--fz, 0deg));
+  -webkit-mask-image: radial-gradient(46% 62% at 50% 100%, #000 30%, transparent 78%);
+          mask-image: radial-gradient(46% 62% at 50% 100%, #000 30%, transparent 78%);
+}
+.sj-bg-glow {
+  position: absolute; left: 0; top: 0;
+  width: 760px; height: 760px; margin: -380px 0 0 -380px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(79,140,255,.13), rgba(79,140,255,0));
+  opacity: 0;
+  transition: opacity .8s;
+}
+.sj-hero.has-pointer .sj-bg-glow { opacity: 1; }
+
+.sj-inner {
+  position: relative; z-index: 1;
+  width: min(1240px, 100%); margin: 0 auto;
+  display: grid; align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 560px);
+  gap: clamp(40px, 6vw, 96px);
+}
+
+/* ── copy ───────────────────────────────────────────────────────────── */
+.sj-copy { width: 100%; container-type: inline-size; }
+.sj-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 16px 8px 18px;
+  border-radius: 100px;
+  border: 1px solid rgba(47,107,224,.22);
+  background: rgba(255,255,255,.75);
+  font-family: var(--font-display);
+  font-size: 13.5px; font-weight: 500; color: var(--gold);
+}
+.sj-eyebrow i { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--gold-bright); }
+.sj-eyebrow i::after {                         /* a slow "live" pulse */
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background: var(--gold-bright);
+  animation: sj-ping 2.6s cubic-bezier(0, 0, .2, 1) infinite;
+}
+@keyframes sj-ping { 0% { transform: scale(1); opacity: .5; } 70%, 100% { transform: scale(2.8); opacity: 0; } }
+.sj-copy h1 {
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 10.6cqi, 4.7rem);   /* sized to its column */
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.sj-copy h1 > span { display: block; }         /* "شریک شما در" / "دقت و نوآوری" */
+.sj-sub {
+  margin-top: 22px; max-width: 34em;
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 2;
+  color: var(--ink-soft);
+}
+.sj-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+.sj-ctas .btn-gold, .sj-ctas .btn-ghost { padding: 17px 30px; }
+
+.sj-proof {
+  display: flex; flex-wrap: wrap;
+  margin-top: 40px; padding-top: 24px;
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+.sj-proof li { padding-left: 26px; margin-left: 26px; border-left: 1px solid var(--border); }
+.sj-proof li:last-child { padding-left: 0; margin-left: 0; border-left: none; }
+.sj-proof b { display: block; font-family: var(--font-display); font-size: 1.08rem; font-weight: 700; color: var(--ink); }
+.sj-proof span { display: block; margin-top: 2px; font-size: 13px; color: var(--ink-mute); }
+
+/* ── the scene ──────────────────────────────────────────────────────── */
+.sj-visual { width: 100%; }
+.sj-stage {                                    /* the box in the page: the world's size once scaled */
+  --g: 6px;                                    /* the gap between the site's layers */
+  --sj-ease: cubic-bezier(.16, 1, .3, 1);
+  --sj-spring: cubic-bezier(.3, 1.3, .45, 1);  /* a little overshoot for the big moves */
+  position: relative;
+  width: 100%; max-width: 560px;
+  height: calc(430px * var(--sj-scale, 1));     /* --sj-scale is set by the script */
+  margin: 0 auto;
+  cursor: grab;
+  touch-action: pan-y;                         /* sideways drags turn it, vertical ones scroll */
+  -webkit-user-select: none; user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity .8s ease;
+}
+.sj-stage.is-dragging { cursor: grabbing; }
+.sj-world {
+  position: absolute; left: 50%; top: 0;
+  width: 560px; height: 430px; margin-left: -280px;
+  transform: scale(var(--sj-scale, 1));         /* a plain 2D scale: the 3D lives inside */
+  transform-origin: 50% 0;
+  perspective: 1500px;
+  perspective-origin: 50% 40%;
+}
+.sj-hero.is-exploded .sj-stage { --g: 44px; }
+
+.sj-tilt, .sj-scene { position: absolute; inset: 0; transform-style: preserve-3d; }
+.sj-tilt { will-change: transform; }           /* the script turns this one */
+.sj-scene {                                    /* resting angle: turned toward the copy */
+  transform: rotateX(6deg) rotateY(14deg);
+  transition: transform 1.2s var(--sj-spring);
+}
+.sj-hero.is-exploded .sj-scene { transform: rotateX(2deg) rotateY(0deg); }
+
+/* the boxes between the scene and anything that moves in depth */
+.sj-browser, .sj-site, .sj-s-nav, .sj-s-hero, .sj-s-copy, .sj-s-media,
+.sj-s-cards, .sj-s-cards > span, .sj-sheet, .sj-phone, .sj-slab,
+.sj-cube, .sj-cube i { transform-style: preserve-3d; }
+
+/* shared parts: thickness, cast shadow, glare */
+.sj-slab, .sj-slab i { position: absolute; inset: 0; border-radius: 16px; }
+.sj-slab i { background: #D5DCE7; transform: translateZ(calc(var(--k) * -2.2px)); }
+.sj-slab i:nth-child(1) { --k: 1; } .sj-slab i:nth-child(2) { --k: 2; }
+.sj-slab i:nth-child(3) { --k: 3; } .sj-slab i:nth-child(4) { --k: 4; }
+.sj-slab i:nth-child(5) { --k: 5; }
+.sj-slab i:last-child { background: #B9C3D3; }
+.sj-shadow {
+  position: absolute; inset: 6% 2% -8% 2%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(12,21,36,.30), rgba(12,21,36,.1) 60%, rgba(12,21,36,0));
+  transform: translate3d(0, 34px, -80px);
+  pointer-events: none;
+}
+.sj-glare {
+  position: absolute; inset: 0; border-radius: 16px;
+  background:
+    radial-gradient(520px circle at var(--gx, 60%) var(--gy, 0%), rgba(255,255,255,.34), rgba(255,255,255,0) 55%),
+    linear-gradient(115deg, rgba(255,255,255,0) 38%, rgba(255,255,255,.16) 47%, rgba(255,255,255,0) 56%);
+  pointer-events: none;
+}
+
+/* ── browser + sample site ───────────────────────────────────────────── */
+.sj-browser {
+  position: absolute; right: 0; top: 0;
+  width: 480px;
+  transition: transform 1.2s var(--sj-spring);
+}
+.sj-hero.is-exploded .sj-browser {
+  transform: translate3d(14px, 26px, -30px) rotateX(54deg) rotateZ(-22deg) scale(.74);
+}
+.sj-base {
+  position: absolute; inset: 0;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(12,21,36,.09);
+}
+.sj-browser > .sj-glare {
+  transform: translateZ(calc(var(--g) * 3 + 4px));
+  transition: transform .9s var(--sj-ease), opacity .4s;
+}
+.sj-hero.is-exploded .sj-browser > .sj-glare { opacity: 0; }
+
+.sj-bar {
+  position: relative;
+  direction: ltr;                              /* a desktop window: its controls sit on the left */
+  display: flex; align-items: center; gap: 6px;
+  height: 34px; margin: 1px 1px 0; padding: 0 12px;
+  border-radius: 15px 15px 0 0;
+  background: #F4F6F9; border-bottom: 1px solid rgba(12,21,36,.06);
+  transform: translateZ(.6px);
+}
+.sj-bar > i { width: 8px; height: 8px; border-radius: 50%; background: #FF5F57; box-shadow: inset 0 0 0 .5px rgba(0,0,0,.12); }
+.sj-bar > i:nth-child(2) { background: #FEBC2E; }
+.sj-bar > i:nth-child(3) { background: #28C840; }
+.sj-bar-tools { display: flex; gap: 5px; }
+.sj-bar-tools i { width: 12px; height: 12px; border-radius: 4px; background: #E6E9EF; }
+.sj-url {
+  flex: 1; margin: 0 14px 0 12px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  height: 22px; border-radius: 7px;
+  background: #fff; border: 1px solid rgba(12,21,36,.07);
+  font-size: 10.5px; color: #6B7280; direction: ltr;
+}
+.sj-url svg { width: 10px; height: 10px; color: #10B981; }
+
+.sj-site {
+  position: relative;
+  padding: 16px 20px 20px;
+  color: var(--c-deep);
+  transform: translateZ(.6px);
+}
+/* Each part of the site sits on one of four layers, --g apart:
+   0 structure (the page itself) · 1 design (colour, the photo, card
+   backs) · 2 content (words and icons) · 3 interaction (buttons).
+   Children are placed relative to their parent, so a button inside the
+   copy block (layer 2) is lifted by one more step. */
+.sj-s-bg {
+  position: absolute; inset: 0 1px 1px; border-radius: 0 0 15px 15px;
+  background: linear-gradient(180deg, var(--c-mint) 0%, rgba(230,250,245,.45) 42%, rgba(230,250,245,0) 68%);
+  transform: translateZ(calc(var(--g) - 1px));
+  transition: transform .9s var(--sj-ease);
+}
+.sj-s-nav {
+  position: relative;
+  display: flex; align-items: center; justify-content: space-between;
+  transform: translateZ(calc(var(--g) * 2));
+  transition: transform .9s var(--sj-ease) .06s;
+}
+.sj-s-logo { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 800; }
+.sj-s-logo i {
+  width: 20px; height: 20px; border-radius: 7px;
+  display: grid; place-items: center;
+  background: var(--c-teal); color: #fff;
+}
+.sj-s-logo svg { width: 12px; height: 12px; }
+.sj-s-menu { display: flex; gap: 14px; font-size: 9.5px; color: rgba(11,59,54,.65); }
+.sj-s-btn {
+  padding: 5px 10px; border-radius: 8px;
+  background: #fff;
+  border: 1px solid rgba(15,118,110,.35);
+  font-size: 9px; font-weight: 700; color: var(--c-teal);
+  transform: translateZ(var(--g));
+  transition: transform .9s var(--sj-ease) .12s;
+}
+.sj-s-hero {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 16px;
+  margin-top: 18px; align-items: center;
+}
+.sj-s-copy {
+  position: relative;
+  display: flex; flex-direction: column; align-items: flex-start;
+  transform: translateZ(calc(var(--g) * 2));
+  transition: transform .9s var(--sj-ease) .06s;
+}
+.sj-s-kicker {
+  padding: 3px 8px; border-radius: 6px;
+  background: rgba(20,184,166,.14);
+  font-size: 8.5px; font-weight: 700; color: var(--c-teal);
+}
+.sj-s-title { margin-top: 8px; font-size: 20px; font-weight: 800; line-height: 1.45; color: var(--c-deep); }
+.sj-s-sub { margin-top: 6px; font-size: 9.5px; line-height: 1.8; color: rgba(11,59,54,.68); }
+.sj-s-cta {
+  margin-top: 10px;
+  padding: 7px 13px; border-radius: 9px;
+  background: var(--c-teal); color: #fff;
+  font-size: 9.5px; font-weight: 700;
+  box-shadow: 0 8px 18px -8px rgba(15,118,110,.7);
+  transform: translateZ(var(--g));
+  transition: transform .9s var(--sj-ease) .12s, box-shadow .3s;
+}
+.sj-s-media {
+  position: relative; height: 140px;
+  transform: translateZ(var(--g));
+  transition: transform .9s var(--sj-ease);
+}
+.sj-s-photo {                          /* the clinic's picture: a tooth on mint */
+  position: absolute; inset: 0; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 14px 26px -16px rgba(11,59,54,.55);
+}
+.sj-art { display: block; width: 100%; height: 100%; }
+.sj-s-title, .sj-s-logo { font-family: var(--font-display); }
+.sj-s-rate {
+  position: absolute; right: 8px; bottom: 8px;
+  padding: 4px 8px; border-radius: 8px;
+  background: #fff; font-size: 8.5px; font-weight: 700; color: var(--c-deep);
+  box-shadow: 0 6px 14px -6px rgba(11,59,54,.4);
+  transform: translateZ(calc(var(--g) * 2));
+  transition: transform .9s var(--sj-ease) .12s;
+}
+.sj-s-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
+.sj-s-cards > span {
+  position: relative;
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px; border-radius: 11px;
+  background: #fff; border: 1px solid rgba(11,59,54,.08);
+  font-size: 9.5px; font-weight: 700;
+  transform: translateZ(var(--g));
+  transition: transform .9s var(--sj-ease), box-shadow .3s;
+}
+.sj-s-cards i, .sj-s-cards em { transform: translateZ(var(--g)); transition: transform .9s var(--sj-ease) .06s; }
+.sj-s-cards i {
+  width: 22px; height: 22px; border-radius: 7px;
+  display: grid; place-items: center;
+  background: var(--c-mint); color: var(--c-teal);
+}
+.sj-s-cards em { font-style: normal; }
+.sj-s-cards svg { width: 13px; height: 13px; }
+
+/* a little life under the pointer: cards lift, the button glows */
+.sj-s-cards > span:hover { transform: translateZ(calc(var(--g) + 12px)); box-shadow: 0 14px 22px -14px rgba(11,59,54,.45); transition-duration: .45s; }
+.sj-s-cta:hover { box-shadow: 0 10px 26px -6px rgba(20,184,166,.9); }
+
+/* the layers view: a glass sheet per layer, each with its name… */
+.sj-sheet {
+  position: absolute; inset: -6px -8px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(47,107,224,0);
+  background-color: rgba(214,228,255,0);
+  transform: translateZ(calc(var(--g) * var(--i) - 3px));
+  visibility: hidden;                  /* hidden outright at rest: nothing to composite */
+  transition: transform .9s var(--sj-ease) calc(var(--i) * .06s), background-color .5s, border-color .5s, visibility 0s .9s;
+  pointer-events: none;
+}
+.sj-sheet.is-base { transform: translateZ(.4px); }
+.sj-hero.is-exploded .sj-sheet { visibility: visible; transition-delay: calc(var(--i) * .06s), 0s, 0s, 0s; background-color: rgba(214,228,255,.2); border-color: rgba(47,107,224,.5); }
+.sj-hero.is-exploded .sj-sheet.is-base { background-color: rgba(214,228,255,.08); border-style: dashed; }
+.sj-tag {
+  position: absolute; left: 0; top: 50%;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 12px 6px 7px;
+  border-radius: 100px;
+  background: #0B1630; color: #fff;
+  font-family: var(--font-display); font-size: 13px; font-weight: 600; line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 10px 22px -10px rgba(12,21,36,.55);
+  /* hung off the sheet's left edge, then turned back by exactly the
+     browser's layers-view rotation so it faces the viewer */
+  transform: translate(-100%, -50%) translateX(-26px) rotateZ(22deg) rotateX(-54deg);
+  opacity: 0;
+  transition: opacity .35s;
+}
+.sj-tag::after {                       /* a short lead to its sheet */
+  content: ''; position: absolute; left: 100%; top: 50%;
+  width: 22px; height: 1.5px;
+  background: linear-gradient(90deg, #0B1630, rgba(11,22,48,.25));
+}
+.sj-tag b {
+  display: grid; place-items: center;
+  width: 19px; height: 19px; border-radius: 50%;
+  background: var(--gold-bright); font-size: 11px; font-weight: 700;
+}
+.sj-tag small { font-size: 10.5px; font-weight: 500; color: rgba(255,255,255,.62); direction: ltr; }
+.sj-hero.is-exploded:not(.is-building) .sj-tag { opacity: 1; transition-delay: calc(.45s + var(--i) * .08s); }
+
+/* …and the footprint of each block drawn on the page below it: the
+   structure the design and content hang on */
+.sj-s-nav::after, .sj-s-copy::after, .sj-s-media::after, .sj-s-cards > span::after {
+  content: ''; position: absolute; inset: -5px; border-radius: 10px;
+  border: 1.5px dashed rgba(47,107,224,.75);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: transform .9s var(--sj-ease) var(--lag, 0s), opacity .5s, visibility 0s .5s;
+}
+.sj-s-nav::after, .sj-s-copy::after { --lag: .06s; transform: translateZ(calc(var(--g) * -2 + 1px)); }
+.sj-s-media::after, .sj-s-cards > span::after { transform: translateZ(calc(var(--g) * -1 + 1px)); }
+.sj-hero.is-exploded .sj-s-nav::after, .sj-hero.is-exploded .sj-s-copy::after,
+.sj-hero.is-exploded .sj-s-media::after, .sj-hero.is-exploded .sj-s-cards > span::after { opacity: 1; visibility: visible; transition-delay: var(--lag, 0s), 0s, 0s; }
+
+/* ── phone ───────────────────────────────────────────────────────────── */
+.sj-phone {
+  position: absolute; left: -18px; bottom: 8px;
+  width: 136px; height: 274px;
+  transform: translateZ(60px) rotateY(-7deg) rotateZ(-2deg);
+  transition: transform 1.2s var(--sj-spring) .12s, opacity .5s .12s;
+  cursor: pointer;
+}
+/* picked up a little under the pointer: it can be used */
+.sj-hero:not(.is-phone):not(.is-exploded):not(.is-building) .sj-phone:hover {
+  transform: translateZ(84px) rotateY(-3deg) rotateZ(-1deg);
+  transition-duration: .5s; transition-delay: 0s;
+}
+.sj-hero.is-exploded .sj-phone {
+  /* out toward the viewer, never back through the browser's layers */
+  transform: translate3d(-120px, 80px, 170px) rotateY(-38deg) rotateZ(-6deg) scale(.9);
+  opacity: 0; pointer-events: none;
+  transition-delay: 0s;
+}
+.sj-phone .sj-slab, .sj-phone .sj-slab i { border-radius: 28px; }
+.sj-phone .sj-slab i { background: #1D2843; }
+.sj-phone .sj-slab i:last-child { background: #0A1120; }
+.sj-phone .sj-shadow { inset: 4% -12% -6% 8%; transform: translate3d(24px, 26px, -60px); }
+.sj-phone .sj-glare {
+  border-radius: 28px; transform: translateZ(1px);
+  background:
+    radial-gradient(140px circle at var(--gx, 60%) var(--gy, 0%), rgba(255,255,255,.14), rgba(255,255,255,0) 60%),
+    linear-gradient(115deg, rgba(255,255,255,0) 40%, rgba(255,255,255,.08) 48%, rgba(255,255,255,0) 56%);
+}
+.sj-hero.is-phone .sj-phone .sj-glare { opacity: .35; }
+.sj-keys i {                                   /* action, volume up and down, power */
+  position: absolute; width: 3px; border-radius: 2px;
+  background: linear-gradient(90deg, #070C18, #3A4566 55%, #070C18);
+  transform: translateZ(-5.5px);
+}
+.sj-keys i:nth-child(1) { left: -2.5px; top: 58px; height: 15px; }
+.sj-keys i:nth-child(2) { left: -2.5px; top: 84px; height: 26px; }
+.sj-keys i:nth-child(3) { left: -2.5px; top: 116px; height: 26px; }
+.sj-keys i:nth-child(4) { right: -2.5px; top: 94px; height: 40px; }
+.sj-p-body {
+  position: absolute; inset: 0;
+  border-radius: 28px;
+  background: linear-gradient(150deg, #29355A, #0A1020 45%, #1B2442);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.18), inset 0 0 0 3px #060A14;
+}
+
+/* the hint above it, once after the entrance and under the pointer */
+.sj-tip {
+  position: absolute; left: 50%; top: -44px;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 13px 7px 11px;
+  border-radius: 100px;
+  background: #0B1630; color: #fff;
+  font-family: var(--font-display); font-size: 12.5px; font-weight: 600; line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 10px 22px -10px rgba(12,21,36,.6);
+  transform: translate3d(-50%, 8px, 14px);
+  opacity: 0; pointer-events: none;
+  transition: opacity .35s, transform .5s var(--sj-spring);
+}
+.sj-tip::after {
+  content: ''; position: absolute; left: 50%; bottom: -4px;
+  width: 9px; height: 9px; margin-left: -4.5px;
+  border-radius: 2px; background: #0B1630;
+  transform: rotate(45deg);
+}
+.sj-tip svg { width: 16px; height: 16px; color: #8FB8FF; }
+.sj-hero.show-tip .sj-tip,
+.sj-hero:not(.is-phone):not(.is-exploded):not(.is-building) .sj-phone:hover .sj-tip {
+  opacity: 1; transform: translate3d(-50%, 0, 14px);
+}
+.sj-hero.is-phone .sj-tip, .sj-hero.is-exploded .sj-tip { opacity: 0; }
+
+/* brought forward to be used (.is-phone): it turns to face you in the
+   middle of the scene, the browser steps back behind a veil, and the
+   cubes get out of the way */
+.sj-hero.is-phone .sj-scene { transform: rotateX(0deg) rotateY(0deg); }
+.sj-hero.is-phone .sj-phone {
+  transform: translate3d(230px, -70px, 60px) scale(1.5);
+  transition-delay: 0s;
+  cursor: default;
+  /* flat while in use: it faces you, so its edges don't show — and
+     inside a preserve-3d box Chrome sends presses to .sj-p-body instead
+     of the buttons on the screen */
+  transform-style: flat;
+}
+.sj-hero.is-phone .sj-browser { transform: translate3d(24px, 8px, -190px) rotateY(-14deg); }
+.sj-veil {
+  position: absolute; inset: -80px;
+  border-radius: 40px;
+  background: radial-gradient(55% 60% at 50% 50%, rgba(246,248,251,.5), rgba(246,248,251,.9));
+  transform: translateZ(30px);
+  opacity: 0; visibility: hidden;
+  transition: opacity .6s, visibility 0s .6s;
+}
+.sj-hero.is-phone .sj-veil { opacity: 1; visibility: visible; transition-delay: 0s; cursor: zoom-out; }
+
+/* ── the phone's screen: the clinic's mobile site, working ────────────
+   Everything inside is sized in em — 1em is 8px in the scene — so the
+   same element can be moved into .sj-pm and shown full size. It is
+   inert (no focus, no clicks) until the phone is brought forward. */
+.sj-p-screen {
+  position: absolute; inset: 6px;
+  font-size: 8px; line-height: 1.6;
+  border-radius: 23px; overflow: hidden;
+  background: #F3FAF8;
+  color: var(--c-deep);
+  text-align: right;
+  -webkit-user-select: none; user-select: none;
+}
+.sj-hero.is-phone .sj-p-screen { cursor: auto; }
+.sj-p-screen:focus { outline: none; }
+:where(.sj-p-screen) button {
+  margin: 0; padding: 0; border: 0;
+  background: none; color: inherit; font: inherit; text-align: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+:where(.sj-p-screen) button:focus-visible { outline: .2em solid var(--c-bright); outline-offset: .15em; }
+:where(.sj-p-screen) svg { width: 1em; height: 1em; flex: none; }
+:where(.sj-p-screen) :is(p, h4, ul, blockquote) { margin: 0; }
+
+/* status bar, island, home indicator */
+.sj-p-status {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 9;
+  height: 2.9em; padding: 0 1.7em;
+  display: flex; align-items: center; justify-content: space-between;
+  direction: ltr;
+  background: linear-gradient(#F3FAF8 60%, rgba(243,250,248,0));
+}
+.sj-p-status b { font: 700 1.05em/1 var(--font-display); }
+.sj-p-screen.is-menu .sj-p-status { background: none; }
+/* under the sheet the bar takes the dimmed colour of the page (#F3FAF8
+   under the dimmer below), so nothing scrolls into view behind it */
+.sj-p-screen.is-sheet .sj-p-status { color: #fff; background: linear-gradient(rgb(152,163,161) 62%, rgba(152,163,161,0)); }
+.sj-p-screen.is-sheet .sj-p-batt, .sj-p-screen.is-sheet .sj-p-batt::after { border-color: rgba(255,255,255,.7); }
+.sj-p-screen.is-sheet .sj-p-batt::after { background: rgba(255,255,255,.7); }
+.sj-p-status > span { display: inline-flex; align-items: center; gap: .4em; }
+.sj-p-sig { display: inline-flex; align-items: flex-end; gap: .12em; height: .8em; }
+.sj-p-sig i { width: .2em; border-radius: .08em; background: currentColor; }
+.sj-p-sig i:nth-child(1) { height: 35%; } .sj-p-sig i:nth-child(2) { height: 55%; }
+.sj-p-sig i:nth-child(3) { height: 75%; } .sj-p-sig i:nth-child(4) { height: 100%; }
+.sj-p-status .sj-p-wifi { width: 1.05em; height: 1.05em; }
+.sj-p-batt {
+  position: relative; width: 1.75em; height: .85em; padding: .1em;
+  border: .09em solid rgba(11,59,54,.55); border-radius: .28em;
+}
+.sj-p-batt i { display: block; width: 78%; height: 100%; border-radius: .14em; background: currentColor; }
+.sj-p-batt::after {
+  content: ''; position: absolute; right: -.3em; top: 50%;
+  width: .15em; height: .36em; margin-top: -.18em;
+  border-radius: 0 .1em .1em 0; background: rgba(11,59,54,.55);
+}
+.sj-p-island {
+  position: absolute; top: .6em; left: 50%; z-index: 11;
+  width: 4.6em; height: 1.35em; margin-left: -2.3em;
+  border-radius: 1em; background: #04070D;
+}
+.sj-p-home {
+  position: absolute; bottom: .5em; left: 50%; z-index: 11;
+  width: 5.4em; height: .32em; margin-left: -2.7em;
+  border-radius: 1em; background: rgba(11,22,48,.82);
+}
+
+/* the page */
+.sj-p-scroll {
+  position: absolute; inset: 0;
+  padding: 3.2em 1.4em 6.6em;
+  overflow-y: auto; overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.sj-p-scroll::-webkit-scrollbar { display: none; }
+.sj-p-head { display: flex; align-items: center; justify-content: space-between; }
+.sj-p-logo { display: inline-flex; align-items: center; gap: .5em; font: 800 1.05em/1 var(--font-display); }
+.sj-p-logo i { width: 2.1em; height: 2.1em; border-radius: .75em; display: grid; place-items: center; background: var(--c-teal); color: #fff; }
+.sj-p-logo svg { width: 1.25em; height: 1.25em; }
+.sj-p-menu-btn {
+  width: 2.7em; height: 2.7em; border-radius: .9em;
+  display: grid; place-items: center;
+  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.1);
+}
+.sj-p-menu-btn i {
+  width: 1.15em; height: .15em; border-radius: .1em; background: currentColor;
+  box-shadow: 0 .38em 0 currentColor, 0 -.38em 0 currentColor;
+}
+.sj-p-hero { margin-top: 1.5em; }
+.sj-p-kicker {
+  display: inline-block; padding: .3em .8em; border-radius: .7em;
+  background: rgba(20,184,166,.14); color: var(--c-teal);
+  font-size: .85em; font-weight: 700;
+}
+.sj-p-title { display: block; margin-top: .55em; font: 800 1.85em/1.42 var(--font-display); }
+.sj-p-sub { margin-top: .45em; font-size: .95em; line-height: 1.75; color: rgba(11,59,54,.7); }
+.sj-p-cta {
+  margin-top: .9em; padding: .75em 1.3em;
+  border-radius: .9em;
+  background: var(--c-teal); color: #fff;
+  font: 700 1em/1.2 var(--font-display);
+  box-shadow: 0 .8em 1.6em -.8em rgba(15,118,110,.85);
+  transition: transform .2s, box-shadow .2s;
+}
+.sj-p-cta:hover { box-shadow: 0 1em 2em -.8em rgba(20,184,166,.95); }
+.sj-p-cta:active, .sj-p-book:active { transform: scale(.97); }
+.sj-p-art {
+  position: relative; margin-top: 1.2em; height: 9.6em;
+  border-radius: 1.4em; overflow: hidden;
+  box-shadow: 0 1em 2em -1.2em rgba(11,59,54,.5);
+}
+.sj-p-rate {
+  position: absolute; left: .7em; bottom: .7em;
+  padding: .35em .7em; border-radius: .7em;
+  background: #fff;
+  font: 800 .85em/1.2 var(--font-display);
+  box-shadow: 0 .6em 1.2em -.6em rgba(11,59,54,.5);
+}
+.sj-p-rate small { font: 500 .85em var(--font-body); color: rgba(11,59,54,.6); }
+.sj-p-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5em; margin-top: 1.2em; padding: 0; list-style: none; }
+.sj-p-stats li { padding: .7em .3em; border-radius: 1em; background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.07); text-align: center; }
+.sj-p-stats b { display: block; font: 800 1.05em/1.3 var(--font-display); }
+.sj-p-stats span { font-size: .78em; color: rgba(11,59,54,.6); }
+.sj-p-sec { margin-top: 1.7em; }
+.sj-p-sec h4 { margin-bottom: .7em; font: 800 1.15em/1.4 var(--font-display); }
+.sj-p-svc {
+  display: flex; align-items: center; gap: .8em;
+  width: 100%; margin-bottom: .5em; padding: .75em .8em;
+  border-radius: 1.1em;
+  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.08);
+  transition: box-shadow .2s, transform .2s;
+}
+.sj-p-svc:hover { box-shadow: inset 0 0 0 1px rgba(15,118,110,.45); }
+.sj-p-svc:active { transform: scale(.985); }
+.sj-p-svc > i { width: 2.6em; height: 2.6em; border-radius: .85em; display: grid; place-items: center; flex: none; background: var(--c-mint); color: var(--c-teal); }
+.sj-p-svc > i svg { width: 1.35em; height: 1.35em; }
+.sj-p-svc > span { flex: 1; display: flex; flex-direction: column; }
+.sj-p-svc b { font-size: 1em; font-weight: 800; }
+.sj-p-svc small { font-size: .8em; color: rgba(11,59,54,.6); }
+.sj-p-svc > svg { width: 1.1em; height: 1.1em; color: rgba(11,59,54,.4); }
+.sj-p-docs { display: grid; grid-template-columns: 1fr 1fr; gap: .6em; }
+.sj-p-doc {
+  display: flex; flex-direction: column; align-items: center;
+  padding: .9em .5em; border-radius: 1.1em;
+  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.07);
+  text-align: center;
+}
+.sj-p-ava {
+  width: 3.4em; height: 3.4em; margin-bottom: .5em;
+  border-radius: 50%; display: grid; place-items: center;
+  font: 800 .95em/1 var(--font-display); color: #fff;
+  background: linear-gradient(135deg, hsl(var(--h) 62% 52%), hsl(calc(var(--h) + 30) 60% 36%));
+}
+.sj-p-doc b { font-size: .88em; font-weight: 800; }
+.sj-p-doc small { font-size: .75em; color: rgba(11,59,54,.6); }
+.sj-p-quote { padding: .9em 1em; border-radius: 1.1em; background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.07); }
+.sj-p-quote > span { color: #F59E0B; font-size: .9em; }
+.sj-p-quote p { margin-top: .3em; font-size: .92em; line-height: 1.8; }
+.sj-p-quote small { font-size: .78em; color: rgba(11,59,54,.6); }
+.sj-p-contact p { display: flex; align-items: center; gap: .5em; margin-top: .4em; font-size: .9em; }
+.sj-p-contact svg { width: 1.2em; height: 1.2em; color: var(--c-teal); }
+
+/* the booking button that stays at the bottom */
+.sj-p-bar {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 4;
+  padding: 1.4em 1.3em 1.6em;
+  background: linear-gradient(rgba(243,250,248,0), #F3FAF8 45%);
+}
+.sj-p-book {
+  display: flex; align-items: center; justify-content: center; gap: .5em;
+  width: 100%; padding: .85em;
+  border-radius: 1em;
+  background: var(--c-deep); color: #fff;
+  font: 800 1em/1.2 var(--font-display);
+  box-shadow: 0 .8em 1.6em -.8em rgba(11,59,54,.7);
+  transition: transform .2s;
+}
+.sj-p-book svg { width: 1.15em; height: 1.15em; }
+
+/* the menu, from the reading side */
+.sj-p-menu {
+  position: absolute; inset: 0; z-index: 7;
+  display: flex; flex-direction: column;
+  padding: 3.3em 1.4em 2em;
+  background: rgba(243,250,248,.98);
+  transform: translateX(100%); visibility: hidden;
+  transition: transform .45s cubic-bezier(.2, .9, .2, 1), visibility 0s .45s;
+}
+.sj-p-screen.is-menu .sj-p-menu { transform: none; visibility: visible; transition-delay: 0s; }
+.sj-p-menu header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1em; }
+.sj-p-menu header button {
+  width: 2.7em; height: 2.7em; border-radius: .9em;
+  display: grid; place-items: center;
+  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.1);
+}
+.sj-p-menu header svg { width: 1.2em; height: 1.2em; }
+.sj-p-menu > button:not(.sj-p-cta) {
+  padding: .6em .2em;
+  border-bottom: 1px solid rgba(11,59,54,.08);
+  font: 800 1.35em/1.4 var(--font-display);
+}
+.sj-p-menu .sj-p-cta { margin-top: 1.2em; text-align: center; }
+
+/* the booking sheet */
+.sj-p-dim {
+  position: absolute; inset: 0; z-index: 7;
+  background: rgba(4,20,18,.38);
+  opacity: 0; visibility: hidden;
+  transition: opacity .35s, visibility 0s .35s;
+}
+.sj-p-screen.is-sheet .sj-p-dim { opacity: 1; visibility: visible; transition-delay: 0s; }
+.sj-p-sheet {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 8;
+  max-height: calc(100% - 3.3em); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none;
+  padding: 1.4em 1.3em 2em;
+  border-radius: 1.7em 1.7em 0 0;
+  background: #fff;
+  box-shadow: 0 -1.5em 3em -1em rgba(4,20,18,.35);
+  transform: translateY(105%); visibility: hidden;
+  transition: transform .5s cubic-bezier(.2, .9, .2, 1), visibility 0s .5s;
+}
+.sj-p-screen.is-sheet .sj-p-sheet { transform: none; visibility: visible; transition-delay: 0s; }
+.sj-p-sheet::before {                          /* the grabber */
+  content: ''; position: absolute; top: .55em; left: 50%;
+  width: 3.4em; height: .3em; margin-left: -1.7em;
+  border-radius: 1em; background: rgba(11,59,54,.15);
+}
+.sj-p-form header { display: flex; align-items: center; justify-content: space-between; }
+.sj-p-form header b { font: 800 1.2em/1.4 var(--font-display); }
+.sj-p-form header button { width: 2.4em; height: 2.4em; border-radius: 50%; display: grid; place-items: center; background: #F1F5F4; }
+.sj-p-form header svg { width: 1.1em; height: 1.1em; }
+.sj-p-sheet::-webkit-scrollbar { display: none; }
+.sj-p-step { margin-top: .75em; }
+.sj-p-step > span { display: block; margin-bottom: .4em; font-size: .82em; font-weight: 700; color: rgba(11,59,54,.6); }
+.sj-p-chips { display: flex; flex-wrap: wrap; gap: .4em; }
+.sj-p-chips button {
+  display: inline-flex; align-items: center; gap: .3em;
+  padding: .45em .85em;
+  border-radius: 2em;
+  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.16);
+  font-size: .88em; font-weight: 600;
+  transition: background .2s, color .2s, box-shadow .2s;
+}
+.sj-p-chips button[aria-pressed="true"] { background: var(--c-teal); color: #fff; box-shadow: none; }
+.sj-p-chips[data-pick="service"] { display: grid; grid-template-columns: 1fr 1fr; }
+.sj-p-chips[data-pick="service"] button { justify-content: center; }
+.sj-p-chips button:disabled { opacity: .45; cursor: not-allowed; }
+.sj-p-chips button small { font-size: .78em; font-weight: 500; }
+.sj-p-days { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .2em; scrollbar-width: none; }
+.sj-p-days::-webkit-scrollbar { display: none; }
+.sj-p-days button { flex: none; flex-direction: column; gap: 0; min-width: 4.8em; padding: .45em .55em; border-radius: 1em; line-height: 1.35; }
+.sj-p-confirm {
+  display: block; width: 100%; margin-top: 1em; padding: .85em;
+  border-radius: 1em;
+  background: var(--c-deep); color: #fff;
+  font: 800 1.05em/1.2 var(--font-display);
+  text-align: center;
+  transition: background .2s, color .2s;
+}
+.sj-p-confirm:disabled { background: rgba(11,59,54,.14); color: rgba(11,59,54,.45); cursor: not-allowed; }
+.sj-p-confirm.is-loading::before {
+  content: ''; display: inline-block;
+  width: .9em; height: .9em; margin-left: .5em; vertical-align: -.12em;
+  border: .15em solid rgba(255,255,255,.35); border-top-color: #fff; border-radius: 50%;
+  animation: sj-spin .7s linear infinite;
+}
+@keyframes sj-spin { to { transform: rotate(360deg); } }
+.sj-p-done { display: none; padding: 1em .4em .2em; text-align: center; }
+.sj-p-sheet.is-done .sj-p-form { display: none; }
+.sj-p-sheet.is-done .sj-p-done { display: block; }
+.sj-p-check {
+  display: block; width: 4.8em; height: 4.8em; margin: 0 auto .6em;
+  fill: none; stroke: var(--c-teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+}
+.sj-p-check circle { stroke-dasharray: 145; stroke-dashoffset: 145; opacity: .4; animation: sj-draw .6s ease-out forwards; }
+.sj-p-check path { stroke-dasharray: 36; stroke-dashoffset: 36; animation: sj-draw .35s .45s ease-out forwards; }
+@keyframes sj-draw { to { stroke-dashoffset: 0; } }
+.sj-p-done b { display: block; font: 800 1.3em/1.4 var(--font-display); }
+.sj-p-summary { margin-top: .3em; font-size: .95em; }
+.sj-p-done small { display: block; margin-top: .3em; font-size: .78em; color: rgba(11,59,54,.6); }
+.sj-p-done .sj-p-cta { margin-top: 1em; }
+
+/* a notification drops in when the booking is made */
+.sj-p-push {
+  position: absolute; top: 2.5em; left: .7em; right: .7em; z-index: 10;
+  display: flex; align-items: flex-start; gap: .6em;
+  padding: .75em .8em;
+  border-radius: 1.3em;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 1em 2.4em -1em rgba(11,22,48,.45), 0 0 0 1px rgba(11,22,48,.06);
+  transform: translateY(-170%); opacity: 0;
+  transition: transform .55s cubic-bezier(.2, 1.15, .3, 1), opacity .3s;
+}
+.sj-p-screen.is-push .sj-p-push { transform: none; opacity: 1; }
+.sj-p-push > i { width: 2.4em; height: 2.4em; border-radius: .75em; display: grid; place-items: center; flex: none; background: var(--c-teal); color: #fff; }
+.sj-p-push > i svg { width: 1.3em; height: 1.3em; }
+.sj-p-push > span { display: flex; flex-direction: column; font-size: .82em; line-height: 1.55; }
+.sj-p-push b { font-weight: 800; }
+.sj-p-push b small { margin-right: .4em; font-weight: 500; color: rgba(11,59,54,.5); }
+
+/* ── floating cubes, after the tiles of the Sanjeh mark ─────────────── */
+.sj-cube {
+  position: absolute; left: var(--x); top: var(--y);
+  width: var(--s); height: var(--s);
+  transform: translateZ(var(--z));
+  pointer-events: none;
+  transition: transform .6s var(--sj-ease);
+}
+.sj-hero.is-phone .sj-cube { transform: translateZ(var(--z)) scale(0); }
+.sj-cube > i { position: absolute; inset: 0; animation: sj-bob calc(var(--t) * .37) ease-in-out infinite alternate; }
+.sj-cube > i > i { position: absolute; inset: 0; animation: sj-turn var(--t) linear infinite; }
+.sj-cube > i > i > i {
+  position: absolute; inset: 0;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #5B9BFF, #2563EB 55%, #1E3A8A);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.28);
+}
+.sj-cube > i > i > i:nth-child(1) { transform: translateZ(calc(var(--s) / 2)); }
+.sj-cube > i > i > i:nth-child(2) { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); background: #1B3487; }
+.sj-cube > i > i > i:nth-child(3) { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); background: linear-gradient(135deg, #3B82F6, #1D4ED8); }
+.sj-cube > i > i > i:nth-child(4) { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); background: linear-gradient(135deg, #2F6BE0, #173A9E); }
+.sj-cube > i > i > i:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); background: linear-gradient(135deg, #A5CBFF, #4C8DFF); }
+.sj-cube > i > i > i:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); background: #142B70; }
+@keyframes sj-turn { to { transform: rotateX(360deg) rotateY(720deg); } }
+@keyframes sj-bob { from { transform: translateY(-8px); } to { transform: translateY(8px); } }
+
+/* the way back from the phone, beside it */
+.sj-visual { position: relative; }
+.sj-phone-close {
+  position: absolute; top: 4px; left: 4px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px 8px 11px;
+  border: 0; border-radius: 100px;
+  background: var(--ink); color: #fff;
+  font-family: var(--font-display); font-size: 13px; font-weight: 600;
+  box-shadow: 0 10px 22px -12px rgba(12,21,36,.6);
+  cursor: pointer;
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity .3s, transform .4s var(--ease-luxe), visibility 0s .3s;
+}
+.sj-phone-close svg { width: 16px; height: 16px; color: #8FB8FF; }
+.sj-hero.is-phone .sj-phone-close { opacity: 1; visibility: visible; transform: none; transition-delay: .35s, .35s, 0s; }
+.sj-phone-close:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
+
+/* ── controls under the scene ───────────────────────────────────────── */
+.sj-controls {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 14px;
+  margin-top: 26px;
+}
+.sj-layers-btn, .sj-phone-btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 10px 18px 10px 15px;
+  border-radius: 100px;
+  border: 1px solid rgba(47,107,224,.3);
+  background: rgba(255,255,255,.85);
+  color: var(--ink);
+  font-family: var(--font-display); font-size: 14px; font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -12px rgba(12,21,36,.35);
+  transition: background .3s, color .3s, border-color .3s, transform .35s var(--ease-luxe);
+}
+.sj-layers-btn svg, .sj-phone-btn svg { width: 18px; height: 18px; color: var(--gold-bright); transition: transform .5s cubic-bezier(.3, 1.3, .45, 1), color .3s; }
+.sj-layers-btn:hover, .sj-phone-btn:hover { border-color: var(--gold-bright); transform: translateY(-1px); }
+.sj-layers-btn:hover svg { transform: translateY(-1px) scaleY(1.12); }
+.sj-phone-btn:hover svg { transform: rotate(-10deg); }
+.sj-layers-btn[aria-pressed="true"], .sj-phone-btn[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.sj-layers-btn[aria-pressed="true"] svg { color: #8FB8FF; transform: scaleY(1.22); }
+.sj-phone-btn[aria-pressed="true"] svg { color: #8FB8FF; }
+.sj-layers-btn:focus-visible, .sj-phone-btn:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
+.sj-hint { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--ink-mute); }
+.sj-hint svg { width: 16px; height: 16px; }
+
+/* ── entrance ────────────────────────────────────────────────────────
+   The copy rises line by line; the scene fades in pulled apart into its
+   layers (.is-pre, .is-exploded, .is-building — set by the script) and
+   then comes together. .sj-instant lays out a state without travel. */
+.sj-hero.sj-js [data-in] { opacity: 0; }
+.sj-hero.sj-js.is-in [data-in] { animation: sj-rise .9s cubic-bezier(.22, 1, .36, 1) var(--d, 0s) both; }
+@keyframes sj-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.sj-hero.is-pre .sj-stage { opacity: 0; }
+.sj-hero.sj-instant .sj-stage, .sj-hero.sj-instant .sj-stage *,
+.sj-hero.sj-instant .sj-stage *::after { transition: none !important; }
+
+/* ── the phone full size, on small screens ───────────────────────────
+   Where the scene is too small to use it in place, the script moves the
+   phone's screen into this overlay (built on demand at the end of
+   <body>) and back out when it closes. */
+html.sj-pm-lock { overflow: hidden; }
+html.sj-pm-lock .msbug-fab { visibility: hidden; }
+.sj-pm {
+  --c-deep: #0B3B36; --c-teal: #0F766E; --c-bright: #14B8A6; --c-mint: #E6FAF5;
+  position: fixed; inset: 0; z-index: 9600;
+  display: grid; place-items: center;
+  background: rgba(8,13,26,.55);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  opacity: 0; visibility: hidden;
+  transition: opacity .35s, visibility 0s .35s;
+}
+.sj-pm.is-open { opacity: 1; visibility: visible; transition-delay: 0s; }
+.sj-pm-frame {
+  font-size: min(5.1vw, 2.3svh);               /* the screen is 15.5em × 32.75em */
+  padding: .7em;
+  border-radius: 3em;
+  background: linear-gradient(150deg, #29355A, #0A1020 45%, #1B2442);
+  box-shadow: 0 2.5em 5em -1.5em rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.18), inset 0 0 0 .2em #060A14;
+  transform: translateY(5%) scale(.9);
+  transition: transform .55s cubic-bezier(.2, 1.2, .3, 1);
+}
+.sj-pm.is-open .sj-pm-frame { transform: none; }
+.sj-pm .sj-p-screen { position: relative; inset: auto; width: 15.5em; height: 32.75em; font-size: 1em; border-radius: 2.3em; }
+.sj-pm-close {
+  position: absolute; top: calc(env(safe-area-inset-top, 0px) + 14px); left: 14px;
+  width: 44px; height: 44px; border: 0; border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(255,255,255,.95); color: #0B1220;
+  box-shadow: 0 6px 18px -6px rgba(0,0,0,.4);
+  cursor: pointer;
+}
+.sj-pm-close svg { width: 20px; height: 20px; }
+.sj-pm-close:focus-visible { outline: 2px solid #8FB8FF; outline-offset: 3px; }
+
+/* ── smaller screens ───────────────────────────────────────────────── */
+@media (max-width: 1179px) {
+  .sj-hero { min-height: 0; padding-top: calc(var(--nav-h) + 32px); }
+  /* minmax(0, …): a plain 1fr would grow to the 560px stage and never let it scale down */
+  .sj-inner { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  .sj-copy { max-width: 680px; text-align: center; }
+  .sj-sub { margin-left: auto; margin-right: auto; }
+  .sj-ctas, .sj-proof { justify-content: center; }
+  .sj-visual { max-width: 560px; }
+  .sj-bg-floor { --floor-x: 50%; }
+}
+@media (max-width: 600px) {
+  .sj-hero { padding: calc(var(--nav-h) + 20px) 16px 44px; }
+  .sj-eyebrow { font-size: 12px; padding: 7px 13px 7px 15px; }
+  .sj-copy h1 { margin-top: 18px; font-size: clamp(2.1rem, 10.4cqi, 2.6rem); }
+  .sj-ctas { flex-direction: column; }
+  .sj-ctas .btn-gold, .sj-ctas .btn-ghost { width: 100%; }
+  .sj-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .sj-proof li, .sj-proof li:last-child { padding: 0; margin: 0; border: none; }
+  .sj-proof b { font-size: 1rem; }
+  .sj-proof span { font-size: 12px; }
+  .sj-controls { gap: 10px; }
+  .sj-layers-btn, .sj-phone-btn { padding: 9px 15px 9px 13px; font-size: 13px; }
+  .sj-hint { width: 100%; justify-content: center; font-size: 12px; }
+}
+
+/* With reduced motion the scene stays at its resting angle (the script
+   doesn't turn it), the background and cubes hold still, and the layers
+   view and the phone switch without the travel. */
+@media (prefers-reduced-motion: reduce) {
+  .sj-hero.sj-js [data-in] { opacity: 1; animation: none !important; }
+  .sj-stage, .sj-stage *, .sj-stage *::after, .sj-stage *::before,
+  .sj-pm, .sj-pm *, .sj-pm *::before { transition: none !important; animation: none !important; }
+  .sj-stage { cursor: default; }
+  .sj-phone-close { transition: none !important; }
+  .sj-bg-aurora, .sj-eyebrow i::after { animation: none !important; }
+  .sj-p-check circle, .sj-p-check path { stroke-dashoffset: 0; }
+}

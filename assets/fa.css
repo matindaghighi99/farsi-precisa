@@ -1,0 +1,147 @@
+/* ============================================================
+   Sanjeh (سنجه) — Persian / right-to-left layer
+   Loaded AFTER the shared stylesheets on every page under fa/.
+   The English design system stays the source of truth; this file
+   only swaps the type and mirrors what reads wrong right-to-left.
+   ============================================================ */
+
+/* Fonts are self-hosted on purpose: Google Fonts is unreliable from
+   inside Iran.
+   · 'Estedad' sets headings, buttons and labels: sharp and modern,
+     designed for Persian, cut down to Persian + basic Latin and weights
+     300–900 (74 KB). Licence: fonts/estedad/OFL.txt
+   · 'Vazirmatn' sets the running text, one variable file for every
+     weight. Licence: fonts/vazirmatn/OFL.txt
+     The Persian copy writes its numbers in Persian numerals itself.
+   · 'Sanjeh Digits' is only 0-9 from Vazirmatn's Farsi-Digits build, for
+     the few places a script writes numbers at runtime (see the end of
+     this block). It can't be the page font: the `ch` unit the shared
+     styles size their text columns with is measured from the "0" glyph,
+     and the Persian zero is a dot — every capped heading and paragraph
+     came out a third narrower. */
+@font-face { font-family: 'Estedad'; font-style: normal; font-weight: 300 900; font-display: swap; src: url('fonts/estedad/Estedad-Variable.woff2') format('woff2'); }
+@font-face { font-family: 'Vazirmatn'; font-style: normal; font-weight: 100 900; font-display: swap; src: url('fonts/vazirmatn/Vazirmatn-Variable.woff2') format('woff2'); }
+@font-face { font-family: 'Sanjeh Digits'; font-weight: 300; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Light.woff2') format('woff2'); }
+@font-face { font-family: 'Sanjeh Digits'; font-weight: 400; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Sanjeh Digits'; font-weight: 500; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Medium.woff2') format('woff2'); }
+@font-face { font-family: 'Sanjeh Digits'; font-weight: 600; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-SemiBold.woff2') format('woff2'); }
+@font-face { font-family: 'Sanjeh Digits'; font-weight: 700; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Bold.woff2') format('woff2'); }
+
+:root {
+  --font-display: 'Estedad', 'Vazirmatn', Tahoma, sans-serif;
+  --font-brand:   'Estedad', 'Vazirmatn', Tahoma, sans-serif;
+  --font-body:    'Vazirmatn', Tahoma, sans-serif;
+  --font-mono:    'Vazirmatn', Tahoma, sans-serif;
+}
+/* buttons speak in the heading face */
+.btn-gold, .btn-ghost, .nav-cta, .filter-btn, .sys-cta, .ms-cta, .live-cta { font-family: var(--font-display); }
+
+/* numbers written by scripts: the intake console's step number and
+   character counters */
+#icStepNum, #icCount,
+.icp-row[data-track="message"] .icp-value { font-family: 'Sanjeh Digits', var(--font-body); }
+
+/* Letter-spacing pulls Persian letters apart and breaks the joins
+   between them; there is no true Persian italic (browsers fake a
+   slant); uppercase means nothing in Persian script. */
+html[lang="fa"] *,
+html[lang="fa"] *::before,
+html[lang="fa"] *::after {
+  letter-spacing: 0 !important;
+  font-style: normal !important;
+  text-transform: none !important;   /* and keeps "Lighthouse" from becoming LIGHTHOUSE */
+}
+/* a few rules name the mono face directly instead of the variable */
+html[lang="fa"] text,
+html[lang="fa"] .pv-mono,
+html[lang="fa"] .v-mono { font-family: var(--font-mono) !important; }
+
+body { line-height: 1.85; }
+/* Persian sits lower and wider than Latin at the same size, and its
+   tall strokes (ک گ ط) reach up into the line above: headings get more
+   line height. Specific enough to win over the shared display rules
+   (.page-hero h1 at 1.08 and the like, which suit Latin). */
+html[lang="fa"] :is(h1, h2, h3, .section-title) { line-height: 1.38; }
+/* even out ragged lines — Persian wraps leave one-word orphans otherwise */
+h1, h2, h3, .section-title, .section-sub, .ms-sub, .principle p, .cta-content p { text-wrap: balance; }
+
+/* Arrow icons point the way you read: mirrored for right-to-left. The
+   individual `scale` property composes with the hover `transform`s the
+   shared styles already put on these icons (and flips their nudge too). */
+.rtl-flip { scale: -1 1; }
+
+/* "Report a bug" (injected by main.js) moves to the reading-end corner */
+html[dir="rtl"] .msbug-fab { right: auto; left: 20px; }
+
+/* ── SVG diagrams ─────────────────────────────────────────────────────
+   The diagrams keep the English geometry: every label's x is its left
+   edge. Laying the words out right-to-left (so "PDF یا اسکن" reads in
+   the right order) moves the anchor to the right edge, so each anchor
+   is swapped to put the label back where the layout expects it. */
+svg text { direction: rtl; }
+svg text:not([text-anchor]) { text-anchor: end; }
+svg text[text-anchor="end"] { text-anchor: start; }
+
+/* ── Shared components: physical left/right that must mirror ───────── */
+.principle + .principle::before { left: auto; right: 0; }
+.skip-link { left: auto; right: 16px; }
+.preloader-word, .preloader-sub { padding-left: 0; }
+.scroll-progress i, .process-line i { transform-origin: right; }   /* fill in reading order */
+.nav-links a::after { transform-origin: left; }
+.nav-links a:hover::after { transform-origin: right; }
+.link-arrow::after { right: 0; left: 26px; transform-origin: left; }
+.footer ul a { transition: color .3s, padding-right .35s var(--ease-luxe); }
+.footer ul a:hover { padding-left: 0; padding-right: 6px; }
+.cookie-banner { left: auto; right: clamp(14px, 3vw, 28px); }   /* the bug button took the left */
+.faq-q { text-align: right; }
+
+/* home + services: the browser-frame mockups */
+.wd-url { margin-left: 0; margin-right: 14px; }
+.wd-bar .wd-tools, .wd-bar .wd-live { margin-left: 0; margin-right: 12px; }
+.wdc-stage { direction: ltr; }   /* the services card visuals depict code and UI */
+
+/* services */
+.pillar-deliver li { padding-left: 0; padding-right: 22px; }
+.pillar-deliver li::before { left: auto; right: 2px; }
+.cap-row { transition: background .4s var(--ease-soft), padding-right .5s var(--ease-luxe), box-shadow .4s; }
+.cap-row:hover { padding-left: 0; padding-right: 18px; }
+
+/* about */
+.fm-plate { text-align: right; }
+.fm-plate b::after { left: auto; right: 2px; }
+
+/* contact: the intake console */
+.ic-panel { border-left: none; border-right: 1px solid rgba(47,107,224,.25); }
+.icp-value { text-align: left; }
+@media (max-width: 1000px) { .ic-panel { border-right: none; } }   /* stacked under the form */
+
+/* projects */
+.fs-problem { border-left: none; border-right: 2px solid var(--gold-bright);
+  background: linear-gradient(270deg, rgba(47,107,224,.08), transparent); border-radius: 12px 0 0 12px; }
+.fs-map { border-left: none; border-right: 1px solid var(--dk-line); }
+@media (max-width: 1080px) { .fs-map { border-right: none; } }   /* stacked under the copy */
+.live-host { margin-left: 0; margin-right: auto; }
+.live-hint { left: auto; right: 16px; }
+.live-open { right: auto; left: 16px; }
+.rec-chip { text-align: right; }
+
+/* ── Small labels ─────────────────────────────────────────────────────
+   The English design sets these as 9–11px uppercase monospace with wide
+   tracking. Persian has no capitals and can't take tracking, so at that
+   size it is barely legible; these floors keep the same hierarchy. */
+.step-tag, .value-num, .big-quote-author, .footer h4, .founder-mark .fm-role,
+.wd-index-label, .pillar-aside h3, .dk-label, .fs-tag, .fs-copy .deploy, .live-tag,
+.sys-cat, .sd-label, .smx-block h4, .rec-hint, .rec-code, .fnode,
+.ic-id, .ic-readout, .ic-rail-item, .ic-field label, .ic-param-label, .ic-panel-head,
+.icp-value, .icp-status-value, .ics-code { font-size: 12.5px; }
+.cap-tag, .sys-status, .live-hint, .icp-label, .icp-status-label, .ic-count,
+.sys-metrics.qual::before, .ve-chip { font-size: 11px; }
+.founder-points .fp-num, .cap-num { font-size: 12px; }
+.wd-card::before { transform-origin: right; }                    /* hover hairline draws in reading order */
+.ic-progress i { left: auto; right: 0; }                         /* intake progress fills from the right */
+.sys-metrics.qual::before { left: auto; right: 0; }              /* "منطق سامانه" caption */
+
+/* The downloadable copy of this site (sanjeh-site.zip) opens each page
+   with a note on how to unzip it properly. Only this stylesheet hides it,
+   so the note shows exactly when the page was opened without its files. */
+.zip-note { display: none !important; }

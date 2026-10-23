@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-src 'self' https://drop.peachworlds.com https://www.tenbinlabs.xyz https://rotta-3s6.pages.dev" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<title>نمونه‌کارها — گنجینه‌ی سامانه‌های سنجه</title>
+<meta name="description" content="گنجینه‌ی سامانه‌های سنجه: پذیرش هوشمند تماس، قیف فروش CRM، موتور نوبت‌دهی و داشبورد — هر پروژه صادقانه برچسب خورده است: مفهوم سامانه، پیش‌نمایش نمونه‌ی اولیه یا معماری نمایشی." />
+<link rel="icon" type="image/png" sizes="32x32" href="images/sanjeh-favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="images/sanjeh-favicon-192.png" />
+<link rel="apple-touch-icon" href="images/sanjeh-favicon-180.png" />
+<link rel="stylesheet" href="assets/styles.css?v=d7fb3064" />
+<link rel="stylesheet" href="assets/projects.css?v=74652edb" />
+<link rel="stylesheet" href="assets/fa.css?v=050605b1" />
+</head>
+<body class="vault-page">
+
+<a class="skip-link" href="#main">رفتن به محتوا</a>
+
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<div class="dk-ambient" aria-hidden="true">
+  <div class="dk-gridlines"></div>
+  <div class="dk-blob dk-blob-1"></div>
+  <div class="dk-blob dk-blob-2"></div>
+</div>
+
+<nav class="nav" id="nav" aria-label="منوی اصلی">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="سنجه — صفحه‌ی اصلی">
+      <img class="brand-mark" src="images/sanjeh-mark.svg" alt="" aria-hidden="true" />
+      <span class="wm-text">سنجه</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">خانه</a></li>
+      <li><a href="services.html">خدمات</a></li>
+      <li><a href="projects.html" class="active">نمونه‌کارها</a></li>
+      <li><a href="about.html">درباره‌ی ما</a></li>
+      <li><a href="contact.html">تماس</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta magnetic">رزرو جلسه‌ی مشاوره</a>
+      <button class="nav-burger" id="burger" aria-label="باز کردن منو" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">خانه</a>
+  <a href="services.html">خدمات</a>
+  <a href="projects.html">نمونه‌کارها</a>
+  <a href="about.html">درباره‌ی ما</a>
+  <a href="contact.html">تماس</a>
+  <a href="contact.html" class="build-link">رزرو جلسه‌ی مشاوره</a>
+</div>
+
+<main id="main">
+
+<!-- ============ CINEMATIC HERO + THE ENGAGEMENT ============
+     Both read as one screen: the hero copy and the six-step track
+     share a single viewport-height header, so the engagement is
+     visible without scrolling. -->
+<header class="dk-hero dk-hero--full page-enter">
+  <div class="dk-beam" aria-hidden="true"></div>
+  <div class="container dk-hero-inner">
+
+    <div class="dk-hero-copy">
+      <h1>از <span class="gold-word">نقشه</span> تا <span class="gold-word">واقعیت</span>.</h1>
+      <p class="section-sub">ببینید چطور چارچوب سرتاسری‌مان را برای طراحی و اجرای پروژه‌ها و ایده‌های زیر به کار بردیم.</p>
+    </div>
+
+    <div class="dk-hero-process">
+      <div class="process-track six" id="processTrack">
+      <div class="process-line" aria-hidden="true"><i></i></div>
+      <div class="step reveal">
+        <div class="step-num">۰۱</div>
+        <h3>عیب‌یابی</h3>
+        <p>بررسی ساختاریافته‌ی اینکه کار امروز چطور جریان دارد و سود کجا بی‌صدا هدر می‌رود.</p>
+        <span class="step-tag">هفته‌ی ۱</span>
+      </div>
+      <div class="step reveal" style="--d:.08s">
+        <div class="step-num">۰۲</div>
+        <h3>معماری</h3>
+        <p>یک نقشه‌ی مکتوب: سامانه‌ها، ابزارها و بازدهی که از هر کدام انتظار می‌رود.</p>
+        <span class="step-tag">هفته‌ی ۲</span>
+      </div>
+      <div class="step reveal" style="--d:.16s">
+        <div class="step-num">۰۳</div>
+        <h3>ساخت</h3>
+        <p>دوره‌های کاری متمرکز و شفاف. کارهای دستی کم‌کم ناپدید می‌شوند.</p>
+        <span class="step-tag">هفته‌ی ۳ تا ۵</span>
+      </div>
+      <div class="step reveal" style="--d:.24s">
+        <div class="step-num">۰۴</div>
+        <h3>آزمون</h3>
+        <p>حالت‌های خاص، مسیرهای خطا و دخالت انسانی، پیش از راه‌اندازی آزموده می‌شوند.</p>
+        <span class="step-tag">هفته‌ی ۵</span>
+      </div>
+      <div class="step reveal" style="--d:.32s">
+        <div class="step-num">۰۵</div>
+        <h3>راه‌اندازی</h3>
+        <p>سامانه با پایش، مستندات و تیمی آموزش‌دیده راه‌اندازی می‌شود.</p>
+        <span class="step-tag">هفته‌ی ۶</span>
+      </div>
+      <div class="step reveal" style="--d:.4s">
+        <div class="step-num">۰۶</div>
+        <h3>بهبود</h3>
+        <p>همپای رشد کسب‌وکار، سامانه را پایش، تنظیم و گسترش می‌دهیم.</p>
+        <span class="step-tag">مستمر</span>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ============ LIVE IN PRODUCTION — REAL SHIPPED BUILDS ============ -->
+<section class="dk-section live-section" id="live" aria-labelledby="liveTitle">
+  <div class="container">
+    <div class="dk-label reveal">منتشرشده و در حال اجرا</div>
+    <h2 class="dk-title reveal" id="liveTitle">پروژه‌های زنده؛ ایده‌ها در ادامه.</h2>
+
+    <div class="live-deck">
+
+      <article class="live-panel live-panel--peach reveal">
+        <header class="live-meta">
+          <span class="live-tag"><i aria-hidden="true"></i>زنده · تجربه‌ی وب سه‌بعدی</span>
+          <span class="live-host">drop.peachworlds.com</span>
+        </header>
+        <div class="live-panel-copy">
+          <h3>THE DROP</h3>
+          <p>صفحه‌ی معرفی یک پلتفرم طراحی وب سه‌بعدی — به جای توضیح دادن رابط‌های فضایی، خودش یکی از آن‌هاست.</p>
+          <a class="live-cta" href="https://drop.peachworlds.com/" target="_blank" rel="noopener">
+            <span>دیدن سایت</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+        <div class="live-media" data-live-src="https://drop.peachworlds.com/" data-live-title="The Drop — پیش‌نمایش زنده‌ی سایت">
+          <span class="browser-chrome" aria-hidden="true">
+            <span class="bc-dots"><i></i><i></i><i></i></span>
+            <span class="bc-url">drop.peachworlds.com</span>
+          </span>
+          <div class="live-view">
+            <img src="images/showcase/peach.jpg" alt="The Drop — صفحه‌ی معرفی سه‌بعدی و تیره که بازدیدکننده در آن به پایین پیمایش می‌کند" loading="lazy" width="1400" height="875" />
+          </div>
+          <a class="live-open" href="https://drop.peachworlds.com/" target="_blank" rel="noopener" aria-label="باز کردن The Drop در زبانه‌ی جدید"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <span class="live-hint" aria-hidden="true">نشانگر را نگه دارید و پیمایش کنید · زنده</span>
+        </div>
+      </article>
+
+      <article class="live-panel live-panel--tenbin live-panel--rev reveal" style="--d:.08s">
+        <header class="live-meta">
+          <span class="live-tag"><i aria-hidden="true"></i>زنده · وب ۳ / دیفای</span>
+          <span class="live-host">tenbinlabs.xyz</span>
+        </header>
+        <div class="live-panel-copy">
+          <h3>Tenbin Labs</h3>
+          <p>سایت یک پروتکل توکن‌سازی که تقریباً تمامش در یک سنگ ابسیدین شکل گرفته — پیامی برای نهادهای مالی، در قالب طراحی‌ای در حد محصولات مصرفی.</p>
+          <a class="live-cta" href="https://www.tenbinlabs.xyz" target="_blank" rel="noopener">
+            <span>دیدن سایت</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+        <div class="live-media" data-live-src="https://www.tenbinlabs.xyz" data-live-title="Tenbin Labs — پیش‌نمایش زنده‌ی سایت">
+          <span class="browser-chrome" aria-hidden="true">
+            <span class="bc-dots"><i></i><i></i><i></i></span>
+            <span class="bc-url">tenbinlabs.xyz</span>
+          </span>
+          <div class="live-view">
+            <img src="images/showcase/tenbin.jpg" alt="Tenbin Labs — صفحه‌ی اصلی پروتکل توکن‌سازی وب ۳، با پس‌زمینه‌ی سیاه دانه‌دار و یک سنگ ابسیدین سه‌بعدی معلق" loading="lazy" width="1400" height="875" />
+          </div>
+          <a class="live-open" href="https://www.tenbinlabs.xyz" target="_blank" rel="noopener" aria-label="باز کردن Tenbin Labs در زبانه‌ی جدید"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <span class="live-hint" aria-hidden="true">نشانگر را نگه دارید و پیمایش کنید · زنده</span>
+        </div>
+      </article>
+
+      <article class="live-panel live-panel--rotta reveal" style="--d:.16s">
+        <header class="live-meta">
+          <span class="live-tag"><i aria-hidden="true"></i>زنده · فروشگاه اینترنتی / مد</span>
+          <span class="live-host">rotta-3s6.pages.dev</span>
+        </header>
+        <div class="live-panel-copy">
+          <h3>Rotta</h3>
+          <p>فروشگاه یک برند کیف دستی در تورنتو، ساخته‌شده برای فروش یک ایده: بگذار محصول خودش حرف بزند.</p>
+          <a class="live-cta" href="https://rotta-3s6.pages.dev" target="_blank" rel="noopener">
+            <span>دیدن سایت</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+        <div class="live-media" data-live-src="https://rotta-3s6.pages.dev" data-live-title="Rotta — پیش‌نمایش زنده‌ی سایت">
+          <span class="browser-chrome" aria-hidden="true">
+            <span class="bc-dots"><i></i><i></i><i></i></span>
+            <span class="bc-url">rotta-3s6.pages.dev</span>
+          </span>
+          <div class="live-view">
+            <img src="images/showcase/rotta.jpg" alt="Rotta — صفحه‌ی اصلی برند کیف تورنتویی، با پس‌زمینه‌ی سفید و عکس یک کیف قرمز از چرم کروکودیل" loading="lazy" width="1400" height="875" />
+          </div>
+          <a class="live-open" href="https://rotta-3s6.pages.dev" target="_blank" rel="noopener" aria-label="باز کردن Rotta در زبانه‌ی جدید"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <span class="live-hint" aria-hidden="true">نشانگر را نگه دارید و پیمایش کنید · زنده</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ---- interaction concepts, running for real ----
+         Each panel frames a standalone demo-*.html page as a same-origin
+         iframe (see 'self' in this page's frame-src, and frame-ancestors
+         'self' in _headers). Iframing rather than inlining keeps each
+         demo's own :root tokens, element selectors and JS timeline from
+         colliding with the vault page or with each other. ?embed=1 tells
+         the demo to drop its own page heading, since the panel supplies
+         one. -->
+    <div class="cx-head reveal">
+      <h3>و سه نمونه که واقعاً می‌توانید امتحانشان کنید.</h3>
+      <p>
+        اسکرین‌شات نیستند — خود رابط‌ها هستند که در قاب‌های زیر اجرا می‌شوند.
+        در آن‌ها تایپ کنید، دکمه‌ها را بزنید، عمداً یکی را اشتباه وارد کنید.
+        (زبان این نمونه‌ها انگلیسی است.)
+      </p>
+    </div>
+
+    <div class="cx-deck">
+
+      <article class="cx-panel cx-panel--card reveal">
+        <span class="cx-chrome">
+          <span class="cx-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="cx-name">cobalt / checkout</span>
+          <a class="cx-open" href="demo-card.html" target="_blank" rel="noopener" title="نمایش در اندازه‌ی کامل" aria-label="نمایش کامل نمونه‌ی پرداخت با کارت">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </span>
+        <div class="cx-stage">
+          <iframe class="cx-frame" src="demo-card.html?embed=1" title="پرداخت با کارت — نمونه‌ی تعاملی" loading="lazy"></iframe>
+        </div>
+      </article>
+
+      <article class="cx-panel cx-panel--code reveal" style="--d:.08s">
+        <span class="cx-chrome">
+          <span class="cx-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="cx-name">verify / one-time code</span>
+          <a class="cx-open" href="demo-code.html" target="_blank" rel="noopener" title="نمایش در اندازه‌ی کامل" aria-label="نمایش کامل نمونه‌ی رمز یک‌بارمصرف">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </span>
+        <div class="cx-stage">
+          <iframe class="cx-frame" src="demo-code.html?embed=1" title="رمز یک‌بارمصرف — نمونه‌ی تعاملی" loading="lazy"></iframe>
+        </div>
+      </article>
+
+      <article class="cx-panel cx-panel--order reveal" style="--d:.16s">
+        <span class="cx-chrome">
+          <span class="cx-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="cx-name">depot / order</span>
+          <a class="cx-open" href="demo-order.html" target="_blank" rel="noopener" title="نمایش در اندازه‌ی کامل" aria-label="نمایش کامل نمونه‌ی دکمه‌ی سفارش">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </span>
+        <div class="cx-stage">
+          <iframe class="cx-frame" src="demo-order.html?embed=1" title="دکمه‌ی سفارش — نمونه‌ی تعاملی" loading="lazy"></iframe>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED: AI RECEPTION OS ============ -->
+<section class="dk-section" id="featured" style="padding-top: 20px;" aria-labelledby="featuredTitle">
+  <div class="container">
+    <div class="dk-label reveal">سامانه‌ی ویژه</div>
+
+    <div class="featured-sys reveal">
+      <div class="fs-copy">
+        <span class="fs-tag"><i aria-hidden="true"></i>SYS.001 — AI RECEPTION OS · مفهوم سامانه</span>
+        <h2 id="featuredTitle">منشی‌ای که نمی‌گذارد هیچ تماسی <span class="gold-word">بی‌پاسخ بماند</span>.</h2>
+        <p class="deploy">مفهوم شاخص · طراحی‌شده برای کسب‌وکارهای خدماتی نوبت‌محور</p>
+        <p>
+          دستیار تلفنی هوش مصنوعی‌ای که هر تماس را با زنگ دوم جواب می‌دهد، با صدایی
+          طبیعی و انسانی صحبت می‌کند، کارها را مستقیم در تقویم زنده‌ی تیم ثبت می‌کند،
+          از روی لیست قیمت شما قیمت می‌دهد و برای اضطرارهای واقعی، تکنسین کشیک را
+          بیدار می‌کند. پذیرش ساکت می‌شود — از نوع خوبش.
+        </p>
+        <div class="fs-problem">
+          <strong>مشکلی که این مفهوم هدف گرفته:</strong> تماس‌های بعد از ساعت
+          کاری و وسط کار که در پیغام‌گیر از بین می‌روند، در حالی که کار به کسی
+          می‌رسد که زودتر جواب بدهد.
+        </div>
+
+        <div class="fs-metrics" aria-label="منطق سامانه">
+          <div class="fs-metric">
+            <b>پاسخ</b>
+            <span>هر تماس را یک دستیار صوتی طبیعی جواب می‌دهد — هیچ مسیری به پیغام‌گیر وجود ندارد.</span>
+          </div>
+          <div class="fs-metric">
+            <b>تصمیم</b>
+            <span>موتور تشخیص نیت نوبت می‌دهد، قیمت اعلام می‌کند یا تکنسین کشیک را خبر می‌کند.</span>
+          </div>
+          <div class="fs-metric">
+            <b>ثبت</b>
+            <span>متن گفتگو، نتیجه و قدم بعدی در CRM ثبت می‌شود.</span>
+          </div>
+        </div>
+
+        <div class="sys-tools" style="margin-top: 24px;">
+          <span>Twilio</span><span>ElevenLabs</span><span>OpenAI</span><span>Make</span><span>Airtable</span>
+        </div>
+
+        <div class="fs-actions">
+          <a href="contact.html" class="btn-gold magnetic">
+            <span>مشابهش را بسازیم</span>
+            <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#systems" class="btn-ghost magnetic">
+            <span>دیدن گنجینه</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="fs-map">
+        <svg id="autoMap" class="schematic auto-map" viewBox="0 0 520 560" role="img"
+             aria-label="نقشه‌ی اتوماسیون: تماس‌گیرنده به خط Twilio می‌رسد، دستیار صوتی ElevenLabs پاسخ می‌دهد، موتور تشخیص نیت OpenAI تصمیم می‌گیرد کار را رزرو کند، مورد اضطراری را ارجاع دهد یا قیمت بفرستد، و همه‌چیز در CRM ثبت می‌شود.">
+          <path class="wire wire-1" d="M160 52 L330 52"/>
+          <path class="wire wire-2" d="M410 74 C410 118 310 112 292 150"/>
+          <path class="wire wire-3" d="M95 74 C95 118 210 112 228 150"/>
+          <path class="wire wire-4" d="M260 198 L260 250"/>
+          <path class="wire wire-5" d="M260 298 C260 334 90 330 90 360"/>
+          <path class="wire wire-6" d="M260 298 L260 360"/>
+          <path class="wire wire-7" d="M260 298 C260 334 430 330 430 360"/>
+          <path class="wire wire-8" d="M90 404 C90 444 216 442 228 470"/>
+          <path class="wire wire-9" d="M430 404 C430 444 304 442 292 470"/>
+          <path class="wire wire-8" d="M260 404 L260 470"/>
+
+          <g class="mnode">
+            <rect x="30" y="30" width="130" height="44" rx="12"/>
+            <circle class="mnode-dot" cx="52" cy="52" r="3.5"/>
+            <text x="66" y="56">تماس‌گیرنده</text>
+          </g>
+          <g class="mnode">
+            <rect x="330" y="30" width="160" height="44" rx="12"/>
+            <circle class="mnode-dot" cx="352" cy="52" r="3.5"/>
+            <text x="366" y="56">خط Twilio</text>
+          </g>
+          <g class="mnode">
+            <rect x="160" y="150" width="200" height="48" rx="12"/>
+            <circle class="mnode-dot" cx="184" cy="174" r="3.5"/>
+            <text x="198" y="178">صوت · ElevenLabs</text>
+          </g>
+          <g class="mnode">
+            <rect x="160" y="250" width="200" height="48" rx="12"/>
+            <circle class="mnode-dot" cx="184" cy="274" r="3.5"/>
+            <text x="198" y="278">تشخیص نیت · OpenAI</text>
+          </g>
+          <g class="mnode map-float-1">
+            <rect x="20" y="360" width="140" height="44" rx="12"/>
+            <circle class="mnode-dot" cx="42" cy="382" r="3.5"/>
+            <text x="56" y="386">رزرو کار</text>
+          </g>
+          <g class="mnode map-float-2">
+            <rect x="190" y="360" width="140" height="44" rx="12"/>
+            <circle class="mnode-dot" cx="212" cy="382" r="3.5"/>
+            <text x="226" y="386">اضطراری</text>
+          </g>
+          <g class="mnode map-float-3">
+            <rect x="360" y="360" width="140" height="44" rx="12"/>
+            <circle class="mnode-dot" cx="382" cy="382" r="3.5"/>
+            <text x="396" y="386">قیمت</text>
+          </g>
+          <g class="mnode">
+            <rect x="160" y="470" width="200" height="48" rx="12"/>
+            <circle class="mnode-dot" cx="184" cy="494" r="3.5"/>
+            <text x="198" y="498">ثبت CRM · Airtable</text>
+          </g>
+
+          <circle class="pulse-dot" r="3.5">
+            <animateMotion dur="2.6s" repeatCount="indefinite" path="M410 74 C410 118 310 112 292 150"/>
+          </circle>
+          <circle class="pulse-dot" r="3.5">
+            <animateMotion dur="3s" begin="1s" repeatCount="indefinite" path="M260 298 L260 360"/>
+          </circle>
+          <circle class="pulse-dot" r="3.5">
+            <animateMotion dur="3.2s" begin="1.8s" repeatCount="indefinite" path="M430 404 C430 444 304 442 292 470"/>
+          </circle>
+
+          <g class="map-status">
+            <circle cx="180" cy="546" r="3.5"/>
+            <text x="192" y="550">شمای مفهومی — آماده‌ی ساخت</text>
+          </g>
+        </svg>
+      </div>
+
+      <template data-sys-tpl="reception">
+        <header class="smx-head">
+          <span class="sys-code">SYS.001 — AI RECEPTION OS</span>
+          <span class="sys-status concept"><i aria-hidden="true"></i>مفهوم سامانه</span>
+        </header>
+        <h3 class="smx-title"><span class="code-name">AI Reception OS</span> — پذیرشی که هرگز نمی‌خوابد</h3>
+        <div class="sd-label">معماری سامانه</div>
+        <div class="flow">
+          <span class="fnode">تماس ورودی</span><span class="farrow" aria-hidden="true"></span>
+          <span class="fnode">خط Twilio</span><span class="farrow" aria-hidden="true"></span>
+          <span class="fnode hub">موتور صوت و تشخیص نیت</span><span class="farrow" aria-hidden="true"></span>
+          <span class="fnode">رزرو · قیمت · ارجاع</span><span class="farrow" aria-hidden="true"></span>
+          <span class="fnode">ثبت در CRM</span>
+        </div>
+        <div class="smx-grid">
+          <div class="smx-block"><h4>طراحی‌شده برای</h4><p>کسب‌وکارهای خدماتی‌ای که هر کس زودتر جواب بدهد کار را می‌برد — و هر تماس از دست‌رفته، ضرری بی‌صدا و نامرئی است.</p></div>
+          <div class="smx-block"><h4>منطق کار</h4><p>هر تماس را یک دستیار صوتی طبیعی جواب می‌دهد. موتور تشخیص نیت در تقویم زنده‌ی تیم نوبت ثبت می‌کند، از روی لیست قیمت شما قیمت می‌دهد یا برای یک اضطرار واقعی تکنسین کشیک را خبر می‌کند. متن گفتگو و نتیجه، پیش از آنکه تماس‌گیرنده گوشی را بگذارد در CRM ثبت شده است.</p></div>
+          <div class="smx-block"><h4>جایی که انسان در چرخه می‌ماند</h4><p>موارد اضطراری همیشه به یک انسان می‌رسند. دستیار به درخواست مشتری تماس را منتقل می‌کند و هرگز قیمتی را که در لیست نیست از خودش نمی‌سازد.</p></div>
+        </div>
+        <div class="sys-tools"><span>Twilio</span><span>ElevenLabs</span><span>OpenAI</span><span>Make</span><span>Airtable</span></div>
+        <p class="smx-honesty">در قالب مفهوم سامانه — نقشه‌ای قابل‌ساخت، نه ادعایی درباره‌ی نتایج مشتریان.</p>
+        <div class="smx-actions">
+          <a href="contact.html" class="btn-gold magnetic">
+            <span>این سامانه را بسازیم</span>
+            <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SYSTEM VAULT — FILTERABLE CAPSULES ============ -->
+<section class="dk-section" id="systems" style="padding-top: 30px;" aria-labelledby="vaultTitle">
+  <div class="container">
+    <div class="dk-label reveal">گنجینه‌ی سامانه‌ها</div>
+    <h2 class="dk-title reveal" id="vaultTitle">هشت سامانه‌ی دیگر از روی <span class="gold-word">میز طراحی</span>.</h2>
+    <p class="dk-sub reveal">
+      بر اساس تخصص فیلتر کنید و پیش‌نمایش هر سامانه را باز کنید تا معماری و منطق
+      کاملش را ببینید. هر کارت برچسبی صادقانه دارد — مفهوم سامانه، پیش‌نمایش نمونه‌ی
+      اولیه یا معماری نمایشی.
+    </p>
+
+    <div class="filter-bar reveal" id="filterBar" role="group" aria-label="فیلتر سامانه‌ها بر اساس تخصص">
+      <button class="filter-btn active" data-filter="all">همه‌ی سامانه‌ها</button>
+      <button class="filter-btn" data-filter="agents">دستیارهای هوشمند</button>
+      <button class="filter-btn" data-filter="automations">اتوماسیون‌ها</button>
+      <button class="filter-btn" data-filter="websites">وب‌سایت‌ها</button>
+      <button class="filter-btn" data-filter="crm">سامانه‌های CRM</button>
+      <button class="filter-btn" data-filter="dashboards">داشبوردها</button>
+      <button class="filter-btn" data-filter="content">سامانه‌های محتوا</button>
+    </div>
+
+    <div class="sys-grid">
+
+      <!-- SYS.002 FLOWLINE -->
+      <article class="sys-card project-card reveal" data-cat="crm" data-sys="flowline">
+        <div class="sys-glare" aria-hidden="true"></div>
+        <header class="sys-head">
+          <span class="sys-code">SYS.002 — FLOWLINE</span>
+          <span class="sys-status demo"><i aria-hidden="true"></i>معماری نمایشی</span>
+        </header>
+        <div class="sys-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 150">
+            <rect x="16" y="18" width="64" height="112" rx="8" fill="rgba(12,21,36,.03)" stroke="rgba(12,21,36,.10)"/>
+            <rect x="88" y="18" width="64" height="112" rx="8" fill="rgba(12,21,36,.03)" stroke="rgba(12,21,36,.10)"/>
+            <rect x="160" y="18" width="64" height="112" rx="8" fill="rgba(12,21,36,.03)" stroke="rgba(47,107,224,.4)"/>
+            <text class="v-mono" x="24" y="34" font-size="8" fill="#78716C">جدید</text>
+            <text class="v-mono" x="96" y="34" font-size="8" fill="#78716C">واجد شرایط</text>
+            <text class="v-mono" x="168" y="34" font-size="8" fill="#0B3FB0">ارجاع‌شده</text>
+            <rect x="22" y="44" width="52" height="15" rx="4" fill="rgba(12,21,36,.06)"/>
+            <rect x="22" y="64" width="52" height="15" rx="4" fill="rgba(12,21,36,.06)"/>
+            <rect x="94" y="44" width="52" height="15" rx="4" fill="rgba(12,21,36,.08)"/>
+            <rect x="166" y="44" width="52" height="15" rx="4" fill="rgba(47,107,224,.25)"/>
+            <rect class="v-card-move" x="22" y="86" width="52" height="15" rx="4" fill="rgba(47,107,224,.55)"/>
+            <text class="v-mono v-blink" x="70" y="145" font-size="8.5" fill="#0B3FB0">ثبت ← امتیاز ← ارجاع</text>
+          </svg>
+        </div>
+        <div class="sys-body">
+          <span class="sys-cat">سامانه‌های CRM</span>
+          <h3><span class="code-name">Flowline</span> — جذب مشتری و قیف فروش CRM</h3>
+          <p class="sys-desc">
+            منابع متعدد جذب مشتری، یک سیستم عصبی. هر مشتری بالقوه‌ای که وارد می‌شود ثبت، تکمیل و با هوش مصنوعی امتیازدهی می‌شود و همراه با یک پیام اول آماده، تا وقتی هنوز داغ است، به دست فرد مناسب می‌رسد.
+          </p>
+          <div class="sys-metrics qual" data-label="منطق سامانه">
+            <div class="sm"><b>همه‌ی منابع در یک ورودی جمع می‌شوند</b></div>
+            <div class="sm"><b>هوش مصنوعی پیش از انسان امتیاز می‌دهد</b></div>
+            <div class="sm"><b>کارشناس فروش با خلاصه‌ی کامل خبردار می‌شود</b></div>
+          </div>
+          <div class="sys-tools"><span>Make</span><span>HubSpot</span><span>OpenAI</span><span>Twilio</span></div>
+          <button class="sys-cta" aria-haspopup="dialog">
+            <span class="sys-cta-label">پیش‌نمایش سامانه</span>
+            <svg class="rtl-flip" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <template data-sys-tpl="flowline">
+          <header class="smx-head">
+            <span class="sys-code">SYS.002 — FLOWLINE</span>
+            <span class="sys-status demo"><i aria-hidden="true"></i>معماری نمایشی</span>
+          </header>
+          <h3 class="smx-title"><span class="code-name">Flowline</span> — جذب مشتری و قیف فروش CRM</h3>
+          <div class="sd-label">معماری سامانه</div>
+          <div class="flow">
+            <span class="fnode">منابع مشتری</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">وب‌هوک‌های Make</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode hub">تکمیل و امتیاز با AI</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">قیف فروش HubSpot</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">پیامک فوری + هشدار به کارشناس</span>
+          </div>
+          <div class="smx-grid">
+            <div class="smx-block"><h4>طراحی‌شده برای</h4><p>تیم‌هایی که مشتریان بالقوه‌شان از تبلیغات، فرم‌ها، معرفی‌ها و بازارچه‌ها به صندوق‌های جداگانه می‌رسند — جایی که سرعت اولین پاسخ تعیین می‌کند معامله به چه کسی می‌رسد.</p></div>
+            <div class="smx-block"><h4>منطق کار</h4><p>همه‌ی منابع به یک قیف می‌ریزند. اطلاعات مشتری تکمیل می‌شود، هوش مصنوعی میزان علاقه‌اش را امتیاز می‌دهد و به شکل یک معامله‌ی تمیز در CRM ثبت می‌شود. مشتری بالقوه بلافاصله یک پیام شخصی دریافت می‌کند و کارشناس فروش، مشتری را همراه با یک خلاصه‌ی یک‌پاراگرافی تحویل می‌گیرد.</p></div>
+            <div class="smx-block"><h4>جایی که انسان در چرخه می‌ماند</h4><p>بعد از پیام اول، همه‌ی گفتگوها با کارشناسان فروش است. آستانه‌های امتیازدهی با هماهنگی شما تنظیم می‌شوند — سامانه هرگز بی‌صدا اولویت‌ها را تغییر نمی‌دهد.</p></div>
+          </div>
+          <div class="sys-tools"><span>Make</span><span>HubSpot</span><span>OpenAI</span><span>Twilio</span></div>
+          <p class="smx-honesty">در قالب معماری نمایشی — نقشه‌ای قابل‌ساخت، نه ادعایی درباره‌ی نتایج مشتریان.</p>
+          <div class="smx-actions">
+            <a href="contact.html" class="btn-gold magnetic">
+              <span>این سامانه را بسازیم</span>
+              <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </template>
+      </article>
+
+      <!-- SYS.003 BOOKSMITH -->
+      <article class="sys-card project-card reveal" data-cat="automations" data-sys="booksmith" style="--d:.08s">
+        <div class="sys-glare" aria-hidden="true"></div>
+        <header class="sys-head">
+          <span class="sys-code">SYS.003 — BOOKSMITH</span>
+          <span class="sys-status proto"><i aria-hidden="true"></i>پیش‌نمایش نمونه‌ی اولیه</span>
+        </header>
+        <div class="sys-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 150">
+            <text class="v-mono" x="20" y="26" font-size="8.5" fill="#78716C">این هفته</text>
+            <text class="v-mono" x="164" y="26" font-size="8.5" fill="#0B3FB0">خودکار پر شد</text>
+            <g>
+              <rect x="20" y="38" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect x="56" y="38" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect x="92" y="38" width="30" height="22" rx="5" fill="rgba(12,21,36,.06)"/>
+              <rect x="128" y="38" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect x="164" y="38" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect x="200" y="38" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect class="v-pop d1" x="20" y="66" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect x="56" y="66" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect class="v-pop d2" x="92" y="66" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect x="128" y="66" width="30" height="22" rx="5" fill="rgba(12,21,36,.06)"/>
+              <rect class="v-pop d3" x="164" y="66" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect x="200" y="66" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect x="20" y="94" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect class="v-pop d4" x="56" y="94" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect x="92" y="94" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect x="128" y="94" width="30" height="22" rx="5" fill="rgba(47,107,224,.4)"/>
+              <rect class="v-blink" x="164" y="94" width="30" height="22" rx="5" fill="rgba(47,107,224,.55)"/>
+              <rect x="200" y="94" width="30" height="22" rx="5" fill="rgba(12,21,36,.06)"/>
+            </g>
+            <text class="v-mono" x="20" y="140" font-size="8.5" fill="#78716C">بیعانه پرداخت شد · یادآوری رفت · محافظ غیبت روشن</text>
+          </svg>
+        </div>
+        <div class="sys-body">
+          <span class="sys-cat">اتوماسیون‌ها</span>
+          <h3><span class="code-name">Booksmith</span> — نوبت‌دهی هوشمند</h3>
+          <p class="sys-desc">
+            موتور نوبت‌دهی برای کسب‌وکارهای چندشعبه‌ای که بیعانه می‌گیرد، یادآوری‌های پلکانی می‌فرستد و نوبت‌های لغوشده را خودکار از لیست انتظار پر می‌کند — بدون تماس‌های پی‌درپی، بدون نوبت تکراری.
+          </p>
+          <div class="sys-metrics qual" data-label="منطق سامانه">
+            <div class="sm"><b>نوبت فقط با بیعانه قطعی می‌شود</b></div>
+            <div class="sm"><b>یادآوری‌ها کانال‌به‌کانال پیش می‌روند</b></div>
+            <div class="sm"><b>لغو نوبت ← پیشنهاد فوری به لیست انتظار</b></div>
+          </div>
+          <div class="sys-tools"><span>GoHighLevel</span><span>Twilio</span><span>Stripe</span><span>n8n</span></div>
+          <button class="sys-cta" aria-haspopup="dialog">
+            <span class="sys-cta-label">پیش‌نمایش سامانه</span>
+            <svg class="rtl-flip" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <template data-sys-tpl="booksmith">
+          <header class="smx-head">
+            <span class="sys-code">SYS.003 — BOOKSMITH</span>
+            <span class="sys-status proto"><i aria-hidden="true"></i>پیش‌نمایش نمونه‌ی اولیه</span>
+          </header>
+          <h3 class="smx-title"><span class="code-name">Booksmith</span> — نوبت‌دهی هوشمند</h3>
+          <div class="sd-label">معماری سامانه</div>
+          <div class="flow">
+            <span class="fnode">ابزارک سایت</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode hub">تقویم GoHighLevel</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">بیعانه با Stripe</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">زنجیره‌ی یادآوری پیامکی</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">پر کردن خودکار از لیست انتظار</span>
+          </div>
+          <div class="smx-grid">
+            <div class="smx-block"><h4>طراحی‌شده برای</h4><p>کسب‌وکارهای نوبت‌محوری که در آن‌ها نوبت خالی و نوبت تکراری یک هزینه دارند: پول و اعتماد.</p></div>
+            <div class="smx-block"><h4>منطق کار</h4><p>هیچ نوبتی تا تسویه‌ی بیعانه قطعی نمی‌شود. با نزدیک شدن زمان نوبت، یادآوری‌ها از ایمیل به پیامک و بعد به تماس صوتی می‌رسند. به محض لغو هر نوبت، آن زمان خودکار به لیست انتظار پیشنهاد می‌شود — در همه‌ی شعبه‌ها و از روی یک تقویم مرجع.</p></div>
+            <div class="smx-block"><h4>جایی که انسان در چرخه می‌ماند</h4><p>کارکنان می‌توانند هر نوبتی را متوقف، جابه‌جا یا دستی ثبت کنند. قوانین بازپرداخت و تغییر نوبت مال شماست — یک بار تعریف و همیشه یکسان اجرا می‌شود.</p></div>
+          </div>
+          <div class="sys-tools"><span>GoHighLevel</span><span>Twilio</span><span>Stripe</span><span>n8n</span></div>
+          <p class="smx-honesty">در قالب پیش‌نمایش نمونه‌ی اولیه — نقشه‌ای قابل‌ساخت، نه ادعایی درباره‌ی نتایج مشتریان.</p>
+          <div class="smx-actions">
+            <a href="contact.html" class="btn-gold magnetic">
+              <span>این سامانه را بسازیم</span>
+              <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </template>
+      </article>
+
+      <!-- SYS.004 SENTINEL -->
+      <article class="sys-card project-card reveal" data-cat="agents" data-sys="sentinel">
+        <div class="sys-glare" aria-hidden="true"></div>
+        <header class="sys-head">
+          <span class="sys-code">SYS.004 — SENTINEL</span>
+          <span class="sys-status demo"><i aria-hidden="true"></i>معماری نمایشی</span>
+        </header>
+        <div class="sys-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 150">
+            <rect x="20" y="20" width="130" height="24" rx="12" fill="rgba(12,21,36,.05)"/>
+            <text class="v-mono" x="32" y="35" font-size="8" fill="#57534E">سفارشم کجاست؟</text>
+            <rect class="v-pop d1" x="80" y="52" width="160" height="34" rx="12" fill="rgba(47,107,224,.22)" stroke="rgba(47,107,224,.4)"/>
+            <text class="v-mono v-pop d1" x="92" y="66" font-size="8" fill="#7A5504">امروز صبح ارسال شد —</text>
+            <text class="v-mono v-pop d1" x="92" y="78" font-size="8" fill="#7A5504">کد رهگیری به ایمیلتان رفت.</text>
+            <g class="v-typing" transform="translate(30, 100)">
+              <circle cx="0" cy="0" r="3"/><circle cx="10" cy="0" r="3"/><circle cx="20" cy="0" r="3"/>
+            </g>
+            <text class="v-mono v-blink" x="118" y="128" font-size="8.5" fill="#047857">تکراری ← حل خودکار</text>
+            <text class="v-mono" x="20" y="145" font-size="8" fill="#78716C">پیچیده ← انسان + سابقه‌ی کامل</text>
+          </svg>
+        </div>
+        <div class="sys-body">
+          <span class="sys-cat">دستیارهای هوشمند</span>
+          <h3><span class="code-name">Sentinel</span> — دستیار هوشمند پشتیبانی مشتری</h3>
+          <p class="sys-desc">
+            دستیار پشتیبانی‌ای که بر پایه‌ی راهنماها، کاتالوگ محصولات و داده‌ی زنده‌ی سفارش‌های شما کار می‌کند. اکثر درخواست‌های تکراری را فوراً حل می‌کند و موارد دشوار را با سابقه‌ی کامل به انسان می‌سپارد.
+          </p>
+          <div class="sys-metrics qual" data-label="منطق سامانه">
+            <div class="sm"><b>پاسخ‌ها مستند به داده‌ی سفارش</b></div>
+            <div class="sm"><b>موارد تکراری خودکار حل می‌شوند</b></div>
+            <div class="sm"><b>موارد حساس ← انسان، همراه با سابقه</b></div>
+          </div>
+          <div class="sys-tools"><span>OpenAI</span><span>Supabase</span><span>Make</span><span>Slack</span></div>
+          <button class="sys-cta" aria-haspopup="dialog">
+            <span class="sys-cta-label">پیش‌نمایش سامانه</span>
+            <svg class="rtl-flip" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <template data-sys-tpl="sentinel">
+          <header class="smx-head">
+            <span class="sys-code">SYS.004 — SENTINEL</span>
+            <span class="sys-status demo"><i aria-hidden="true"></i>معماری نمایشی</span>
+          </header>
+          <h3 class="smx-title"><span class="code-name">Sentinel</span> — دستیار هوشمند پشتیبانی مشتری</h3>
+          <div class="sd-label">معماری سامانه</div>
+          <div class="flow">
+            <span class="fnode">صندوق ایمیل و چت</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode hub">موتور RAG · بردارهای Supabase</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">استعلام از API سفارش</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">حل خودکار</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">ارجاع در Slack</span>
+          </div>
+          <div class="smx-grid">
+            <div class="smx-block"><h4>طراحی‌شده برای</h4><p>صندوق‌های پشتیبانی‌ای که سؤال‌های تکراری — وضعیت سفارش، مرجوعی، سایز — گفتگوهایی را که واقعاً به انسان نیاز دارند زیر خود دفن می‌کنند.</p></div>
+            <div class="smx-block"><h4>منطق کار</h4><p>هر پیام ورودی از یک موتور بازیابی پاسخ می‌گیرد که بر پایه‌ی راهنماها، کاتالوگ و داده‌ی زنده‌ی سفارش‌های شما ساخته شده — پس پاسخ‌ها به واقعیت استناد می‌کنند، نه حدس. درخواست‌های تکراری خودکار حل و بسته می‌شوند. هر مورد حساسی — حقوقی، مشتری ویژه، مشتری عصبانی — همراه با یک خلاصه‌ی یک‌پاراگرافی و پاسخ پیشنهادی، در Slack به یک انسان ارجاع می‌شود.</p></div>
+            <div class="smx-block"><h4>جایی که انسان در چرخه می‌ماند</h4><p>قوانین ارجاع شفاف و قابل‌بازبینی‌اند. دستیار هرگز به اختیار خودش پولی برنمی‌گرداند، سفارشی را تغییر نمی‌دهد یا قولی نمی‌دهد.</p></div>
+          </div>
+          <div class="sys-tools"><span>OpenAI</span><span>Supabase</span><span>Make</span><span>Slack</span></div>
+          <p class="smx-honesty">در قالب معماری نمایشی — نقشه‌ای قابل‌ساخت، نه ادعایی درباره‌ی نتایج مشتریان.</p>
+          <div class="smx-actions">
+            <a href="contact.html" class="btn-gold magnetic">
+              <span>این سامانه را بسازیم</span>
+              <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </template>
+      </article>
+
+      <!-- SYS.005 LEDGERLIGHT -->
+      <article class="sys-card project-card reveal" data-cat="dashboards" data-sys="ledgerlight" style="--d:.08s">
+        <div class="sys-glare" aria-hidden="true"></div>
+        <header class="sys-head">
+          <span class="sys-code">SYS.005 — LEDGERLIGHT</span>
+          <span class="sys-status proto"><i aria-hidden="true"></i>پیش‌نمایش نمونه‌ی اولیه</span>
+        </header>
+        <div class="sys-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 150">
+            <line x1="20" y1="118" x2="128" y2="118" stroke="rgba(12,21,36,.12)"/>
+            <rect class="v-bar" x="26" y="78" width="18" height="40" rx="3" fill="rgba(47,107,224,.35)"/>
+            <rect class="v-bar" x="52" y="62" width="18" height="56" rx="3" fill="rgba(47,107,224,.5)"/>
+            <rect class="v-bar" x="78" y="48" width="18" height="70" rx="3" fill="rgba(47,107,224,.65)"/>
+            <rect class="v-bar" x="104" y="30" width="18" height="88" rx="3" fill="rgba(228,205,151,.85)"/>
+            <text class="v-mono" x="20" y="138" font-size="8" fill="#78716C">پیگیری مطالبات · فعال</text>
+            <g class="v-mono" font-size="8.5">
+              <text x="150" y="42" fill="#57534E">INV-2041</text><text class="v-pop d1" x="215" y="42" fill="#047857">پرداخت شد</text>
+              <text x="150" y="66" fill="#57534E">INV-2042</text><text class="v-pop d2" x="215" y="66" fill="#047857">پرداخت شد</text>
+              <text x="150" y="90" fill="#57534E">INV-2043</text><text class="v-pop d3 v-blink" x="215" y="90" fill="#0B3FB0">در پیگیری</text>
+              <text x="150" y="114" fill="#57534E">INV-2044</text><text class="v-pop d4" x="215" y="114" fill="#78716C">پیش‌نویس</text>
+            </g>
+          </svg>
+        </div>
+        <div class="sys-body">
+          <span class="sys-cat">داشبوردها</span>
+          <h3><span class="code-name">Ledgerlight</span> — داشبورد فاکتور و امور اداری</h3>
+          <p class="sys-desc">
+            یک واحد اداری، فشرده در یک صفحه. فاکتورها از کارهای انجام‌شده خودشان صادر می‌شوند، مؤدبانه خودشان را پیگیری می‌کنند و وضعیت نقدینگی را لحظه‌به‌لحظه گزارش می‌دهند.
+          </p>
+          <div class="sys-metrics qual" data-label="منطق سامانه">
+            <div class="sm"><b>اتمام کار، فاکتور را صادر می‌کند</b></div>
+            <div class="sm"><b>پرداخت‌نشده ← پیگیری مؤدبانه</b></div>
+            <div class="sm"><b>وضعیت نقدینگی همیشه زنده</b></div>
+          </div>
+          <div class="sys-tools"><span>n8n</span><span>Airtable</span><span>Google Sheets</span><span>OpenAI</span></div>
+          <button class="sys-cta" aria-haspopup="dialog">
+            <span class="sys-cta-label">پیش‌نمایش سامانه</span>
+            <svg class="rtl-flip" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <template data-sys-tpl="ledgerlight">
+          <header class="smx-head">
+            <span class="sys-code">SYS.005 — LEDGERLIGHT</span>
+            <span class="sys-status proto"><i aria-hidden="true"></i>پیش‌نمایش نمونه‌ی اولیه</span>
+          </header>
+          <h3 class="smx-title"><span class="code-name">Ledgerlight</span> — داشبورد فاکتور و امور اداری</h3>
+          <div class="sd-label">معماری سامانه</div>
+          <div class="flow">
+            <span class="fnode">رویداد اتمام کار</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode hub">صدور فاکتور با n8n</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">زنجیره‌ی پیگیری مؤدبانه</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">دفتر حساب Airtable</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">داشبورد زنده‌ی نقدینگی</span>
+          </div>
+          <div class="smx-grid">
+            <div class="smx-block"><h4>طراحی‌شده برای</h4><p>بنیان‌گذارانی که وضعیت نقدینگی‌شان در ذهنشان و سه فایل اکسل است — و عصرهای آخر هفته‌شان صرف صدور فاکتور می‌شود.</p></div>
+            <div class="smx-block"><h4>منطق کار</h4><p>اتمام هر پروژه، ظرف یک ساعت فاکتورش را صادر می‌کند. فاکتورهای پرداخت‌نشده وارد یک زنجیره‌ی پیگیری گرم و پلکانی می‌شوند که با لحن خود شما نوشته شده. دفتر حساب و داشبورد نقدینگی لحظه‌به‌لحظه به‌روز می‌شوند — موجودی نقد، سن مطالبات و پیش‌بینی، روی یک صفحه.</p></div>
+            <div class="smx-block"><h4>جایی که انسان در چرخه می‌ماند</h4><p>پیگیری به محض پاسخ مشتری متوقف می‌شود. سوخت کردن طلب، تخفیف و تقسیط همیشه به تأیید یک انسان نیاز دارد.</p></div>
+          </div>
+          <div class="sys-tools"><span>n8n</span><span>Airtable</span><span>Google Sheets</span><span>OpenAI</span></div>
+          <p class="smx-honesty">در قالب پیش‌نمایش نمونه‌ی اولیه — نقشه‌ای قابل‌ساخت، نه ادعایی درباره‌ی نتایج مشتریان.</p>
+          <div class="smx-actions">
+            <a href="contact.html" class="btn-gold magnetic">
+              <span>این سامانه را بسازیم</span>
+              <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </template>
+      </article>
+
+      <!-- SYS.006 PULSEFEED -->
+      <article class="sys-card project-card reveal" data-cat="content" data-sys="pulsefeed">
+        <div class="sys-glare" aria-hidden="true"></div>
+        <header class="sys-head">
+          <span class="sys-code">SYS.006 — PULSEFEED</span>
+          <span class="sys-status demo"><i aria-hidden="true"></i>معماری نمایشی</span>
+        </header>
+        <div class="sys-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 150">
+            <text class="v-mono" x="20" y="26" font-size="8.5" fill="#78716C">تقویم محتوا · خودکار پر شد</text>
+            <g>
+              <rect x="20" y="38" width="40" height="28" rx="6" fill="rgba(47,107,224,.4)"/>
+              <rect class="v-pop d1" x="66" y="38" width="40" height="28" rx="6" fill="rgba(47,107,224,.4)"/>
+              <rect x="112" y="38" width="40" height="28" rx="6" fill="rgba(47,107,224,.4)"/>
+              <rect class="v-pop d2" x="158" y="38" width="40" height="28" rx="6" fill="rgba(47,107,224,.4)"/>
+              <rect x="204" y="38" width="36" height="28" rx="6" fill="rgba(47,107,224,.4)"/>
+              <rect class="v-pop d3" x="20" y="72" width="40" height="28" rx="6" fill="rgba(47,107,224,.4)"/>
+              <rect x="66" y="72" width="40" height="28" rx="6" fill="rgba(47,107,224,.4)"/>
+              <rect class="v-pop d4" x="112" y="72" width="40" height="28" rx="6" fill="rgba(47,107,224,.4)"/>
+              <rect x="158" y="72" width="40" height="28" rx="6" fill="rgba(47,107,224,.4)"/>
+              <rect class="v-blink" x="204" y="72" width="36" height="28" rx="6" fill="rgba(47,107,224,.5)"/>
+            </g>
+            <text class="v-mono" x="20" y="122" font-size="8.5" fill="#0B3FB0">پیش‌نویس ← تأیید ← انتشار</text>
+            <text class="v-mono" x="20" y="138" font-size="8" fill="#78716C">دروازه‌ی تأیید انسانی · همیشه فعال</text>
+          </svg>
+        </div>
+        <div class="sys-body">
+          <span class="sys-cat">سامانه‌های محتوا</span>
+          <h3><span class="code-name">Pulsefeed</span> — موتور اتوماسیون محتوای شبکه‌های اجتماعی</h3>
+          <p class="sys-desc">
+            موتوری که یک پیام صوتی هفتگی را به یک هفته پست هماهنگ با برند تبدیل می‌کند. پیش‌نویس‌ها برای تأیید به Slack می‌رسند؛ محتوای تأییدشده خودش در لینکدین و اینستاگرام زمان‌بندی می‌شود.
+          </p>
+          <div class="sys-metrics qual" data-label="منطق سامانه">
+            <div class="sm"><b>یک پیام صوتی، یک هفته پیش‌نویس</b></div>
+            <div class="sm"><b>هیچ چیز بی‌تأیید منتشر نمی‌شود</b></div>
+            <div class="sm"><b>پست‌های موفق خودکار بازنشر می‌شوند</b></div>
+          </div>
+          <div class="sys-tools"><span>Airtable</span><span>OpenAI</span><span>Make</span><span>Meta API</span></div>
+          <button class="sys-cta" aria-haspopup="dialog">
+            <span class="sys-cta-label">پیش‌نمایش سامانه</span>
+            <svg class="rtl-flip" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <template data-sys-tpl="pulsefeed">
+          <header class="smx-head">
+            <span class="sys-code">SYS.006 — PULSEFEED</span>
+            <span class="sys-status demo"><i aria-hidden="true"></i>معماری نمایشی</span>
+          </header>
+          <h3 class="smx-title"><span class="code-name">Pulsefeed</span> — موتور اتوماسیون محتوای شبکه‌های اجتماعی</h3>
+          <div class="sd-label">معماری سامانه</div>
+          <div class="flow">
+            <span class="fnode">ارسال پیام صوتی</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode hub">موتور پیش‌نویس با لحن برند</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">تأیید در Slack</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">صف Airtable</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">انتشار خودکار</span>
+          </div>
+          <div class="smx-grid">
+            <div class="smx-block"><h4>طراحی‌شده برای</h4><p>بنیان‌گذارانی که می‌دانند محتوا مشتری می‌آورد اما هیچ‌وقت هفته‌ای را که لازم دارد ندارند — و چیزی را که به لحن خودشان نباشد منتشر نمی‌کنند.</p></div>
+            <div class="smx-block"><h4>منطق کار</h4><p>یک پیام صوتی پراکنده به یک هفته پیش‌نویس تبدیل می‌شود که موتوری تنظیم‌شده بر لحن و پست‌های قبلی شما آن‌ها را می‌نویسد. پیش‌نویس‌ها در Slack می‌نشینند و با یک ایموجی تأیید می‌شوند. قالب‌بندی، زمان‌بندی و بازنشر پست‌های موفق کار ماشین است — ایده‌ها مال خودتان می‌ماند.</p></div>
+            <div class="smx-block"><h4>جایی که انسان در چرخه می‌ماند</h4><p>هیچ چیز بدون تأیید صریح منتشر نمی‌شود. این دروازه بخشی از ساختار است — هیچ مسیر انتشار خودکاری از کنارش نمی‌گذرد.</p></div>
+          </div>
+          <div class="sys-tools"><span>Airtable</span><span>OpenAI</span><span>Make</span><span>Meta API</span></div>
+          <p class="smx-honesty">در قالب معماری نمایشی — نقشه‌ای قابل‌ساخت، نه ادعایی درباره‌ی نتایج مشتریان.</p>
+          <div class="smx-actions">
+            <a href="contact.html" class="btn-gold magnetic">
+              <span>این سامانه را بسازیم</span>
+              <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </template>
+      </article>
+
+      <!-- SYS.007 KEYHOLDER -->
+      <article class="sys-card project-card reveal" data-cat="agents" data-sys="keyholder" style="--d:.08s">
+        <div class="sys-glare" aria-hidden="true"></div>
+        <header class="sys-head">
+          <span class="sys-code">SYS.007 — KEYHOLDER</span>
+          <span class="sys-status concept"><i aria-hidden="true"></i>مفهوم سامانه</span>
+        </header>
+        <div class="sys-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 150">
+            <rect x="20" y="22" width="110" height="22" rx="11" fill="rgba(12,21,36,.05)"/>
+            <text class="v-mono" x="30" y="36" font-size="7.5" fill="#57534E">محدوده‌ی بودجه؟</text>
+            <rect class="v-pop d1" x="52" y="50" width="98" height="22" rx="11" fill="rgba(47,107,224,.2)"/>
+            <text class="v-mono v-pop d1" x="62" y="64" font-size="7.5" fill="#7A5504">۱۵ تا ۲۰ میلیارد تومان</text>
+            <rect class="v-pop d2" x="20" y="78" width="120" height="22" rx="11" fill="rgba(12,21,36,.05)"/>
+            <text class="v-mono v-pop d2" x="30" y="92" font-size="7.5" fill="#57534E">وام تأییدشده · بله</text>
+            <path class="v-draw" d="M 175 108 A 38 38 0 1 1 235 108" stroke="#2F6BE0" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text class="v-mono v-pop d3" x="190" y="95" font-size="9" fill="#0B3FB0">امتیاز</text>
+            <text class="v-mono v-pop d3" x="178" y="112" font-size="7.5" fill="#047857">ارجاع: مشاور</text>
+            <text class="v-mono" x="20" y="140" font-size="8" fill="#78716C">واجد شرایط ← مشاور · با خلاصه</text>
+          </svg>
+        </div>
+        <div class="sys-body">
+          <span class="sys-cat">دستیارهای هوشمند</span>
+          <h3><span class="code-name">Keyholder</span> — ربات ارزیابی مشتریان املاک</h3>
+          <p class="sys-desc">
+            دستیاری در واتس‌اپ که ظرف یک دقیقه با هر مشتری‌ای که از سایت‌های آگهی می‌آید گفتگو می‌کند — بودجه، زمان‌بندی، تأمین مالی — و فقط خریدارانی را که ارزش آخر هفته‌ی مشاوران را دارند، همراه با یک خلاصه به آن‌ها می‌سپارد.
+          </p>
+          <div class="sys-metrics qual" data-label="منطق سامانه">
+            <div class="sm"><b>گفتگو با همه‌ی مشتریان در چت</b></div>
+            <div class="sm"><b>امتیاز، مسیر را تعیین می‌کند</b></div>
+            <div class="sm"><b>مشتریان سرد رها نمی‌شوند، پرورش می‌یابند</b></div>
+          </div>
+          <div class="sys-tools"><span>OpenAI</span><span>WhatsApp API</span><span>n8n</span><span>GoHighLevel</span></div>
+          <button class="sys-cta" aria-haspopup="dialog">
+            <span class="sys-cta-label">پیش‌نمایش سامانه</span>
+            <svg class="rtl-flip" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <template data-sys-tpl="keyholder">
+          <header class="smx-head">
+            <span class="sys-code">SYS.007 — KEYHOLDER</span>
+            <span class="sys-status concept"><i aria-hidden="true"></i>مفهوم سامانه</span>
+          </header>
+          <h3 class="smx-title"><span class="code-name">Keyholder</span> — ربات ارزیابی مشتریان املاک</h3>
+          <div class="sd-label">معماری سامانه</div>
+          <div class="flow">
+            <span class="fnode">مشتریان سایت‌های آگهی</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode hub">دستیار ارزیاب واتس‌اپ</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">امتیازدهی به قصد خرید</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">داغ ← مشاور + خلاصه</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">گرم ← چرخه‌ی پرورش</span>
+          </div>
+          <div class="smx-grid">
+            <div class="smx-block"><h4>طراحی‌شده برای</h4><p>دفترهای املاکی که برای آگهی و مشتری هزینه‌ی زیادی می‌دهند اما مشتری پیش از اولین تماس سرد می‌شود — و مشاورانی که از ارزیابی مشتریان بی‌قصد خرید خسته‌اند.</p></div>
+            <div class="smx-block"><h4>منطق کار</h4><p>هر مشتری ظرف یک دقیقه یک گفتگوی طبیعی در واتس‌اپ دارد — بودجه، زمان‌بندی، تأمین مالی، قصد خرید. امتیاز، مسیر را تعیین می‌کند: خریداران واجد شرایط همراه با خلاصه‌ی آماده روی گوشی مشاور می‌نشینند؛ بقیه وارد یک چرخه‌ی صبورانه‌ی پرورش می‌شوند تا هر وقت آماده بودند برگردند.</p></div>
+            <div class="smx-block"><h4>جایی که انسان در چرخه می‌ماند</h4><p>بعد از ارجاع، همه‌ی گفتگوها با مشاوران است. آهنگ پیگیری با شما بازبینی می‌شود — برنامه‌ای که خودتان تأییدش می‌کنید، نه یک جعبه‌ی سیاه.</p></div>
+          </div>
+          <div class="sys-tools"><span>OpenAI</span><span>WhatsApp API</span><span>n8n</span><span>GoHighLevel</span></div>
+          <p class="smx-honesty">در قالب مفهوم سامانه — نقشه‌ای قابل‌ساخت، نه ادعایی درباره‌ی نتایج مشتریان.</p>
+          <div class="smx-actions">
+            <a href="contact.html" class="btn-gold magnetic">
+              <span>این سامانه را بسازیم</span>
+              <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </template>
+      </article>
+
+      <!-- SYS.008 MEDLOOP -->
+      <article class="sys-card project-card reveal" data-cat="automations" data-sys="medloop">
+        <div class="sys-glare" aria-hidden="true"></div>
+        <header class="sys-head">
+          <span class="sys-code">SYS.008 — MEDLOOP</span>
+          <span class="sys-status concept"><i aria-hidden="true"></i>مفهوم سامانه</span>
+        </header>
+        <div class="sys-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 150">
+            <text class="v-mono" x="20" y="26" font-size="8.5" fill="#78716C">سه‌شنبه · برنامه‌ی کلینیک</text>
+            <g class="v-mono" font-size="8">
+              <rect x="20" y="36" width="150" height="18" rx="4" fill="rgba(47,107,224,.3)"/>
+              <text x="28" y="48" fill="#7A5504">۰۹:۰۰ — پذیرش تکمیل شد</text>
+              <rect x="20" y="60" width="150" height="18" rx="4" fill="rgba(47,107,224,.3)"/>
+              <text x="28" y="72" fill="#7A5504">۱۰:۳۰ — دو بار یادآوری شد</text>
+              <rect class="v-blink" x="20" y="84" width="150" height="18" rx="4" fill="none" stroke="rgba(161,98,7,.5)" stroke-dasharray="4 4"/>
+              <text x="28" y="96" fill="#0B3FB0">۱۱:۱۵ — لغو شد</text>
+              <rect class="v-pop d2" x="20" y="108" width="150" height="18" rx="4" fill="rgba(16,185,129,.12)"/>
+              <text class="v-pop d2" x="28" y="120" fill="#047857">۱۱:۱۵ — از لیست انتظار پر شد</text>
+            </g>
+            <path class="v-line" d="M 200 118 C 220 118 220 94 196 93" fill="none"/>
+            <rect x="186" y="118" width="56" height="20" rx="10" fill="rgba(47,107,224,.2)" stroke="rgba(47,107,224,.4)"/>
+            <text class="v-mono" x="196" y="131" font-size="7.5" fill="#7A5504">لیست انتظار</text>
+          </svg>
+        </div>
+        <div class="sys-body">
+          <span class="sys-cat">اتوماسیون‌ها</span>
+          <h3><span class="code-name">Medloop</span> — اتوماسیون نوبت‌دهی کلینیک</h3>
+          <p class="sys-desc">
+            مفهوم یک سامانه برای کلینیک‌های خصوصی: پذیرش گفتگومحور پیش از مراجعه، یادآوری‌های زنجیره‌ای که بیماران واقعاً جوابشان را می‌دهند، و پر شدن نوبت‌های لغوشده از لیست انتظار در چند ثانیه — نه چند روز.
+          </p>
+          <div class="sys-metrics qual" data-label="منطق سامانه">
+            <div class="sm"><b>پذیرش پیش از مراجعه انجام می‌شود</b></div>
+            <div class="sm"><b>یادآوری از کانال دلخواه هر بیمار</b></div>
+            <div class="sm"><b>نوبت‌های لغوشده از لیست انتظار پر می‌شوند</b></div>
+          </div>
+          <div class="sys-tools"><span>Make</span><span>Airtable</span><span>Twilio</span><span>OpenAI</span></div>
+          <button class="sys-cta" aria-haspopup="dialog">
+            <span class="sys-cta-label">پیش‌نمایش سامانه</span>
+            <svg class="rtl-flip" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <template data-sys-tpl="medloop">
+          <header class="smx-head">
+            <span class="sys-code">SYS.008 — MEDLOOP</span>
+            <span class="sys-status concept"><i aria-hidden="true"></i>مفهوم سامانه</span>
+          </header>
+          <h3 class="smx-title"><span class="code-name">Medloop</span> — اتوماسیون نوبت‌دهی کلینیک</h3>
+          <div class="sd-label">معماری سامانه</div>
+          <div class="flow">
+            <span class="fnode">فرم پذیرش هوشمند</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode hub">هسته‌ی زمان‌بندی</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">زنجیره‌ی یادآوری</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">تشخیص لغو نوبت</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">پر کردن از لیست انتظار</span>
+          </div>
+          <div class="smx-grid">
+            <div class="smx-block"><h4>طراحی‌شده برای</h4><p>کلینیک‌های خصوصی‌ای که پذیرششان تمام روز پای تلفن است — پذیرش، جابه‌جایی نوبت، یادآوری — در حالی که بیماران نوبت‌دار بی‌صدا نمی‌آیند.</p></div>
+            <div class="smx-block"><h4>منطق کار</h4><p>بیماران پیش از مراجعه، پذیرش را در قالب یک گفتگو کامل می‌کنند. یادآوری‌ها از کانال‌هایی پیش می‌روند که هر بیمار واقعاً می‌خواند. هر لغو نوبت فوراً به لیست انتظار پیشنهاد می‌شود تا برنامه به جای نشت کردن، خودش را ترمیم کند.</p></div>
+            <div class="smx-block"><h4>جایی که انسان در چرخه می‌ماند</h4><p>سؤال‌های پزشکی همیشه به کادر کلینیک ارجاع می‌شوند. از اولین طرح با رعایت حریم داده‌ی بیماران طراحی شده: اطلاعات بیمار در سامانه‌های خود کلینیک می‌ماند.</p></div>
+          </div>
+          <div class="sys-tools"><span>Make</span><span>Airtable</span><span>Twilio</span><span>OpenAI</span></div>
+          <p class="smx-honesty">در قالب مفهوم سامانه — نقشه‌ای قابل‌ساخت، نه ادعایی درباره‌ی نتایج مشتریان.</p>
+          <div class="smx-actions">
+            <a href="contact.html" class="btn-gold magnetic">
+              <span>این سامانه را بسازیم</span>
+              <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </template>
+      </article>
+
+      <!-- SYS.009 STOREFRONT -->
+      <article class="sys-card project-card reveal" data-cat="websites" data-sys="storefront" style="--d:.08s">
+        <div class="sys-glare" aria-hidden="true"></div>
+        <header class="sys-head">
+          <span class="sys-code">SYS.009 — STOREFRONT</span>
+          <span class="sys-status proto"><i aria-hidden="true"></i>پیش‌نمایش نمونه‌ی اولیه</span>
+        </header>
+        <div class="sys-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 150">
+            <rect x="20" y="18" width="220" height="118" rx="10" fill="rgba(12,21,36,.03)" stroke="rgba(12,21,36,.11)"/>
+            <circle cx="34" cy="30" r="3" fill="rgba(12,21,36,.16)"/>
+            <circle cx="45" cy="30" r="3" fill="rgba(12,21,36,.16)"/>
+            <circle cx="56" cy="30" r="3" fill="rgba(47,107,224,.6)"/>
+            <line x1="20" y1="42" x2="240" y2="42" stroke="rgba(244,239,230,.1)"/>
+            <path class="v-draw" d="M 48 108 A 26 26 0 1 1 88 108" stroke="#2F6BE0" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            <text class="v-mono v-pop d2" x="57" y="96" font-size="10" fill="#0B3FB0">زیر ۱ ثانیه</text>
+            <text class="v-mono" x="44" y="122" font-size="7" fill="#78716C">زمان بارگذاری</text>
+            <path class="v-draw" d="M 118 108 A 26 26 0 1 1 158 108" stroke="#2F6BE0" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            <text class="v-mono v-pop d3" x="128" y="96" font-size="10" fill="#0B3FB0">سئو</text>
+            <text class="v-mono" x="122" y="122" font-size="7" fill="#78716C">از پایه</text>
+            <text class="v-mono v-pop d4" x="178" y="86" font-size="9" fill="#047857">دستیار</text>
+            <text class="v-mono" x="180" y="100" font-size="7" fill="#78716C">پاسخ ۲۴/۷</text>
+            <text class="v-mono" x="180" y="112" font-size="7" fill="#78716C">متصل به نوبت‌دهی</text>
+          </svg>
+        </div>
+        <div class="sys-body">
+          <span class="sys-cat">وب‌سایت‌ها</span>
+          <h3><span class="code-name">Storefront</span> — وب‌سایت فروش‌محور و پلتفرم نوبت‌دهی</h3>
+          <p class="sys-desc">
+            یک سامانه‌ی وب‌سایت از پایه برای خدمات لوکس: طراحی سینمایی، بارگذاری زیر یک ثانیه، دستیار هوشمندی که پیش از شکل گرفتن تردید پاسخ می‌دهد، و نوبت‌دهی متصل مستقیم به Booksmith.
+          </p>
+          <div class="sys-metrics qual" data-label="منطق سامانه">
+            <div class="sm"><b>پیش از تردید، بارگذاری شده</b></div>
+            <div class="sm"><b>دستیار از روی قیمت‌های واقعی پاسخ می‌دهد</b></div>
+            <div class="sm"><b>هر بازدید به سمت رزرو هدایت می‌شود</b></div>
+          </div>
+          <div class="sys-tools"><span>Supabase</span><span>OpenAI</span><span>GoHighLevel</span></div>
+          <button class="sys-cta" aria-haspopup="dialog">
+            <span class="sys-cta-label">پیش‌نمایش سامانه</span>
+            <svg class="rtl-flip" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <template data-sys-tpl="storefront">
+          <header class="smx-head">
+            <span class="sys-code">SYS.009 — STOREFRONT</span>
+            <span class="sys-status proto"><i aria-hidden="true"></i>پیش‌نمایش نمونه‌ی اولیه</span>
+          </header>
+          <h3 class="smx-title"><span class="code-name">Storefront</span> — وب‌سایت فروش‌محور و پلتفرم نوبت‌دهی</h3>
+          <div class="sd-label">معماری سامانه</div>
+          <div class="flow">
+            <span class="fnode">سایت ایستا روی Edge</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode hub">چت دستیار هوشمند</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">موتور نوبت‌دهی</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">اتوماسیون نظرات</span><span class="farrow" aria-hidden="true"></span>
+            <span class="fnode">آمار با Supabase</span>
+          </div>
+          <div class="smx-grid">
+            <div class="smx-block"><h4>طراحی‌شده برای</h4><p>خدمات لوکسی که سایتشان ارزان‌تر از کارشان به نظر می‌رسد — و بازدیدکنندگانشان با سؤال‌هایی می‌روند که کسی بیدار نبود جوابشان را بدهد.</p></div>
+            <div class="smx-block"><h4>منطق کار</h4><p>یک سایت ایستا روی شبکه‌ی Edge با بارگذاری زیر یک ثانیه، برند را به دوش می‌کشد. دستیار هوشمندی که فقط روی خدمات و قیمت‌های شما آموزش دیده، در هر ساعتی با لحن شما پاسخ می‌دهد و هر مسیری در سایت به یک نوبت رزروشده ختم می‌شود. بعد از انجام کار، درخواست ثبت نظر خودکار ارسال می‌شود تا جایگاهتان در جست‌وجوی محلی تقویت شود.</p></div>
+            <div class="smx-block"><h4>جایی که انسان در چرخه می‌ماند</h4><p>دستیار به درخواست مشتری گفتگو را به یک انسان می‌سپارد، و پایگاه دانشش فقط شامل چیزهایی است که شما تأیید کرده‌اید — نه داده‌ی جمع‌شده از وب، نه حدس.</p></div>
+          </div>
+          <div class="sys-tools"><span>Supabase</span><span>OpenAI</span><span>GoHighLevel</span></div>
+          <p class="smx-honesty">در قالب پیش‌نمایش نمونه‌ی اولیه — نقشه‌ای قابل‌ساخت، نه ادعایی درباره‌ی نتایج مشتریان.</p>
+          <div class="smx-actions">
+            <a href="contact.html" class="btn-gold magnetic">
+              <span>این سامانه را بسازیم</span>
+              <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </template>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHOOSE YOUR BOTTLENECK ============ -->
+<section class="dk-section" id="recommender" aria-labelledby="recTitle">
+  <div class="container">
+    <div class="dk-label reveal">گلوگاه‌تان را انتخاب کنید</div>
+    <h2 class="dk-title reveal" id="recTitle">از دغدغه شروع کنید، نه از <span class="gold-word">فناوری</span>.</h2>
+    <p class="dk-sub reveal">
+      جمله‌ای را انتخاب کنید که بیشتر از همه شبیه هفته‌ی شماست. گنجینه، سامانه‌ای را
+      نشانتان می‌دهد که دقیقاً برای همان گلوگاه طراحی شده است.
+    </p>
+
+    <div class="rec-chips reveal" role="group" aria-label="گلوگاه‌های رایج">
+      <button class="rec-chip" data-rec="reception"
+              data-rec-name="AI Reception OS"
+              data-rec-code="SYS.001"
+              data-rec-why="تماسی که بی‌پاسخ می‌ماند، نامرئی‌ترین نشتی ممکن است. این مفهوم، مسیر پیغام‌گیر را کاملاً حذف می‌کند — هر تماس پاسخ می‌گیرد، درباره‌اش تصمیم گرفته و ثبت می‌شود.">
+        تماس‌ها بی‌پاسخ می‌مانند یا به پیغام‌گیر می‌روند
+      </button>
+      <button class="rec-chip" data-rec="flowline"
+              data-rec-name="Flowline"
+              data-rec-code="SYS.002"
+              data-rec-why="وقتی مشتریان در صندوق‌های مختلف پخش می‌شوند، اولین چیزی که از دست می‌رود سرعت است. Flowline همه‌ی منابع را در یک قیف جمع می‌کند و مشتریِ امتیازدهی‌شده را با خلاصه‌اش، تا هنوز داغ است، جلوی کارشناس می‌گذارد.">
+        مشتری پیش از پاسخ ما سرد می‌شود
+      </button>
+      <button class="rec-chip" data-rec="booksmith"
+              data-rec-name="Booksmith"
+              data-rec-code="SYS.003"
+              data-rec-why="غیبت در نوبت مشکل سامانه است، نه مشتری. بیعانه، یادآوری پلکانی و پر کردن از لیست انتظار، تقویم را از خودش محافظت می‌کنند.">
+        غیبت‌ها تقویم را خالی می‌کنند
+      </button>
+      <button class="rec-chip" data-rec="sentinel"
+              data-rec-name="Sentinel"
+              data-rec-code="SYS.004"
+              data-rec-why="بیشتر حجم پشتیبانی همان بیست سؤال تکراری است. Sentinel اکثر موارد تکراری را از روی داده‌ی واقعی سفارش حل می‌کند و موارد دشوار را با سابقه به انسان می‌سپارد.">
+        صندوق پشتیبانی زیر آب رفته
+      </button>
+      <button class="rec-chip" data-rec="ledgerlight"
+              data-rec-name="Ledgerlight"
+              data-rec-code="SYS.005"
+              data-rec-why="صدور فاکتور و پیگیری مطالبات نباید آخر هفته‌ی بنیان‌گذار را بگیرد. Ledgerlight صادر می‌کند، پیگیری می‌کند و گزارش می‌دهد — و به محض پاسخ مشتری متوقف می‌شود.">
+        کارهای اداری و فاکتورها هفته‌ام را می‌خورند
+      </button>
+      <button class="rec-chip" data-rec="pulsefeed"
+              data-rec-name="Pulsefeed"
+              data-rec-code="SYS.006"
+              data-rec-why="در محتوا، استمرار از درخشش مهم‌تر است. Pulsefeed یک پیام صوتی را به یک هفته پیش‌نویس هماهنگ با برند تبدیل می‌کند — و هیچ چیز بی‌تأیید شما منتشر نمی‌شود.">
+        محتوا هیچ‌وقت منتشر نمی‌شود
+      </button>
+      <button class="rec-chip" data-rec="keyholder"
+              data-rec-name="Keyholder"
+              data-rec-code="SYS.007"
+              data-rec-why="مشاوران نباید آخر هفته‌شان را صرف مشتریان بی‌قصد خرید کنند. Keyholder همه‌ی مشتریان را در چت ارزیابی می‌کند و فقط خریداران واقعی را — همراه با خلاصه — ارجاع می‌دهد.">
+        مشتریان خوب زیر انبوه پرس‌وجوهای بی‌حاصل گم شده‌اند
+      </button>
+      <button class="rec-chip" data-rec="medloop"
+              data-rec-name="Medloop"
+              data-rec-code="SYS.008"
+              data-rec-why="پذیرش کلینیکی که تمام روز پای تلفن است، یعنی سامانه‌ی نوبت‌دهی‌ای که هنوز ساخته نشده. Medloop پذیرش، یادآوری و پر کردن نوبت‌ها را انجام می‌دهد تا کادر کلینیک بتوانند سر بلند کنند.">
+        پذیرش در تماس‌ها غرق شده
+      </button>
+      <button class="rec-chip" data-rec="storefront"
+              data-rec-name="Storefront"
+              data-rec-code="SYS.009"
+              data-rec-why="سایت کند و بی‌صدا، فروش را پیش از آنکه بفهمید از دست می‌دهد. Storefront سایتی با بارگذاری زیر یک ثانیه را با دستیاری که پاسخ می‌دهد همراه می‌کند — و همه‌چیز را به رزرو هدایت می‌کند.">
+        سایت هیچ رزروی نمی‌گیرد
+      </button>
+    </div>
+
+    <div class="rec-panel reveal" id="recPanel" aria-live="polite">
+      <p class="rec-hint">یکی از گلوگاه‌های بالا را انتخاب کنید — سامانه‌ی مناسبش اینجا ظاهر می‌شود.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="dk-section" aria-labelledby="buildTitle">
+  <div class="container">
+    <div class="build-cta reveal">
+      <div class="dk-beam" aria-hidden="true"></div>
+      <h2 id="buildTitle">این گنجینه نقطه‌ی شروع است، نه <span class="gold-word">ویترین افتخارات</span>.</h2>
+      <p>
+        یک جلسه‌ی ۳۰ دقیقه‌ای رزرو کنید. سه اتوماسیون پراثری را که در کارتان پنهان
+        مانده‌اند ترسیم می‌کنیم و نقشه را به شما می‌دهیم — چه آن را بسازیم چه نه.
+      </p>
+      <div class="fs-actions">
+        <a href="contact.html" class="btn-gold magnetic">
+          <span>سامانه‌تان را بسازیم</span>
+          <svg class="rtl-flip" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ SYSTEM PREVIEW MODAL ============ -->
+<div class="sys-modal" id="sysModal" role="dialog" aria-modal="true" aria-label="پیش‌نمایش سامانه" hidden>
+  <div class="sys-modal-backdrop" data-modal-close></div>
+  <div class="sys-modal-card">
+    <button class="sys-modal-close" data-modal-close aria-label="بستن پیش‌نمایش سامانه">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="sys-modal-body" id="sysModalBody"></div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="سنجه — صفحه‌ی اصلی">
+          <img class="brand-mark" src="images/sanjeh-mark.svg" alt="" aria-hidden="true" />
+          <span class="wm-text">سنجه</span>
+        </a>
+        <p>یک استودیوی کوچک و تخصصی اتوماسیون هوش مصنوعی. سازوکار بی‌صدای پشت کسب‌وکارهای درجه‌یک را می‌سازیم.</p>
+      </div>
+      <div>
+        <h4>استودیو</h4>
+        <ul>
+          <li><a href="services.html">خدمات</a></li>
+          <li><a href="projects.html">نمونه‌کارها</a></li>
+          <li><a href="about.html">درباره‌ی ما</a></li>
+          <li><a href="contact.html">تماس</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>شرکت</h4>
+        <ul>
+          <li><a href="about.html">داستان ما</a></li>
+          <li><a href="about.html#founder">بنیان‌گذار</a></li>
+          <li><a href="contact.html#faq">پرسش‌های متداول</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>تماس</h4>
+        <ul>
+          <li><a href="mailto:info@precisasolutions.ca" dir="ltr">info@precisasolutions.ca</a></li>
+          <li><a href="contact.html">رزرو جلسه‌ی مشاوره</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© ۲۰۲۶ استودیو سنجه. تمامی حقوق محفوظ است.</span>
+      <span class="footer-legal">
+        <span>سامانه‌های مفهومی — در قالب معماری نمایشی.</span>
+        <a href="https://precisasolutions.ca/privacy.html" hreflang="en">حریم خصوصی <small>(انگلیسی)</small></a>
+        <a href="https://precisasolutions.ca/terms.html" hreflang="en">شرایط استفاده <small>(انگلیسی)</small></a>
+        <a href="https://precisasolutions.ca/refund.html" hreflang="en">بازپرداخت <small>(انگلیسی)</small></a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/observe.js?v=75a89b3e"></script>
+<script src="assets/cookies.js?v=c6eeff89"></script>
+<script src="assets/main.js?v=ed1001ba"></script>
+<script src="assets/projects.js?v=928d152d"></script>
+</body>
+</html>

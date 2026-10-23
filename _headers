@@ -1,0 +1,17 @@
+# Cloudflare Pages — security response headers, applied to every route.
+# See https://developers.cloudflare.com/pages/configuration/headers/
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  # SAMEORIGIN, not DENY: projects.html embeds the demo-*.html concepts as
+  # same-origin iframes. Other origins still cannot frame the site.
+  X-Frame-Options: SAMEORIGIN
+  # No inline <script> anywhere — every script is a file under assets/, so
+  # script-src 'self' holds. 'unsafe-inline' is for style="" attributes only.
+  # Google Fonts is only used by the English demo-*.html concepts; the
+  # Persian pages self-host their fonts. frame-src lists the three client
+  # sites projects.html shows as live previews.
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; frame-src 'self' https://drop.peachworlds.com https://www.tenbinlabs.xyz https://rotta-3s6.pages.dev; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Cross-Origin-Resource-Policy: same-origin
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()

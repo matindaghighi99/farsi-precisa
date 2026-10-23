@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-src 'self'" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<title>سنجه — سامانه‌های هوش مصنوعی و وب‌سایت برای کسب‌وکارهای امروزی</title>
+<meta name="description" content="سنجه استودیویی است که با مدیریت مستقیم بنیان‌گذارش، وب‌سایت‌های پرسرعت و سامانه‌های هوش مصنوعیِ پشت آن‌ها را می‌سازد — دستیار تلفنی، اتوماسیون CRM، نوبت‌دهی و گزارش زنده." />
+<link rel="icon" type="image/png" sizes="32x32" href="images/sanjeh-favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="images/sanjeh-favicon-192.png" />
+<link rel="apple-touch-icon" href="images/sanjeh-favicon-180.png" />
+<link rel="stylesheet" href="assets/styles.css?v=d7fb3064" />
+<link rel="stylesheet" href="assets/enhance.css?v=0a8f33a8" />
+<link rel="stylesheet" href="assets/fa.css?v=050605b1" />
+<link rel="stylesheet" href="assets/sanjeh-hero.css?v=d25c875e" />
+</head>
+<body class="home locked">
+
+<a class="skip-link" href="#main">رفتن به محتوا</a>
+
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-lockup">
+    <div class="preloader-word">
+      <span>سنجه</span>
+    </div>
+    <div class="preloader-sub">استودیو سامانه‌های هوشمند</div>
+  </div>
+</div>
+
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav" aria-label="منوی اصلی">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="سنجه — صفحه‌ی اصلی">
+      <img class="brand-mark" src="images/sanjeh-mark.svg" alt="" aria-hidden="true" />
+      <span class="wm-text">سنجه</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">خانه</a></li>
+      <li><a href="services.html">خدمات</a></li>
+      <li><a href="projects.html">نمونه‌کارها</a></li>
+      <li><a href="about.html">درباره‌ی ما</a></li>
+      <li><a href="contact.html">تماس</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta magnetic">رزرو جلسه‌ی مشاوره</a>
+      <button class="nav-burger" id="burger" aria-label="باز کردن منو" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">خانه</a>
+  <a href="services.html">خدمات</a>
+  <a href="projects.html">نمونه‌کارها</a>
+  <a href="about.html">درباره‌ی ما</a>
+  <a href="contact.html">تماس</a>
+  <a href="contact.html" class="build-link">رزرو جلسه‌ی مشاوره</a>
+</div>
+
+<!-- ============ HERO ============
+     Styles: assets/sanjeh-hero.css · Runtime: assets/sanjeh-hero.js
+     The picture is a small 3D scene: a made-up sample client site (a
+     dental clinic) in a browser and on a phone. It turns toward the
+     pointer and can be dragged round; «نمای لایه‌ها» pulls the site apart
+     into the layers it is built from; and the phone works — tap it and it
+     comes forward with the clinic's mobile site, menu and booking. All the
+     text, the phone's included, can be changed right here. -->
+<header class="sj-hero" id="sjHero" aria-label="سنجه — شریک شما در دقت و نوآوری">
+  <div class="sj-bg" aria-hidden="true"><i class="sj-bg-aurora"></i><i class="sj-bg-floor"></i><i class="sj-bg-glow"></i></div>
+  <div class="sj-inner">
+
+    <div class="sj-copy">
+      <span class="sj-eyebrow" data-in style="--d:.05s"><i aria-hidden="true"></i>طراحی و توسعه‌ی وب‌سایت · سامانه‌های هوشمند</span>
+      <h1 data-in style="--d:.15s"><span>شریک شما در</span> <span><span class="gold-word">دقت</span> و <span class="gold-word">نوآوری</span></span></h1>
+      <p class="sj-sub" data-in style="--d:.28s">
+        وب‌سایت اختصاصی کسب‌وکارتان را از صفر طراحی و با دست کدنویسی می‌کنیم —
+        سریع، سازگار با موبایل و آماده‌ی گوگل — و سامانه‌های هوشمندی را که پشت آن
+        کار می‌کنند هم می‌سازیم.
+      </p>
+      <div class="sj-ctas" data-in style="--d:.4s">
+        <a href="contact.html" class="btn-gold magnetic"><span>شروع پروژه‌ی وب‌سایت</span><svg class="rtl-flip" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="projects.html" class="btn-ghost magnetic"><span>دیدن نمونه‌کارها</span></a>
+      </div>
+      <ul class="sj-proof" data-in style="--d:.52s">
+        <li><b>۹۹</b><span>امتیاز سرعت در Lighthouse</span></li>
+        <li><b>زیر ۱ ثانیه</b><span>زمان بارگذاری صفحه</span></li>
+        <li><b>۰ قالب آماده</b><span>طراحی و کد کاملاً اختصاصی</span></li>
+      </ul>
+    </div>
+
+    <div class="sj-visual">
+      <div class="sj-stage" id="sjStage" role="group" aria-label="نمونه‌ی سه‌بعدی وب‌سایت یک کلینیک دندان‌پزشکی، روی دسکتاپ و موبایل">
+        <div class="sj-world">
+        <div class="sj-tilt">
+          <div class="sj-scene">
+
+            <i class="sj-cube" style="--x:34px;--y:46px;--z:-90px;--s:30px;--t:26s"><i><i><i></i><i></i><i></i><i></i><i></i><i></i></i></i></i>
+            <i class="sj-cube" style="--x:500px;--y:356px;--z:110px;--s:24px;--t:31s"><i><i><i></i><i></i><i></i><i></i><i></i><i></i></i></i></i>
+            <i class="sj-cube" style="--x:514px;--y:-24px;--z:-160px;--s:18px;--t:23s"><i><i><i></i><i></i><i></i><i></i><i></i><i></i></i></i></i>
+            <i class="sj-cube" style="--x:250px;--y:350px;--z:170px;--s:15px;--t:19s"><i><i><i></i><i></i><i></i><i></i><i></i><i></i></i></i></i>
+
+            <div class="sj-browser" aria-hidden="true">
+              <i class="sj-shadow"></i>
+              <i class="sj-slab" aria-hidden="true"><i></i><i></i><i></i><i></i></i>
+              <i class="sj-base"></i>
+              <div class="sj-bar"><i></i><i></i><i></i><span class="sj-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>سایت‌شما.ir</span><span class="sj-bar-tools"><i></i><i></i></span></div>
+              <div class="sj-site">
+                <i class="sj-sheet is-base" style="--i:0"><em class="sj-tag"><b>۱</b>ساختار<small>HTML</small></em></i>
+                <i class="sj-sheet" style="--i:1"><em class="sj-tag"><b>۲</b>طراحی<small>CSS</small></em></i>
+                <i class="sj-sheet" style="--i:2"><em class="sj-tag"><b>۳</b>محتوا<small>سئو</small></em></i>
+                <i class="sj-sheet" style="--i:3"><em class="sj-tag"><b>۴</b>تعامل<small>JS</small></em></i>
+                <i class="sj-s-bg"></i>
+                <div class="sj-s-nav">
+                  <span class="sj-s-logo"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5c-2.4 0-4 1.8-4 4.3 0 2.1 1 3.5 1.6 6 .5 2.3.9 6.7 2.6 6.7 1.5 0 1.6-4 3.8-4s2.3 4 3.8 4c1.7 0 2.1-4.4 2.6-6.7.6-2.5 1.6-3.9 1.6-6 0-2.5-1.6-4.3-4-4.3-1.6 0-2.5.9-4 .9s-2.4-.9-4-.9Z"/></svg></i>کلینیک لبخند</span>
+                  <span class="sj-s-menu"><span>خدمات</span><span>پزشکان</span><span>تماس</span></span>
+                  <span class="sj-s-btn">نوبت آنلاین</span>
+                </div>
+                <div class="sj-s-hero">
+                  <div class="sj-s-copy">
+                    <span class="sj-s-kicker">دندان‌پزشکی زیبایی و ترمیمی</span>
+                    <b class="sj-s-title">لبخندتان را<br>به ما بسپارید</b>
+                    <span class="sj-s-sub">نوبت آنلاین در کمتر از یک دقیقه، بدون انتظار پشت خط.</span>
+                    <span class="sj-s-cta">دریافت نوبت آنلاین</span>
+                  </div>
+                  <div class="sj-s-media"><i class="sj-s-photo"><svg class="sj-art" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="sArtBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6EF0DB"/><stop offset=".5" stop-color="#14B8A6"/><stop offset="1" stop-color="#0D6B63"/></linearGradient>
+    <radialGradient id="sArtGlow" cx=".72" cy=".2" r=".65"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="sArtTooth" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#DDF7F1"/></linearGradient>
+  </defs>
+  <rect width="200" height="120" fill="url(#sArtBg)"/>
+  <rect width="200" height="120" fill="url(#sArtGlow)"/>
+  <circle cx="18" cy="108" r="38" fill="#fff" opacity=".13"/>
+  <circle cx="170" cy="24" r="15" fill="#fff" opacity=".24"/>
+  <ellipse cx="104" cy="108" rx="30" ry="4.5" fill="#063D38" opacity=".2"/>
+  <g transform="translate(62 14) rotate(-8 43 43) scale(3.55)"><path d="M8 3.5c-2.4 0-4 1.8-4 4.3 0 2.1 1 3.5 1.6 6 .5 2.3.9 6.7 2.6 6.7 1.5 0 1.6-4 3.8-4s2.3 4 3.8 4c1.7 0 2.1-4.4 2.6-6.7.6-2.5 1.6-3.9 1.6-6 0-2.5-1.6-4.3-4-4.3-1.6 0-2.5.9-4 .9s-2.4-.9-4-.9Z" fill="url(#sArtTooth)"/><path d="M7 6.2c.9-.7 2-.9 3-.6" fill="none" stroke="#B7EDE2" stroke-width=".9" stroke-linecap="round"/></g>
+  <path d="M152 58l2.6 7.1 7.1 2.6-7.1 2.6-2.6 7.1-2.6-7.1-7.1-2.6 7.1-2.6z" fill="#fff"/>
+  <path d="M46 30l1.6 4.4 4.4 1.6-4.4 1.6-1.6 4.4-1.6-4.4-4.4-1.6 4.4-1.6z" fill="#fff" opacity=".85"/>
+</svg></i><span class="sj-s-rate">★ ۴٫۹ رضایت بیماران</span></div>
+                </div>
+                <div class="sj-s-cards">
+                  <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5c-2.4 0-4 1.8-4 4.3 0 2.1 1 3.5 1.6 6 .5 2.3.9 6.7 2.6 6.7 1.5 0 1.6-4 3.8-4s2.3 4 3.8 4c1.7 0 2.1-4.4 2.6-6.7.6-2.5 1.6-3.9 1.6-6 0-2.5-1.6-4.3-4-4.3-1.6 0-2.5.9-4 .9s-2.4-.9-4-.9Z"/></svg></i><em>ایمپلنت</em></span>
+                  <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14.5a5 5 0 0 0 8 0M9 9.5h.01M15 9.5h.01"/></svg></i><em>ارتودنسی</em></span>
+                  <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></i><em>سفید کردن</em></span>
+                </div>
+              </div>
+              <i class="sj-glare"></i>
+            </div>
+
+            <i class="sj-veil" aria-hidden="true"></i>
+
+            <div class="sj-phone">
+              <i class="sj-shadow" aria-hidden="true"></i>
+              <i class="sj-slab" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></i>
+              <i class="sj-keys" aria-hidden="true"><i></i><i></i><i></i><i></i></i>
+              <div class="sj-p-body">
+                <div class="sj-p-screen" role="group" aria-label="نسخه‌ی موبایل سایت نمونه: کلینیک لبخند" tabindex="-1" inert>
+                  <div class="sj-p-status" aria-hidden="true"><b>۹:۴۱</b><span><i class="sj-p-sig"><i></i><i></i><i></i><i></i></i><svg class="sj-p-wifi" viewBox="0 0 24 24" fill="currentColor"><path d="M12 18.5a1.6 1.6 0 1 0 0 .01ZM5.6 11.6a9 9 0 0 1 12.8 0l-1.6 1.6a6.8 6.8 0 0 0-9.6 0Zm3 3a4.8 4.8 0 0 1 6.8 0l-1.6 1.6a2.6 2.6 0 0 0-3.6 0ZM2.6 8.6a13.3 13.3 0 0 1 18.8 0l-1.6 1.6a11 11 0 0 0-15.6 0Z"/></svg><i class="sj-p-batt"><i></i></i></span></div>
+                  <span class="sj-p-island" aria-hidden="true"></span>
+                  <div class="sj-p-scroll">
+                    <header class="sj-p-head">
+                      <span class="sj-p-logo"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5c-2.4 0-4 1.8-4 4.3 0 2.1 1 3.5 1.6 6 .5 2.3.9 6.7 2.6 6.7 1.5 0 1.6-4 3.8-4s2.3 4 3.8 4c1.7 0 2.1-4.4 2.6-6.7.6-2.5 1.6-3.9 1.6-6 0-2.5-1.6-4.3-4-4.3-1.6 0-2.5.9-4 .9s-2.4-.9-4-.9Z"/></svg></i>کلینیک لبخند</span>
+                      <button type="button" class="sj-p-menu-btn" data-act="menu" aria-label="باز کردن منو" aria-expanded="false"><i></i></button>
+                    </header>
+                    <section class="sj-p-hero">
+                      <span class="sj-p-kicker">دندان‌پزشکی زیبایی و ترمیمی</span>
+                      <b class="sj-p-title">لبخندتان را به ما بسپارید</b>
+                      <p class="sj-p-sub">نوبت آنلاین در کمتر از یک دقیقه، بدون انتظار پشت خط.</p>
+                      <button type="button" class="sj-p-cta" data-act="book">دریافت نوبت آنلاین</button>
+                      <div class="sj-p-art"><svg class="sj-art" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="pArtBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6EF0DB"/><stop offset=".5" stop-color="#14B8A6"/><stop offset="1" stop-color="#0D6B63"/></linearGradient>
+    <radialGradient id="pArtGlow" cx=".72" cy=".2" r=".65"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="pArtTooth" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#DDF7F1"/></linearGradient>
+  </defs>
+  <rect width="200" height="120" fill="url(#pArtBg)"/>
+  <rect width="200" height="120" fill="url(#pArtGlow)"/>
+  <circle cx="18" cy="108" r="38" fill="#fff" opacity=".13"/>
+  <circle cx="170" cy="24" r="15" fill="#fff" opacity=".24"/>
+  <ellipse cx="104" cy="108" rx="30" ry="4.5" fill="#063D38" opacity=".2"/>
+  <g transform="translate(62 14) rotate(-8 43 43) scale(3.55)"><path d="M8 3.5c-2.4 0-4 1.8-4 4.3 0 2.1 1 3.5 1.6 6 .5 2.3.9 6.7 2.6 6.7 1.5 0 1.6-4 3.8-4s2.3 4 3.8 4c1.7 0 2.1-4.4 2.6-6.7.6-2.5 1.6-3.9 1.6-6 0-2.5-1.6-4.3-4-4.3-1.6 0-2.5.9-4 .9s-2.4-.9-4-.9Z" fill="url(#pArtTooth)"/><path d="M7 6.2c.9-.7 2-.9 3-.6" fill="none" stroke="#B7EDE2" stroke-width=".9" stroke-linecap="round"/></g>
+  <path d="M152 58l2.6 7.1 7.1 2.6-7.1 2.6-2.6 7.1-2.6-7.1-7.1-2.6 7.1-2.6z" fill="#fff"/>
+  <path d="M46 30l1.6 4.4 4.4 1.6-4.4 1.6-1.6 4.4-1.6-4.4-4.4-1.6 4.4-1.6z" fill="#fff" opacity=".85"/>
+</svg><span class="sj-p-rate">★ ۴٫۹ <small>از ۱٬۲۰۰ نظر</small></span></div>
+                    </section>
+                    <ul class="sj-p-stats">
+                      <li><b>۱۲ سال</b><span>تجربه</span></li>
+                      <li><b>+۸٬۰۰۰</b><span>بیمار</span></li>
+                      <li><b>۴ پزشک</b><span>متخصص</span></li>
+                    </ul>
+                    <section class="sj-p-sec" id="sjpServices">
+                      <h4>خدمات</h4>
+                      <button type="button" class="sj-p-svc" data-act="book" data-service="ایمپلنت"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5c-2.4 0-4 1.8-4 4.3 0 2.1 1 3.5 1.6 6 .5 2.3.9 6.7 2.6 6.7 1.5 0 1.6-4 3.8-4s2.3 4 3.8 4c1.7 0 2.1-4.4 2.6-6.7.6-2.5 1.6-3.9 1.6-6 0-2.5-1.6-4.3-4-4.3-1.6 0-2.5.9-4 .9s-2.4-.9-4-.9Z"/></svg></i><span><b>ایمپلنت</b><small>دندان ثابت و ماندگار</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14.5 6-6 6 6 6"/></svg></button>
+                      <button type="button" class="sj-p-svc" data-act="book" data-service="ارتودنسی"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14.5a5 5 0 0 0 8 0M9 9.5h.01M15 9.5h.01"/></svg></i><span><b>ارتودنسی</b><small>ردیف کردن دندان‌ها، شفاف یا ثابت</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14.5 6-6 6 6 6"/></svg></button>
+                      <button type="button" class="sj-p-svc" data-act="book" data-service="سفید کردن"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></i><span><b>سفید کردن</b><small>یک جلسه، چند درجه روشن‌تر</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14.5 6-6 6 6 6"/></svg></button>
+                      <button type="button" class="sj-p-svc" data-act="book" data-service="چکاپ و جرم‌گیری"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3 8.3-7 10-4-1.7-7-5.4-7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></i><span><b>چکاپ و جرم‌گیری</b><small>هر شش ماه یک بار</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14.5 6-6 6 6 6"/></svg></button>
+                    </section>
+                    <section class="sj-p-sec" id="sjpDoctors">
+                      <h4>پزشکان</h4>
+                      <div class="sj-p-docs">
+                        <div class="sj-p-doc"><i class="sj-p-ava" style="--h:174">س‌ر</i><b>دکتر سارا رضایی</b><small>متخصص ارتودنسی</small></div>
+                        <div class="sj-p-doc"><i class="sj-p-ava" style="--h:214">ع‌م</i><b>دکتر علی محمدی</b><small>جراح ایمپلنت</small></div>
+                      </div>
+                    </section>
+                    <section class="sj-p-sec" id="sjpReviews">
+                      <h4>نظر بیماران</h4>
+                      <blockquote class="sj-p-quote"><span aria-label="پنج ستاره">★★★★★</span><p>«بدون درد و با حوصله. نوبتم را از گوشی گرفتم و سر ساعت پذیرش شدم.»</p><small>مریم، تهران</small></blockquote>
+                    </section>
+                    <section class="sj-p-sec sj-p-contact" id="sjpContact">
+                      <h4>تماس</h4>
+                      <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg>تهران، خیابان ولیعصر</p>
+                      <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.5V12l3 2"/></svg>شنبه تا پنجشنبه، ۹ تا ۲۰</p>
+                      <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.2 4.5h3l1.5 4-2 1.2a10 10 0 0 0 4.6 4.6l1.2-2 4 1.5v3a2 2 0 0 1-2.2 2A15.5 15.5 0 0 1 3.2 6.7a2 2 0 0 1 2-2.2Z"/></svg><span dir="ltr">۰۲۱ ۱۲۳۴ ۵۶۷۸</span></p>
+                    </section>
+                  </div>
+                  <div class="sj-p-bar"><button type="button" class="sj-p-book" data-act="book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>نوبت آنلاین</button></div>
+                  <nav class="sj-p-menu" aria-label="منوی سایت نمونه">
+                    <header><span class="sj-p-logo"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5c-2.4 0-4 1.8-4 4.3 0 2.1 1 3.5 1.6 6 .5 2.3.9 6.7 2.6 6.7 1.5 0 1.6-4 3.8-4s2.3 4 3.8 4c1.7 0 2.1-4.4 2.6-6.7.6-2.5 1.6-3.9 1.6-6 0-2.5-1.6-4.3-4-4.3-1.6 0-2.5.9-4 .9s-2.4-.9-4-.9Z"/></svg></i>لبخند</span><button type="button" data-act="menu-close" aria-label="بستن منو"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+                    <button type="button" data-act="goto" data-to="sjpServices">خدمات</button>
+                    <button type="button" data-act="goto" data-to="sjpDoctors">پزشکان</button>
+                    <button type="button" data-act="goto" data-to="sjpReviews">نظر بیماران</button>
+                    <button type="button" data-act="goto" data-to="sjpContact">تماس</button>
+                    <button type="button" class="sj-p-cta" data-act="book">دریافت نوبت آنلاین</button>
+                  </nav>
+                  <i class="sj-p-dim" data-act="sheet-close" aria-hidden="true"></i>
+                  <div class="sj-p-sheet" role="dialog" aria-label="رزرو نوبت">
+                    <div class="sj-p-form">
+                      <header><b>نوبت آنلاین</b><button type="button" data-act="sheet-close" aria-label="بستن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+                      <div class="sj-p-step"><span>خدمت</span><div class="sj-p-chips" data-pick="service"><button type="button" data-v="ایمپلنت" aria-pressed="false">ایمپلنت</button><button type="button" data-v="ارتودنسی" aria-pressed="false">ارتودنسی</button><button type="button" data-v="سفید کردن" aria-pressed="false">سفید کردن</button><button type="button" data-v="چکاپ و جرم‌گیری" aria-pressed="false">چکاپ و جرم‌گیری</button></div></div>
+                      <div class="sj-p-step"><span>روز</span><div class="sj-p-chips sj-p-days" data-pick="day"></div></div>
+                      <div class="sj-p-step"><span>ساعت</span><div class="sj-p-chips" data-pick="time"><button type="button" data-v="۹:۳۰" aria-pressed="false">۹:۳۰</button><button type="button" data-v="۱۱:۰۰" aria-pressed="false">۱۱:۰۰</button><button type="button" disabled aria-label="۱۲:۳۰، پر شده">۱۲:۳۰<small>پر شده</small></button><button type="button" data-v="۱۶:۰۰" aria-pressed="false">۱۶:۰۰</button><button type="button" data-v="۱۸:۳۰" aria-pressed="false">۱۸:۳۰</button></div></div>
+                      <button type="button" class="sj-p-confirm" data-act="confirm" disabled>تأیید نوبت</button>
+                    </div>
+                    <div class="sj-p-done" aria-live="polite">
+                      <svg class="sj-p-check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="23"/><path d="m15 27 7.5 7.5L38 19"/></svg>
+                      <b>نوبت شما ثبت شد</b>
+                      <p class="sj-p-summary"></p>
+                      <small>کد پیگیری ۴۸۲۱۷ · پیامک تأیید فرستاده شد</small>
+                      <button type="button" class="sj-p-cta" data-act="done">باشه</button>
+                    </div>
+                  </div>
+                  <div class="sj-p-push" role="status"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3.5c-2.4 0-4 1.8-4 4.3 0 2.1 1 3.5 1.6 6 .5 2.3.9 6.7 2.6 6.7 1.5 0 1.6-4 3.8-4s2.3 4 3.8 4c1.7 0 2.1-4.4 2.6-6.7.6-2.5 1.6-3.9 1.6-6 0-2.5-1.6-4.3-4-4.3-1.6 0-2.5.9-4 .9s-2.4-.9-4-.9Z"/></svg></i><span><b>کلینیک لبخند <small>همین حالا</small></b><span class="sj-p-push-text"></span></span></div>
+                  <span class="sj-p-home" aria-hidden="true"></span>
+                </div>
+              </div>
+              <i class="sj-glare" aria-hidden="true"></i>
+              <span class="sj-tip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5.6a1.6 1.6 0 0 1 3.2 0V10m0-1.2a1.6 1.6 0 0 1 3.2 0V11m0-.6a1.6 1.6 0 0 1 3.2 0v4.3a6.3 6.3 0 0 1-6.3 6.3h-.4a5.3 5.3 0 0 1-4.3-2.2l-3-4.2a1.7 1.7 0 0 1 2.6-2.1L9 14"/></svg>امتحانش کنید</span>
+            </div>
+
+          </div>
+        </div>
+        </div>
+      </div>
+      <button type="button" class="sj-phone-close" aria-label="بستن موبایل"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg><span>بستن</span></button>
+      <div class="sj-controls" data-in style="--d:1.1s">
+        <button type="button" class="sj-phone-btn" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.5 18.5h3"/></svg><span>امتحان روی موبایل</span></button>
+        <button type="button" class="sj-layers-btn" aria-pressed="false" aria-controls="sjStage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 8 12 13l9.5-5z"/><path d="m2.5 12.5 9.5 5 9.5-5"/><path d="m2.5 17 9.5 5 9.5-5"/></svg><span>نمای لایه‌ها</span></button>
+        <span class="sj-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7 3 12l5 5M16 7l5 5-5 5M3 12h18"/></svg>بکشید تا بچرخد</span>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<main id="main">
+<!-- ============ SERVICES ============ -->
+<section class="industries services-strip" aria-label="آنچه می‌سازیم">
+
+  <!-- how the studio works — leads the strip, sharing its band so the
+       two read as one block rather than two stacked sections -->
+  <div class="principles-grid strip-principles">
+    <div class="principle reveal">
+      <h3>اول گلوگاه، بعد ابزار</h3>
+      <p>پیش از طراحی هر ابزاری، گلوگاه کارتان را با خودتان ترسیم می‌کنیم.</p>
+    </div>
+    <div class="principle reveal" style="--d:.1s">
+      <h3>طراح، از ابتدا تا انتها</h3>
+      <p>کسی که سامانه‌ی شما را طراحی می‌کند، همان کسی است که آن را می‌سازد.</p>
+    </div>
+    <div class="principle reveal" style="--d:.2s">
+      <h3>راه‌اندازی در چند هفته</h3>
+      <p>اولین سامانه ظرف چند هفته راه می‌افتد و بعد در دوره‌های کوتاه و متمرکز بهتر می‌شود.</p>
+    </div>
+  </div>
+
+  <p class="industries-label">راهکار برای:</p>
+  <div class="industry-chips reveal">
+    <span class="industry-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M14.7 6.3a4.5 4.5 0 0 0-6.1 5.5L3 17.4V21h3.6l5.6-5.6a4.5 4.5 0 0 0 5.5-6.1l-2.8 2.8-2.5-.7-.7-2.5 3-2.6Z"/></svg>
+      کسب‌وکارهای خدماتی
+    </span>
+    <span class="industry-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3v18M5 9h14M5 15h14"/><circle cx="12" cy="12" r="9"/></svg>
+      کلینیک‌ها و مراکز درمانی
+    </span>
+    <span class="industry-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 20V8l8-5 8 5v12"/><path d="M4 20h16M10 20v-6h4v6"/></svg>
+      املاک و مستغلات
+    </span>
+    <span class="industry-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5a5 5 0 0 1 6 4.5"/></svg>
+      کوچینگ و مشاوره
+    </span>
+    <span class="industry-chip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12h8M12 8v8"/></svg>
+      آژانس‌ها و استودیوها
+    </span>
+  </div>
+
+  <!-- the hero's CTA and trustline close this strip -->
+  <div class="ms-actions reveal" style="--d:.1s">
+    <div class="ms-ctas">
+      <a href="contact.html" class="ms-cta ms-cta--solid magnetic">
+        <span class="ms-cta-dot" aria-hidden="true"></span>
+        <span class="ms-cta-label">رزرو جلسه‌ی مشاوره</span>
+        <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="projects.html" class="ms-cta magnetic">
+        <span class="ms-cta-label">نمونه‌کارها</span>
+        <svg class="rtl-flip" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI AUTOMATIONS — the layer that runs it ============ -->
+<section class="section" id="ai">
+  <div class="container">
+    <div class="reveal wd-head-solo">
+      <h2 class="section-title">سامانه‌ای که <span class="gold-word">پشت</span> سایت کار می‌کند.</h2>
+      <p class="section-sub">
+        وب‌سایت گفتگو را شروع می‌کند. لایه‌ی اتوماسیون آن را تا جایی پیش می‌برد
+        که کار رزرو، ثبت و پیگیری شود — بی‌آنکه کسی در تیم شما چیزی را
+        دوباره تایپ کند.
+      </p>
+    </div>
+
+    <div class="wd-panel solo">
+      <div class="wd-visual reveal">
+        <div class="wd-stage" id="aiStage" data-hold="3600" aria-hidden="true">
+          <div class="wd-browser">
+            <div class="wd-bar">
+              <i></i><i></i><i></i>
+              <span class="wd-url"></span>
+              <span class="wd-live" aria-hidden="true"><i></i></span>
+            </div>
+            <!-- Six routes a job takes through a business, drawn as the flows we build. -->
+            <div class="wd-viewport">
+              <span class="wd-scan"></span>
+              <svg class="wd-page" id="aiPage" viewBox="0 0 640 420">
+                <defs>
+                  <pattern id="aiGrid" width="26" height="26" patternUnits="userSpaceOnUse">
+                    <circle cx="1" cy="1" r="1" fill="rgba(12,21,36,.09)"/>
+                  </pattern>
+                </defs>
+                <!-- the canvas the flows are drawn on: constant, so it reads as
+                     one board the automations are laid out across -->
+                <rect x="0" y="0" width="640" height="420" fill="url(#aiGrid)"/>
+
+                <!-- ── 01 · a call answered, qualified, booked and recorded ── -->
+                <g class="wd-lay on" data-lay="0" style="--st:0.0300s">
+                  <rect class="f-live l-el" style="--i:0" x="28" y="70" width="118" height="32" rx="16"/>
+                  <circle class="f-dot l-el" style="--i:1" cx="46" cy="86" r="4.5"/>
+                  <text class="n-name n-accent l-el" style="--i:2" x="58" y="89">تماس ورودی</text>
+                  <path class="f-edge" d="M87 102V132"/>
+                  <path class="f-arrow l-el" style="--i:3" d="M83 126L87 132L91 126Z"/>
+                  <path class="f-edge" d="M132 174H188"/>
+                  <path class="f-arrow l-el" style="--i:4" d="M182 170L188 174L182 178Z"/>
+                  <path class="f-edge" d="M292 174H348"/>
+                  <path class="f-arrow l-el" style="--i:5" d="M342 170L348 174L342 178Z"/>
+                  <path class="f-edge" d="M452 174H508"/>
+                  <path class="f-arrow l-el" style="--i:6" d="M502 170L508 174L502 178Z"/>
+                  <path class="f-edge f-dash" d="M240 216V278"/>
+                  <path class="f-arrow l-el" style="--i:7" d="M236 272L240 278L244 272Z"/>
+                  <path class="f-edge f-dash" d="M560 216V278"/>
+                  <path class="f-arrow l-el" style="--i:8" d="M556 272L560 278L564 272Z"/>
+                  <rect class="f-node l-el" style="--i:9" x="28" y="132" width="104" height="84" rx="14"/>
+                  <g transform="translate(43 148)"><path class="f-glyph l-el" style="--i:10" d="M1 7v4M5 4v10M9 1v16M13 4v10M17 7v4"/></g>
+                  <text class="n-name l-el" style="--i:11" x="43" y="190">پاسخ</text>
+                  <text class="n-note l-el" style="--i:12" x="43" y="203">۲۴/۷</text>
+                  <rect class="f-live l-el" style="--i:13" x="188" y="132" width="104" height="84" rx="14"/>
+                  <g transform="translate(203 148)"><path class="f-glyph l-el" style="--i:14" d="M1 9h5M6 4v10M6 4h11M6 14h11"/></g>
+                  <text class="n-name l-el" style="--i:15" x="203" y="190">سنجش</text>
+                  <text class="n-note l-el" style="--i:16" x="203" y="203">قوانین شما</text>
+                  <rect class="f-node l-el" style="--i:17" x="348" y="132" width="104" height="84" rx="14"/>
+                  <g transform="translate(363 148)"><path class="f-glyph l-el" style="--i:18" d="M2 4h14v13H2zM2 8h14M6 2v4M12 2v4"/></g>
+                  <text class="n-name l-el" style="--i:19" x="363" y="190">رزرو</text>
+                  <text class="n-note l-el" style="--i:20" x="363" y="203">تقویم</text>
+                  <rect class="f-sys l-el" style="--i:21" x="508" y="132" width="104" height="84" rx="14"/>
+                  <g transform="translate(523 148)"><path class="f-glyph-l l-el" style="--i:22" d="M2 4c0-1.66 3.13-3 7-3s7 1.34 7 3-3.13 3-7 3-7-1.34-7-3zM2 4v10c0 1.66 3.13 3 7 3s7-1.34 7-3V4"/></g>
+                  <text class="n-name on-ink l-el" style="--i:23" x="523" y="190">CRM</text>
+                  <text class="n-note on-ink l-el" style="--i:24" x="523" y="203">ثبت</text>
+                  <rect class="f-step l-el" style="--i:25" x="188" y="278" width="104" height="70" rx="12"/>
+                  <g transform="translate(202 304)"><path class="f-glyph l-el" style="--i:26" d="M9 2.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zM9 5.5v4l2.6 1.9"/></g>
+                  <text class="n-name l-el" style="--i:27" x="230" y="316">پیگیری</text>
+                  <rect class="f-step l-el" style="--i:28" x="508" y="278" width="104" height="70" rx="12"/>
+                  <g transform="translate(522 304)"><path class="f-glyph l-el" style="--i:29" d="M2 16V9M7 16V3M12 16v-5M17 16V6"/></g>
+                  <text class="n-name l-el" style="--i:30" x="550" y="316">گزارش تماس</text>
+                  <path class="f-flow" style="--end:-74; --fd:0s; --fdur:0.55s" d="M87 102V132"/>
+                  <path class="f-flow" style="--end:-100; --fd:0.3s; --fdur:0.72s" d="M132 174H188"/>
+                  <path class="f-flow" style="--end:-100; --fd:0.62s; --fdur:0.72s" d="M292 174H348"/>
+                  <path class="f-flow" style="--end:-100; --fd:0.94s; --fdur:0.72s" d="M452 174H508"/>
+                </g>
+
+                <!-- ── 02 · an enquiry enriched, routed three ways, then filed ── -->
+                <g class="wd-lay" data-lay="1" style="--st:0.0300s">
+                  <path class="f-edge" d="M128 212H168"/>
+                  <path class="f-arrow l-el" style="--i:0" d="M162 208L168 212L162 216Z"/>
+                  <path class="f-edge" d="M272 212H294"/>
+                  <path class="f-arrow l-el" style="--i:1" d="M288 208L294 212L288 216Z"/>
+                  <path class="f-edge" d="M378 212H387V128H396"/>
+                  <path class="f-arrow l-el" style="--i:2" d="M390 124L396 128L390 132Z"/>
+                  <path class="f-edge" d="M378 212H396"/>
+                  <path class="f-arrow l-el" style="--i:3" d="M390 208L396 212L390 216Z"/>
+                  <path class="f-edge" d="M378 212H387V296H396"/>
+                  <path class="f-arrow l-el" style="--i:4" d="M390 292L396 296L390 300Z"/>
+                  <path class="f-edge f-dash" d="M492 128H508V212H524"/>
+                  <path class="f-edge f-dash" d="M492 212H524"/>
+                  <path class="f-edge f-dash" d="M492 296H508V212H524"/>
+                  <path class="f-arrow l-el" style="--i:5" d="M518 208L524 212L518 216Z"/>
+                  <rect class="f-node l-el" style="--i:6" x="24" y="164" width="104" height="96" rx="14"/>
+                  <g transform="translate(39 180)"><path class="f-glyph l-el" style="--i:7" d="M2 4h14v10H2zM2 5l7 5 7-5"/></g>
+                  <text class="n-name l-el" style="--i:8" x="39" y="234">درخواست</text>
+                  <text class="n-note l-el" style="--i:9" x="39" y="247">فرم سایت</text>
+                  <rect class="f-live l-el" style="--i:10" x="168" y="164" width="104" height="96" rx="14"/>
+                  <g transform="translate(183 180)"><path class="f-glyph l-el" style="--i:11" d="M1 3h16l-6 7v7l-4-2.5V10z"/></g>
+                  <text class="n-name l-el" style="--i:12" x="183" y="234">تکمیل</text>
+                  <text class="n-note l-el" style="--i:13" x="183" y="247">استعلام</text>
+                  <polygon class="f-live l-el" style="--i:14" points="336,166 380,212 336,258 292,212"/>
+                  <g transform="translate(327 194)"><path class="f-glyph l-el" style="--i:15" d="M1 9h5M6 4v10M6 4h11M6 14h11"/></g>
+                  <text class="n-name n-accent l-el" style="--i:16" x="336" y="228" text-anchor="middle">مسیردهی</text>
+                  <rect class="f-step l-el" style="--i:17" x="396" y="96" width="96" height="64" rx="12"/>
+                  <g transform="translate(410 119)"><path class="f-glyph l-el" style="--i:18" d="M9 8.4a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8zM2 17a7 7 0 0 1 14 0"/></g>
+                  <text class="n-name l-el" style="--i:19" x="438" y="131">مسئول</text>
+                  <rect class="f-step l-el" style="--i:20" x="396" y="180" width="96" height="64" rx="12"/>
+                  <g transform="translate(410 203)"><path class="f-glyph l-el" style="--i:21" d="M2 16V9M7 16V3M12 16v-5M17 16V6"/></g>
+                  <text class="n-name l-el" style="--i:22" x="438" y="215">گزارش</text>
+                  <rect class="f-step l-el" style="--i:23" x="396" y="264" width="96" height="64" rx="12"/>
+                  <g transform="translate(410 287)"><path class="f-glyph l-el" style="--i:24" d="M2 4h14v10H2zM2 5l7 5 7-5"/></g>
+                  <text class="n-name l-el" style="--i:25" x="438" y="299">پاسخ</text>
+                  <rect class="f-sys l-el" style="--i:26" x="524" y="164" width="88" height="96" rx="14"/>
+                  <g transform="translate(539 180)"><path class="f-glyph-l l-el" style="--i:27" d="M2 4c0-1.66 3.13-3 7-3s7 1.34 7 3-3.13 3-7 3-7-1.34-7-3zM2 4v10c0 1.66 3.13 3 7 3s7-1.34 7-3V4"/></g>
+                  <text class="n-name on-ink l-el" style="--i:28" x="539" y="234">CRM</text>
+                  <text class="n-note on-ink l-el" style="--i:29" x="539" y="247">بایگانی</text>
+                  <path class="f-flow" style="--end:-84; --fd:0s; --fdur:0.62s" d="M128 212H168"/>
+                  <path class="f-flow" style="--end:-66; --fd:0.28s; --fdur:0.50s" d="M272 212H294"/>
+                  <path class="f-flow" style="--end:-137; --fd:0.5s; --fdur:0.97s" d="M378 212H387V128H396"/>
+                  <path class="f-flow" style="--end:-62; --fd:0.5s; --fdur:0.47s" d="M378 212H396"/>
+                  <path class="f-flow" style="--end:-137; --fd:0.5s; --fdur:0.97s" d="M378 212H387V296H396"/>
+                </g>
+
+                <!-- ── 03 · a slot held, paid for, confirmed, and backfilled ── -->
+                <g class="wd-lay" data-lay="2" style="--st:0.0213s">
+                  <rect class="f-node l-el" style="--i:0" x="24" y="80" width="196" height="232" rx="14"/>
+                  <text class="n-title l-el" style="--i:1" x="44" y="106">زمان‌های خالی</text>
+                  <circle class="f-lbl l-el" style="--i:2" cx="186" cy="102" r="6"/>
+                  <circle class="f-lbl l-el" style="--i:3" cx="204" cy="102" r="6"/>
+                  <rect class="f-lbl l-el" style="--i:4" x="44" y="130" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:5" x="66" y="130" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:6" x="88" y="130" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:7" x="110" y="130" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:8" x="132" y="130" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:9" x="154" y="130" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:10" x="176" y="130" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:11" x="44" y="160" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:12" x="66" y="160" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:13" x="88" y="160" width="16" height="16" rx="4"/>
+                  <rect class="f-bar l-el" style="--i:14" x="110" y="160" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:15" x="132" y="160" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:16" x="154" y="160" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:17" x="176" y="160" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:18" x="44" y="190" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:19" x="66" y="190" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:20" x="88" y="190" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:21" x="110" y="190" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:22" x="132" y="190" width="16" height="16" rx="4"/>
+                  <rect class="f-bar l-el" style="--i:23" x="154" y="190" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:24" x="176" y="190" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:25" x="44" y="220" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:26" x="66" y="220" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:27" x="88" y="220" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:28" x="110" y="220" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:29" x="132" y="220" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:30" x="154" y="220" width="16" height="16" rx="4"/>
+                  <rect class="f-lbl l-el" style="--i:31" x="176" y="220" width="16" height="16" rx="4"/>
+                  <text class="n-note l-el" style="--i:32" x="44" y="278">دو نوبت نگه داشته شد</text>
+                  <path class="f-edge" d="M220 120H264"/>
+                  <path class="f-arrow l-el" style="--i:33" d="M258 116L264 120L258 124Z"/>
+                  <path class="f-edge" d="M334 152V174"/>
+                  <path class="f-arrow l-el" style="--i:34" d="M330 168L334 174L338 168Z"/>
+                  <path class="f-edge" d="M334 238V260"/>
+                  <path class="f-arrow l-el" style="--i:35" d="M330 254L334 260L338 254Z"/>
+                  <path class="f-edge" d="M404 206H440"/>
+                  <path class="f-arrow l-el" style="--i:36" d="M434 202L440 206L434 210Z"/>
+                  <path class="f-edge f-dash" d="M510 238V352H122V312"/>
+                  <path class="f-arrow l-el" style="--i:37" d="M118 318L122 312L126 318Z"/>
+                  <text class="n-note n-accent l-el" style="--i:38" x="322" y="346" text-anchor="middle">پر کردن از لیست انتظار</text>
+                  <rect class="f-node l-el" style="--i:39" x="264" y="88" width="140" height="64" rx="12"/>
+                  <g transform="translate(278 111)"><path class="f-glyph l-el" style="--i:40" d="M9 2.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zM9 5.5v4l2.6 1.9"/></g>
+                  <text class="n-name l-el" style="--i:41" x="306" y="120">نگه‌داشتن</text>
+                  <text class="n-note l-el" style="--i:42" x="306" y="132">۱۵ دقیقه</text>
+                  <rect class="f-live l-el" style="--i:43" x="264" y="174" width="140" height="64" rx="12"/>
+                  <g transform="translate(278 197)"><path class="f-glyph l-el" style="--i:44" d="M2 9.5l5 5L16 4"/></g>
+                  <text class="n-name l-el" style="--i:45" x="306" y="206">دریافت بیعانه</text>
+                  <text class="n-note l-el" style="--i:46" x="306" y="218">کارت</text>
+                  <rect class="f-node l-el" style="--i:47" x="264" y="260" width="140" height="64" rx="12"/>
+                  <g transform="translate(278 283)"><path class="f-glyph l-el" style="--i:48" d="M2 4h14v13H2zM2 8h14M6 2v4M12 2v4"/></g>
+                  <text class="n-name l-el" style="--i:49" x="306" y="292">تأیید</text>
+                  <text class="n-note l-el" style="--i:50" x="306" y="304">پیامک + ایمیل</text>
+                  <rect class="f-step l-el" style="--i:51" x="440" y="174" width="140" height="64" rx="12"/>
+                  <g transform="translate(454 197)"><path class="f-glyph l-el" style="--i:52" d="M2 4h14v10H2zM2 5l7 5 7-5"/></g>
+                  <text class="n-name l-el" style="--i:53" x="482" y="206">یادآوری</text>
+                  <text class="n-note l-el" style="--i:54" x="482" y="218">۲۴ ساعت قبل</text>
+                  <path class="f-flow" style="--end:-88; --fd:0s; --fdur:0.64s" d="M220 120H264"/>
+                  <path class="f-flow" style="--end:-66; --fd:0.3s; --fdur:0.50s" d="M334 152V174"/>
+                  <path class="f-flow" style="--end:-66; --fd:0.55s; --fdur:0.50s" d="M334 238V260"/>
+                  <path class="f-flow" style="--end:-80; --fd:0.8s; --fdur:0.59s" d="M404 206H440"/>
+                </g>
+
+                <!-- ── 04 · a document read, its fields checked, the record written ── -->
+                <g class="wd-lay" data-lay="3" style="--st:0.0300s">
+                  <rect class="f-node l-el" style="--i:0" x="28" y="96" width="140" height="196" rx="12"/>
+                  <text class="n-title l-el" style="--i:1" x="48" y="124">سند ورودی</text>
+                  <rect class="f-lbl l-el" style="--i:2" x="48" y="146" width="92" height="7" rx="3"/>
+                  <rect class="f-lbl l-el" style="--i:3" x="48" y="168" width="72" height="7" rx="3"/>
+                  <rect class="f-lbl l-el" style="--i:4" x="48" y="190" width="100" height="7" rx="3"/>
+                  <rect class="f-lbl l-el" style="--i:5" x="48" y="212" width="60" height="7" rx="3"/>
+                  <rect class="f-lbl l-el" style="--i:6" x="48" y="234" width="86" height="7" rx="3"/>
+                  <text class="n-note l-el" style="--i:7" x="48" y="274">PDF یا اسکن</text>
+                  <path class="f-edge" d="M168 194H212"/>
+                  <path class="f-arrow l-el" style="--i:8" d="M206 190L212 194L206 198Z"/>
+                  <path class="f-edge" d="M324 194H348V128H372"/>
+                  <path class="f-arrow l-el" style="--i:9" d="M366 124L372 128L366 132Z"/>
+                  <path class="f-edge f-dash" d="M476 128H500V194H520"/>
+                  <path class="f-edge" d="M324 194H348V168H372"/>
+                  <path class="f-arrow l-el" style="--i:10" d="M366 164L372 168L366 172Z"/>
+                  <path class="f-edge f-dash" d="M476 168H500V194H520"/>
+                  <path class="f-edge" d="M324 194H348V208H372"/>
+                  <path class="f-arrow l-el" style="--i:11" d="M366 204L372 208L366 212Z"/>
+                  <path class="f-edge f-dash" d="M476 208H500V194H520"/>
+                  <path class="f-edge" d="M324 194H348V248H372"/>
+                  <path class="f-arrow l-el" style="--i:12" d="M366 244L372 248L366 252Z"/>
+                  <path class="f-edge f-dash" d="M476 248H500V194H520"/>
+                  <path class="f-arrow l-el" style="--i:13" d="M514 190L520 194L514 198Z"/>
+                  <path class="f-edge" d="M566 248V316"/>
+                  <path class="f-arrow l-el" style="--i:14" d="M562 310L566 316L570 310Z"/>
+                  <rect class="f-live l-el" style="--i:15" x="212" y="140" width="112" height="108" rx="14"/>
+                  <g transform="translate(227 156)"><path class="f-glyph l-el" style="--i:16" d="M2 2h6v6H2zM10 2h6v6h-6zM2 10h6v6H2zM10 10h6v6h-6z"/></g>
+                  <text class="n-name l-el" style="--i:17" x="227" y="222">استخراج</text>
+                  <text class="n-note l-el" style="--i:18" x="227" y="235">فیلدها</text>
+                  <rect class="f-step l-el" style="--i:19" x="372" y="112" width="104" height="32" rx="10"/>
+                  <circle class="f-dot l-el" style="--i:20" cx="388" cy="128" r="4"/>
+                  <text class="n-name l-el" style="--i:21" x="400" y="131">نام</text>
+                  <rect class="f-step l-el" style="--i:22" x="372" y="152" width="104" height="32" rx="10"/>
+                  <circle class="f-dot l-el" style="--i:23" cx="388" cy="168" r="4"/>
+                  <text class="n-name l-el" style="--i:24" x="400" y="171">تاریخ</text>
+                  <rect class="f-step l-el" style="--i:25" x="372" y="192" width="104" height="32" rx="10"/>
+                  <circle class="f-dot l-el" style="--i:26" cx="388" cy="208" r="4"/>
+                  <text class="n-name l-el" style="--i:27" x="400" y="211">مبلغ</text>
+                  <rect class="f-step l-el" style="--i:28" x="372" y="232" width="104" height="32" rx="10"/>
+                  <circle class="f-dot l-el" style="--i:29" cx="388" cy="248" r="4"/>
+                  <text class="n-name l-el" style="--i:30" x="400" y="251">شماره‌ی مرجع</text>
+                  <rect class="f-node l-el" style="--i:31" x="520" y="140" width="92" height="108" rx="14"/>
+                  <g transform="translate(535 156)"><path class="f-glyph l-el" style="--i:32" d="M2 9.5l5 5L16 4"/></g>
+                  <text class="n-name l-el" style="--i:33" x="535" y="222">اعتبارسنجی</text>
+                  <text class="n-note l-el" style="--i:34" x="535" y="235">قوانین</text>
+                  <rect class="f-sys l-el" style="--i:35" x="212" y="316" width="400" height="64" rx="14"/>
+                  <g transform="translate(232 338)"><path class="f-glyph-l l-el" style="--i:36" d="M2 4c0-1.66 3.13-3 7-3s7 1.34 7 3-3.13 3-7 3-7-1.34-7-3zM2 4v10c0 1.66 3.13 3 7 3s7-1.34 7-3V4"/></g>
+                  <text class="n-name on-ink l-el" style="--i:37" x="262" y="344">سامانه‌ی مرجع</text>
+                  <text class="n-note on-ink l-el" style="--i:38" x="262" y="358">یک بار ثبت، بدون تایپ دوباره</text>
+                  <path class="f-flow" style="--end:-88; --fd:0s; --fdur:0.64s" d="M168 194H212"/>
+                  <path class="f-flow" style="--end:-144; --fd:0.35s; --fdur:1.02s" d="M324 194H348V128H372"/>
+                  <path class="f-flow" style="--end:-144; --fd:0.44999999999999996s; --fdur:1.02s" d="M324 194H348V168H372"/>
+                  <path class="f-flow" style="--end:-144; --fd:0.55s; --fdur:1.02s" d="M324 194H348V208H372"/>
+                  <path class="f-flow" style="--end:-144; --fd:0.65s; --fdur:1.02s" d="M324 194H348V248H372"/>
+                </g>
+
+                <!-- ── 05 · three systems merged into one live screen ── -->
+                <g class="wd-lay" data-lay="4" style="--st:0.0300s">
+                  <path class="f-edge" d="M128 128H154V208H180"/>
+                  <path class="f-edge" d="M128 208H180"/>
+                  <path class="f-edge" d="M128 288H154V208H180"/>
+                  <path class="f-arrow l-el" style="--i:0" d="M174 204L180 208L174 212Z"/>
+                  <path class="f-edge" d="M284 208H328"/>
+                  <path class="f-arrow l-el" style="--i:1" d="M322 204L328 208L322 212Z"/>
+                  <path class="f-edge" d="M432 208H476"/>
+                  <path class="f-arrow l-el" style="--i:2" d="M470 204L476 208L470 212Z"/>
+                  <rect class="f-step l-el" style="--i:3" x="24" y="104" width="104" height="48" rx="12"/>
+                  <g transform="translate(38 119)"><path class="f-glyph l-el" style="--i:4" d="M2 4c0-1.66 3.13-3 7-3s7 1.34 7 3-3.13 3-7 3-7-1.34-7-3zM2 4v10c0 1.66 3.13 3 7 3s7-1.34 7-3V4"/></g>
+                  <text class="n-name l-el" style="--i:5" x="66" y="131">CRM</text>
+                  <rect class="f-step l-el" style="--i:6" x="24" y="184" width="104" height="48" rx="12"/>
+                  <g transform="translate(38 199)"><path class="f-glyph l-el" style="--i:7" d="M2 4h14v10H2zM2 5l7 5 7-5"/></g>
+                  <text class="n-name l-el" style="--i:8" x="66" y="211">صندوق ایمیل</text>
+                  <rect class="f-step l-el" style="--i:9" x="24" y="264" width="104" height="48" rx="12"/>
+                  <g transform="translate(38 279)"><path class="f-glyph l-el" style="--i:10" d="M2 4h14v13H2zM2 8h14M6 2v4M12 2v4"/></g>
+                  <text class="n-name l-el" style="--i:11" x="66" y="291">تقویم</text>
+                  <rect class="f-live l-el" style="--i:12" x="180" y="156" width="104" height="104" rx="14"/>
+                  <g transform="translate(195 172)"><path class="f-glyph l-el" style="--i:13" d="M17 9h-5M12 4v10M12 4H1M12 14H1"/></g>
+                  <text class="n-name l-el" style="--i:14" x="195" y="234">ادغام</text>
+                  <text class="n-note l-el" style="--i:15" x="195" y="247">حذف تکراری</text>
+                  <rect class="f-node l-el" style="--i:16" x="328" y="156" width="104" height="104" rx="14"/>
+                  <g transform="translate(343 172)"><path class="f-glyph l-el" style="--i:17" d="M16 9a7 7 0 1 1-2.05-4.95M16 2v4h-4"/></g>
+                  <text class="n-name l-el" style="--i:18" x="343" y="234">به‌روزرسانی</text>
+                  <text class="n-note l-el" style="--i:19" x="343" y="247">ساعتی</text>
+                  <rect class="f-node l-el" style="--i:20" x="476" y="84" width="140" height="248" rx="14"/>
+                  <text class="n-title l-el" style="--i:21" x="496" y="110">تابلوی زنده</text>
+                  <rect class="f-step l-el" style="--i:22" x="496" y="124" width="100" height="48" rx="8"/>
+                  <text class="n-note l-el" style="--i:23" x="508" y="142">رزروشده</text>
+                  <text class="n-stat l-el" style="--i:24" x="508" y="160">۹۴</text>
+                  <rect class="f-step l-el" style="--i:25" x="496" y="180" width="100" height="48" rx="8"/>
+                  <text class="n-note l-el" style="--i:26" x="508" y="198">غیبت‌ها</text>
+                  <text class="n-stat l-el" style="--i:27" x="508" y="216">۳</text>
+                  <rect class="f-bar l-el" style="--i:28" x="496" y="274" width="12" height="26" rx="3"/>
+                  <rect class="f-bar l-el" style="--i:29" x="516" y="260" width="12" height="40" rx="3"/>
+                  <rect class="f-bar l-el" style="--i:30" x="536" y="282" width="12" height="18" rx="3"/>
+                  <rect class="f-bar l-el" style="--i:31" x="556" y="252" width="12" height="48" rx="3"/>
+                  <rect class="f-bar l-el" style="--i:32" x="576" y="268" width="12" height="32" rx="3"/>
+                  <text class="n-note l-el" style="--i:33" x="496" y="318">شش هفته</text>
+                  <path class="f-flow" style="--end:-174; --fd:0s; --fdur:1.22s" d="M128 128H154V208H180"/>
+                  <path class="f-flow" style="--end:-96; --fd:0.08s; --fdur:0.70s" d="M128 208H180"/>
+                  <path class="f-flow" style="--end:-174; --fd:0.16s; --fdur:1.22s" d="M128 288H154V208H180"/>
+                  <path class="f-flow" style="--end:-88; --fd:0.7s; --fdur:0.64s" d="M284 208H328"/>
+                  <path class="f-flow" style="--end:-88; --fd:0.95s; --fdur:0.64s" d="M432 208H476"/>
+                </g>
+
+                <!-- ── 06 · below the confidence line, a person takes the call ── -->
+                <g class="wd-lay" data-lay="5" style="--st:0.0300s">
+                  <path class="f-edge" d="M148 204H190"/>
+                  <path class="f-arrow l-el" style="--i:0" d="M184 200L190 204L184 208Z"/>
+                  <path class="f-edge f-dash" d="M278 204H306V130H336"/>
+                  <path class="f-arrow l-el" style="--i:1" d="M330 126L336 130L330 134Z"/>
+                  <path class="f-edge" d="M278 204H306V286H336"/>
+                  <path class="f-arrow l-el" style="--i:2" d="M330 282L336 286L330 290Z"/>
+                  <path class="f-edge f-dash" d="M460 130H486"/>
+                  <path class="f-arrow l-el" style="--i:3" d="M480 126L486 130L480 134Z"/>
+                  <path class="f-edge" d="M460 286H486"/>
+                  <path class="f-arrow l-el" style="--i:4" d="M480 282L486 286L480 290Z"/>
+                  <rect class="f-live l-el" style="--i:5" x="24" y="158" width="124" height="92" rx="14"/>
+                  <g transform="translate(39 174)"><path class="f-glyph l-el" style="--i:6" d="M1 7v4M5 4v10M9 1v16M13 4v10M17 7v4"/></g>
+                  <text class="n-name l-el" style="--i:7" x="39" y="224">دستیار AI</text>
+                  <text class="n-note l-el" style="--i:8" x="39" y="237">در مکالمه</text>
+                  <polygon class="f-node l-el" style="--i:9" points="232,162 278,204 232,246 186,204"/>
+                  <g transform="translate(223 186)"><path class="f-glyph l-el" style="--i:10" d="M2 14a7 7 0 1 1 14 0M9 14l4-5"/></g>
+                  <text class="n-name l-el" style="--i:11" x="232" y="220" text-anchor="middle">مطمئن است؟</text>
+                  <rect class="f-lbl l-el" style="--i:12" x="186" y="266" width="92" height="8" rx="4"/>
+                  <rect class="f-bar l-el" style="--i:13" x="186" y="266" width="58" height="8" rx="4"/>
+                  <text class="n-note l-el" style="--i:14" x="232" y="288" text-anchor="middle">آستانه</text>
+                  <rect class="f-step l-el" style="--i:15" x="336" y="92" width="124" height="76" rx="14"/>
+                  <g transform="translate(351 108)"><path class="f-glyph l-el" style="--i:16" d="M2 9.5l5 5L16 4"/></g>
+                  <text class="n-name l-el" style="--i:17" x="351" y="150">حل خودکار</text>
+                  <rect class="f-sys l-el" style="--i:18" x="486" y="92" width="126" height="76" rx="14"/>
+                  <g transform="translate(501 108)"><path class="f-glyph-l l-el" style="--i:19" d="M2 4c0-1.66 3.13-3 7-3s7 1.34 7 3-3.13 3-7 3-7-1.34-7-3zM2 4v10c0 1.66 3.13 3 7 3s7-1.34 7-3V4"/></g>
+                  <text class="n-name on-ink l-el" style="--i:20" x="501" y="150">ثبت در CRM</text>
+                  <rect class="f-node l-el" style="--i:21" x="336" y="248" width="124" height="76" rx="14"/>
+                  <g transform="translate(351 264)"><path class="f-glyph l-el" style="--i:22" d="M9 8.4a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8zM2 17a7 7 0 0 1 14 0"/></g>
+                  <text class="n-name l-el" style="--i:23" x="351" y="306">ارجاع به اپراتور</text>
+                  <rect class="f-node l-el" style="--i:24" x="486" y="248" width="126" height="76" rx="14"/>
+                  <g transform="translate(501 264)"><path class="f-glyph l-el" style="--i:25" d="M3 1h8l4 4v12H3zM11 1v4h4M6 9h6M6 12h6"/></g>
+                  <text class="n-name l-el" style="--i:26" x="501" y="306">متن کامل گفتگو</text>
+                  <path class="f-flow" style="--end:-86; --fd:0s; --fdur:0.63s" d="M148 204H190"/>
+                  <path class="f-flow" style="--end:-156; --fd:0.35s; --fdur:1.10s" d="M278 204H306V286H336"/>
+                  <path class="f-flow" style="--end:-70; --fd:0.95s; --fdur:0.52s" d="M460 286H486"/>
+                </g>
+
+                <!-- flashes once per layout, as the structure is laid out -->
+                <rect class="wd-wire" x="18" y="70" width="604" height="330" rx="10"/>
+              </svg>
+            </div>
+          </div>
+          <div class="wd-dots">
+            <i class="on"></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ WEB DEVELOPMENT — the layouts, on their own ============ -->
+<section class="section" id="web">
+  <div class="container">
+    <div class="reveal wd-head-solo">
+      <h2 class="section-title">وب‌سایت‌هایی که مثل <span class="gold-word">نرم‌افزار</span> مهندسی می‌شوند.</h2>
+      <p class="section-sub">
+        هر سایت در استودیو طراحی و با دست کدنویسی می‌شود — سریع، دسترس‌پذیر،
+        آماده‌ی موتورهای جست‌وجو، و همپای رشد کسب‌وکارتان، به دست خود ما تکامل پیدا می‌کند.
+      </p>
+    </div>
+
+    <div class="wd-panel solo">
+      <!-- browser mock: deliberately abstract, so it reads as craft rather than
+           a screenshot of work we cannot show -->
+      <!-- Each structure builds block by block, then the frame rotates
+           to the next one (assets/webdev.js). -->
+      <div class="wd-visual reveal">
+        <div class="wd-stage" id="wdStage" aria-hidden="true">
+          <div class="wd-browser">
+            <div class="wd-bar">
+              <i></i><i></i><i></i>
+              <span class="wd-url"></span>
+            </div>
+            <!-- Eight site structures, drawn as SVG so they stay crisp at any
+                 panel width. No copy inside the frame: each group is a layout
+                 skeleton, and webdev.js rotates .on between them. -->
+            <div class="wd-viewport">
+              <span class="wd-scan"></span>
+              <svg class="wd-page" id="wdPage" viewBox="0 0 640 420">
+                <defs>
+                  <linearGradient id="wdBtnFill" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#0E43B4"/><stop offset="1" stop-color="#3B78EE"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- ── 01 · asymmetric hero, media overlapping the column ── -->
+                <g class="wd-lay on" data-lay="0" style="--st:0.0300s">
+                  <rect class="l-logo l-el" style="--i:0" x="28" y="18" width="24" height="24" rx="7"/>
+                  <rect class="l-t l-el" style="--i:1" x="300" y="27" width="40" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:2" x="352" y="27" width="32" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:3" x="396" y="27" width="36" height="6" rx="3"/>
+                  <rect class="l-dark l-el" style="--i:4" x="512" y="16" width="100" height="28" rx="14"/>
+                  <line class="l-rule" x1="20" y1="58" x2="620" y2="58"/>
+                  <rect class="l-media l-el" style="--i:5" x="332" y="84" width="280" height="236" rx="16"/>
+                  <circle class="l-accent l-el" style="--i:6" cx="586" cy="110" r="13"/>
+                  <rect class="l-h l-el" style="--i:7" x="28" y="104" width="286" height="20" rx="5"/>
+                  <rect class="l-h l-el" style="--i:8" x="28" y="136" width="212" height="20" rx="5"/>
+                  <rect class="l-t l-el" style="--i:9" x="28" y="176" width="244" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:10" x="28" y="192" width="196" height="8" rx="4"/>
+                  <rect class="l-cta l-el" style="--i:11" x="28" y="220" width="128" height="34" rx="17"/>
+                  <rect class="l-white l-el" style="--i:12" x="242" y="268" width="212" height="104" rx="14"/>
+                  <rect class="l-t l-el" style="--i:13" x="262" y="292" width="128" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:14" x="262" y="308" width="96" height="8" rx="4"/>
+                  <rect class="l-accent l-el" style="--i:15" x="262" y="332" width="72" height="18" rx="7"/>
+                </g>
+
+                <!-- ── 02 · bento grid, mixed tile sizes ── -->
+                <g class="wd-lay" data-lay="1" style="--st:0.0300s">
+                  <rect class="l-logo l-el" style="--i:0" x="28" y="18" width="24" height="24" rx="7"/>
+                  <rect class="l-t l-el" style="--i:1" x="452" y="27" width="36" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:2" x="500" y="27" width="36" height="6" rx="3"/>
+                  <rect class="l-dark l-el" style="--i:3" x="552" y="16" width="60" height="28" rx="14"/>
+                  <line class="l-rule" x1="20" y1="58" x2="620" y2="58"/>
+                  <rect class="l-media l-el" style="--i:4" x="28" y="78" width="300" height="184" rx="16"/>
+                  <rect class="l-card l-el" style="--i:5" x="344" y="78" width="268" height="86" rx="16"/>
+                  <rect class="l-panel l-el" style="--i:6" x="344" y="176" width="128" height="86" rx="16"/>
+                  <rect class="l-card l-el" style="--i:7" x="484" y="176" width="128" height="86" rx="16"/>
+                  <rect class="l-card l-el" style="--i:8" x="28" y="274" width="180" height="108" rx="16"/>
+                  <rect class="l-media l-el" style="--i:9" x="220" y="274" width="192" height="108" rx="16"/>
+                  <rect class="l-card l-el" style="--i:10" x="424" y="274" width="188" height="108" rx="16"/>
+                  <rect class="l-lh l-el" style="--i:11" x="362" y="196" width="76" height="9" rx="4"/>
+                  <rect class="l-lt l-el" style="--i:12" x="362" y="214" width="52" height="7" rx="3"/>
+                </g>
+
+                <!-- ── 03 · full-bleed hero, overlay nav, floating card ── -->
+                <g class="wd-lay" data-lay="2" style="--st:0.0300s">
+                  <!-- ink backdrop: the overlay nav and headline are light, and
+                       need a dark surface to read against -->
+                  <rect class="l-panel l-el" style="--i:0" x="20" y="14" width="600" height="286" rx="16"/>
+                  <rect class="l-llogo l-el" style="--i:1" x="44" y="36" width="24" height="24" rx="7"/>
+                  <rect class="l-lt l-el" style="--i:2" x="420" y="45" width="40" height="6" rx="3"/>
+                  <rect class="l-lt l-el" style="--i:3" x="472" y="45" width="32" height="6" rx="3"/>
+                  <rect class="l-llogo l-el" style="--i:4" x="518" y="34" width="78" height="28" rx="14"/>
+                  <rect class="l-lh l-el" style="--i:5" x="44" y="150" width="300" height="20" rx="5"/>
+                  <rect class="l-lh l-el" style="--i:6" x="44" y="182" width="212" height="20" rx="5"/>
+                  <rect class="l-lt l-el" style="--i:7" x="44" y="216" width="240" height="8" rx="4"/>
+                  <rect class="l-white l-el" style="--i:8" x="44" y="256" width="286" height="116" rx="16"/>
+                  <rect class="l-t l-el" style="--i:9" x="68" y="282" width="150" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:10" x="68" y="298" width="112" height="8" rx="4"/>
+                  <rect class="l-cta l-el" style="--i:11" x="68" y="322" width="118" height="30" rx="15"/>
+                  <rect class="l-card l-el" style="--i:12" x="352" y="312" width="80" height="60" rx="12"/>
+                  <rect class="l-card l-el" style="--i:13" x="444" y="312" width="80" height="60" rx="12"/>
+                  <rect class="l-card l-el" style="--i:14" x="536" y="312" width="80" height="60" rx="12"/>
+                </g>
+
+                <!-- ── 04 · sidebar rail + content grid ── -->
+                <g class="wd-lay" data-lay="3" style="--st:0.0300s">
+                  <rect class="l-card l-el" style="--i:0" x="20" y="16" width="126" height="388" rx="16"/>
+                  <rect class="l-logo l-el" style="--i:1" x="40" y="36" width="24" height="24" rx="7"/>
+                  <rect class="l-accent l-el" style="--i:2" x="40" y="86" width="86" height="9" rx="4"/>
+                  <rect class="l-t l-el" style="--i:3" x="40" y="112" width="70" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:4" x="40" y="136" width="78" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:5" x="40" y="160" width="62" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:6" x="40" y="184" width="72" height="8" rx="4"/>
+                  <rect class="l-white l-el" style="--i:7" x="166" y="24" width="330" height="30" rx="15"/>
+                  <circle class="l-circle l-el" style="--i:8" cx="600" cy="39" r="15"/>
+                  <rect class="l-h l-el" style="--i:9" x="166" y="82" width="216" height="16" rx="5"/>
+                  <rect class="l-media l-el" style="--i:10" x="166" y="114" width="216" height="128" rx="14"/>
+                  <rect class="l-media l-el" style="--i:11" x="398" y="114" width="218" height="128" rx="14"/>
+                  <rect class="l-card l-el" style="--i:12" x="166" y="258" width="216" height="128" rx="14"/>
+                  <rect class="l-card l-el" style="--i:13" x="398" y="258" width="218" height="128" rx="14"/>
+                </g>
+
+                <!-- ── 05 · editorial, byline and three columns ── -->
+                <g class="wd-lay" data-lay="4" style="--st:0.0300s">
+                  <rect class="l-logo l-el" style="--i:0" x="28" y="18" width="24" height="24" rx="7"/>
+                  <rect class="l-t l-el" style="--i:1" x="536" y="27" width="36" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:2" x="584" y="27" width="28" height="6" rx="3"/>
+                  <line class="l-rule" x1="20" y1="58" x2="620" y2="58"/>
+                  <rect class="l-accent l-el" style="--i:3" x="28" y="80" width="54" height="8" rx="4"/>
+                  <rect class="l-h l-el" style="--i:4" x="28" y="100" width="440" height="20" rx="5"/>
+                  <rect class="l-h l-el" style="--i:5" x="28" y="132" width="316" height="20" rx="5"/>
+                  <circle class="l-circle l-el" style="--i:6" cx="38" cy="176" r="11"/>
+                  <rect class="l-t l-el" style="--i:7" x="58" y="172" width="104" height="8" rx="4"/>
+                  <rect class="l-media l-el" style="--i:8" x="28" y="200" width="584" height="118" rx="14"/>
+                  <rect class="l-t l-el" style="--i:9"  x="28" y="338" width="176" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:10" x="28" y="354" width="150" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:11" x="28" y="370" width="164" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:12" x="232" y="338" width="176" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:13" x="232" y="354" width="140" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:14" x="232" y="370" width="168" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:15" x="436" y="338" width="176" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:16" x="436" y="354" width="152" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:17" x="436" y="370" width="120" height="8" rx="4"/>
+                </g>
+
+                <!-- ── 06 · horizontal gallery, cards running off the edge ── -->
+                <g class="wd-lay" data-lay="5" style="--st:0.0300s">
+                  <rect class="l-logo l-el" style="--i:0" x="28" y="18" width="24" height="24" rx="7"/>
+                  <rect class="l-t l-el" style="--i:1" x="480" y="27" width="36" height="6" rx="3"/>
+                  <rect class="l-dark l-el" style="--i:2" x="532" y="16" width="80" height="28" rx="14"/>
+                  <line class="l-rule" x1="20" y1="58" x2="620" y2="58"/>
+                  <rect class="l-h l-el" style="--i:3" x="28" y="86" width="232" height="18" rx="5"/>
+                  <rect class="l-t l-el" style="--i:4" x="28" y="114" width="168" height="8" rx="4"/>
+                  <rect class="l-media l-el" style="--i:5" x="28"  y="150" width="228" height="196" rx="16"/>
+                  <rect class="l-media l-el" style="--i:6" x="272" y="150" width="228" height="196" rx="16"/>
+                  <rect class="l-media l-el" style="--i:7" x="516" y="150" width="228" height="196" rx="16"/>
+                  <rect class="l-t l-el" style="--i:8" x="28" y="372" width="150" height="5" rx="2.5"/>
+                  <rect class="l-accent l-el" style="--i:9" x="28" y="372" width="62" height="5" rx="2.5"/>
+                  <circle class="l-chip l-el" style="--i:10" cx="548" cy="374" r="17"/>
+                  <circle class="l-panel l-el" style="--i:11" cx="594" cy="374" r="17"/>
+                </g>
+
+                <!-- ── 07 · split screen, dark half ── -->
+                <g class="wd-lay" data-lay="6" style="--st:0.0300s">
+                  <rect class="l-panel l-el" style="--i:0" x="20" y="16" width="298" height="388" rx="16"/>
+                  <rect class="l-llogo l-el" style="--i:1" x="48" y="44" width="24" height="24" rx="7"/>
+                  <rect class="l-lh l-el" style="--i:2" x="48" y="150" width="230" height="20" rx="5"/>
+                  <rect class="l-lh l-el" style="--i:3" x="48" y="182" width="168" height="20" rx="5"/>
+                  <rect class="l-lt l-el" style="--i:4" x="48" y="220" width="204" height="8" rx="4"/>
+                  <rect class="l-lt l-el" style="--i:5" x="48" y="236" width="164" height="8" rx="4"/>
+                  <rect class="l-llogo l-el" style="--i:6" x="48" y="270" width="128" height="34" rx="17"/>
+                  <rect class="l-media l-el" style="--i:7" x="334" y="16" width="286" height="272" rx="16"/>
+                  <rect class="l-card l-el" style="--i:8" x="334" y="304" width="136" height="100" rx="14"/>
+                  <rect class="l-card l-el" style="--i:9" x="484" y="304" width="136" height="100" rx="14"/>
+                  <rect class="l-accent l-el" style="--i:10" x="354" y="330" width="52" height="10" rx="5"/>
+                  <rect class="l-t l-el" style="--i:11" x="354" y="352" width="88" height="8" rx="4"/>
+                  <rect class="l-accent l-el" style="--i:12" x="504" y="330" width="52" height="10" rx="5"/>
+                  <rect class="l-t l-el" style="--i:13" x="504" y="352" width="88" height="8" rx="4"/>
+                </g>
+
+                <!-- ── 08 · product detail with buy panel ── -->
+                <g class="wd-lay" data-lay="7" style="--st:0.0300s">
+                  <rect class="l-logo l-el" style="--i:0" x="28" y="18" width="24" height="24" rx="7"/>
+                  <rect class="l-t l-el" style="--i:1" x="452" y="27" width="36" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:2" x="500" y="27" width="36" height="6" rx="3"/>
+                  <rect class="l-dark l-el" style="--i:3" x="552" y="16" width="60" height="28" rx="14"/>
+                  <line class="l-rule" x1="20" y1="58" x2="620" y2="58"/>
+                  <rect class="l-media l-el" style="--i:4" x="28" y="80" width="292" height="216" rx="14"/>
+                  <rect class="l-card l-el" style="--i:5" x="28"  y="308" width="66" height="56" rx="10"/>
+                  <rect class="l-card l-el" style="--i:6" x="104" y="308" width="66" height="56" rx="10"/>
+                  <rect class="l-card l-el" style="--i:7" x="180" y="308" width="66" height="56" rx="10"/>
+                  <rect class="l-card l-el" style="--i:8" x="256" y="308" width="64" height="56" rx="10"/>
+                  <rect class="l-h l-el" style="--i:9" x="352" y="92" width="212" height="18" rx="5"/>
+                  <circle class="l-accent l-el" style="--i:10" cx="357" cy="128" r="5"/>
+                  <circle class="l-accent l-el" style="--i:11" cx="373" cy="128" r="5"/>
+                  <circle class="l-accent l-el" style="--i:12" cx="389" cy="128" r="5"/>
+                  <circle class="l-accent l-el" style="--i:13" cx="405" cy="128" r="5"/>
+                  <circle class="l-circle l-el" style="--i:14" cx="421" cy="128" r="5"/>
+                  <rect class="l-accent l-el" style="--i:15" x="352" y="150" width="86" height="16" rx="5"/>
+                  <rect class="l-chip l-el" style="--i:16" x="352" y="186" width="62" height="30" rx="9"/>
+                  <rect class="l-chip l-el" style="--i:17" x="424" y="186" width="62" height="30" rx="9"/>
+                  <rect class="l-chip l-el" style="--i:18" x="496" y="186" width="62" height="30" rx="9"/>
+                  <rect class="l-cta l-el" style="--i:19" x="352" y="234" width="260" height="38" rx="19"/>
+                  <rect class="l-t l-el" style="--i:20" x="352" y="292" width="260" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:21" x="352" y="308" width="222" height="8" rx="4"/>
+                  <rect class="l-card l-el" style="--i:22" x="352" y="332" width="84" height="32" rx="10"/>
+                  <rect class="l-card l-el" style="--i:23" x="446" y="332" width="84" height="32" rx="10"/>
+                  <rect class="l-card l-el" style="--i:24" x="540" y="332" width="72" height="32" rx="10"/>
+                </g>
+
+                <!-- flashes once per layout, as the structure is laid out -->
+                <rect class="wd-wire" x="18" y="70" width="604" height="330" rx="10"/>
+              </svg>
+            </div>
+          </div>
+          <!-- the layout indicator sits under the frame -->
+          <div class="wd-dots" id="wdDots">
+            <i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
+
+<!-- ============ SOFTWARE DEVELOPMENT — the tools behind the site ============ -->
+<section class="section band" id="software">
+  <div class="container">
+    <div class="reveal wd-head-solo">
+      <h2 class="section-title">ساخته‌شده بر اساس فرایندی که <span class="gold-word">همین حالا</span> دارید.</h2>
+      <p class="section-sub">
+        مسیر حرکت کار در کسب‌وکارتان را ترسیم می‌کنیم و نرم‌افزاری می‌سازیم که آن را
+        پیش ببرد — و اکسل‌ها، کارهای دستی و اشتراک‌های پولی را بازنشسته می‌کنیم.
+      </p>
+    </div>
+
+    <div class="wd-panel solo">
+      <div class="wd-visual reveal">
+        <div class="wd-stage" id="sdStage" data-hold="3400" aria-hidden="true">
+          <div class="wd-browser">
+            <div class="wd-bar">
+              <i></i><i></i><i></i>
+              <span class="wd-url"></span>
+              <span class="wd-tools"><b></b><b></b></span>
+            </div>
+            <!-- Six application screens: the shapes internal software actually takes. -->
+            <div class="wd-viewport">
+              <span class="wd-scan"></span>
+              <svg class="wd-page" id="sdPage" viewBox="0 0 640 420">
+                <defs>
+                  <linearGradient id="sdBtnFill" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#0E43B4"/><stop offset="1" stop-color="#3B78EE"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- ── 01 · records table: nav, search, filters, rows, status ── -->
+                <g class="wd-lay on" data-lay="0" style="--st:0.0198s">
+                  <rect class="l-panel l-el" style="--i:0" x="20" y="16" width="96" height="388" rx="16"/>
+                  <rect class="l-llogo l-el" style="--i:1" x="40" y="34" width="22" height="22" rx="6"/>
+                  <rect class="l-lsel l-el" style="--i:2" x="30" y="76" width="76" height="22" rx="7"/>
+                  <text class="n-name on-ink l-el" style="--i:3" x="38" y="91">پرونده‌ها</text>
+                  <text class="n-name on-ink l-el" style="--i:4" x="38" y="118">گزارش‌ها</text>
+                  <text class="n-name on-ink l-el" style="--i:5" x="38" y="145">تیم</text>
+                  <text class="n-name on-ink l-el" style="--i:6" x="38" y="172">تنظیمات</text>
+                  <rect class="l-white l-el" style="--i:7" x="132" y="24" width="274" height="30" rx="15"/>
+                  <text class="n-note l-el" style="--i:8" x="150" y="43">جست‌وجوی پرونده‌ها</text>
+                  <rect class="l-chip l-el" style="--i:9" x="420" y="24" width="66" height="30" rx="10"/>
+                  <text class="n-name l-el" style="--i:10" x="436" y="43">فیلتر</text>
+                  <rect class="l-cta l-el" style="--i:11" x="498" y="24" width="92" height="30" rx="15"/>
+                  <text class="n-name on-ink l-el" style="--i:12" x="544" y="43" text-anchor="middle">کار جدید</text>
+                  <circle class="l-circle l-el" style="--i:13" cx="606" cy="39" r="13"/>
+                  <text class="n-note l-el" style="--i:14" x="132" y="118">شناسه</text>
+                  <text class="n-note l-el" style="--i:15" x="196" y="118">مشتری</text>
+                  <text class="n-note l-el" style="--i:16" x="336" y="118">مسئول</text>
+                  <text class="n-note l-el" style="--i:17" x="444" y="118">به‌روزرسانی</text>
+                  <text class="n-note l-el" style="--i:18" x="540" y="118">وضعیت</text>
+                  <line class="l-rule" x1="132" y1="132" x2="620" y2="132"/>
+                  <rect class="l-t l-el" style="--i:19" x="132" y="150" width="24" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:20" x="196" y="150" width="86" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:21" x="336" y="150" width="70" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:22" x="444" y="150" width="58" height="8" rx="4"/>
+                  <rect class="l-chip l-el" style="--i:23" x="540" y="143" width="66" height="22" rx="11"/>
+                  <text class="n-note l-el" style="--i:24" x="573" y="157" text-anchor="middle">پیش‌نویس</text>
+                  <line class="l-rule" x1="132" y1="171" x2="620" y2="171"/>
+                  <rect class="l-t l-el" style="--i:25" x="132" y="192" width="24" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:26" x="196" y="192" width="108" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:27" x="336" y="192" width="62" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:28" x="444" y="192" width="64" height="8" rx="4"/>
+                  <rect class="l-accent-chip l-el" style="--i:29" x="540" y="185" width="66" height="22" rx="11"/>
+                  <text class="n-note n-accent l-el" style="--i:30" x="573" y="199" text-anchor="middle">فعال</text>
+                  <line class="l-rule" x1="132" y1="213" x2="620" y2="213"/>
+                  <rect class="l-t l-el" style="--i:31" x="132" y="234" width="24" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:32" x="196" y="234" width="74" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:33" x="336" y="234" width="78" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:34" x="444" y="234" width="50" height="8" rx="4"/>
+                  <rect class="l-chip l-el" style="--i:35" x="540" y="227" width="66" height="22" rx="11"/>
+                  <text class="n-note l-el" style="--i:36" x="573" y="241" text-anchor="middle">بازبینی</text>
+                  <line class="l-rule" x1="132" y1="255" x2="620" y2="255"/>
+                  <rect class="l-t l-el" style="--i:37" x="132" y="276" width="24" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:38" x="196" y="276" width="96" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:39" x="336" y="276" width="66" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:40" x="444" y="276" width="60" height="8" rx="4"/>
+                  <rect class="l-chip l-el" style="--i:41" x="540" y="269" width="66" height="22" rx="11"/>
+                  <text class="n-note l-el" style="--i:42" x="573" y="283" text-anchor="middle">پیش‌نویس</text>
+                  <line class="l-rule" x1="132" y1="297" x2="620" y2="297"/>
+                  <rect class="l-t l-el" style="--i:43" x="132" y="318" width="24" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:44" x="196" y="318" width="118" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:45" x="336" y="318" width="58" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:46" x="444" y="318" width="54" height="8" rx="4"/>
+                  <rect class="l-accent-chip l-el" style="--i:47" x="540" y="311" width="66" height="22" rx="11"/>
+                  <text class="n-note n-accent l-el" style="--i:48" x="573" y="325" text-anchor="middle">فعال</text>
+                  <line class="l-rule" x1="132" y1="339" x2="620" y2="339"/>
+                  <rect class="l-t l-el" style="--i:49" x="132" y="360" width="24" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:50" x="196" y="360" width="82" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:51" x="336" y="360" width="72" height="8" rx="4"/>
+                  <rect class="l-t l-el" style="--i:52" x="444" y="360" width="56" height="8" rx="4"/>
+                  <rect class="l-chip l-el" style="--i:53" x="540" y="353" width="66" height="22" rx="11"/>
+                  <text class="n-note l-el" style="--i:54" x="573" y="367" text-anchor="middle">انجام‌شده</text>
+                  <line class="l-rule" x1="132" y1="382" x2="620" y2="382"/>
+                  <text class="n-note l-el" style="--i:55" x="132" y="398">صفحه‌ی ۱ از ۱۲</text>
+                  <rect class="l-chip l-el" style="--i:56" x="524" y="386" width="26" height="22" rx="7"/>
+                  <rect class="l-accent-chip l-el" style="--i:57" x="558" y="386" width="26" height="22" rx="7"/>
+                  <rect class="l-chip l-el" style="--i:58" x="592" y="386" width="26" height="22" rx="7"/>
+                </g>
+
+                <!-- ── 02 · board: columns named, one card mid-drag ── -->
+                <g class="wd-lay" data-lay="1" style="--st:0.0202s">
+                  <rect class="l-logo l-el" style="--i:0" x="28" y="18" width="24" height="24" rx="7"/>
+                  <text class="n-name l-el" style="--i:1" x="420" y="34">تابلو</text>
+                  <text class="n-note l-el" style="--i:2" x="466" y="34">فهرست</text>
+                  <rect class="l-dark l-el" style="--i:3" x="508" y="16" width="104" height="28" rx="14"/>
+                  <text class="n-name on-ink l-el" style="--i:4" x="560" y="34" text-anchor="middle">کار جدید</text>
+                  <line class="l-rule" x1="20" y1="58" x2="620" y2="58"/>
+                  <text class="n-title l-el" style="--i:5" x="28" y="88">کارهای این هفته</text>
+                  <rect class="l-chip l-el" style="--i:6" x="512" y="72" width="100" height="26" rx="9"/>
+                  <text class="n-note l-el" style="--i:7" x="562" y="89" text-anchor="middle">این هفته</text>
+                  <text class="n-note l-el" style="--i:8" x="28" y="120">دریافت</text>
+                  <circle class="l-circle l-el" style="--i:9" cx="152" cy="116" r="9"/>
+                  <text class="n-note l-el" style="--i:10" x="152" y="119" text-anchor="middle">۳</text>
+                  <rect class="l-card l-el" style="--i:11" x="28" y="138" width="134" height="72" rx="12"/>
+                  <text class="n-name l-el" style="--i:12" x="42" y="164">بازدید محل</text>
+                  <rect class="l-t l-el" style="--i:13" x="42" y="176" width="58" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:14" x="108" y="176" width="40" height="6" rx="3"/>
+                  <rect class="l-card l-el" style="--i:15" x="28" y="222" width="134" height="72" rx="12"/>
+                  <text class="n-name l-el" style="--i:16" x="42" y="248">پیش‌فاکتور رفت</text>
+                  <rect class="l-t l-el" style="--i:17" x="42" y="260" width="58" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:18" x="108" y="260" width="40" height="6" rx="3"/>
+                  <rect class="l-card l-el" style="--i:19" x="28" y="306" width="134" height="72" rx="12"/>
+                  <text class="n-name l-el" style="--i:20" x="42" y="332">موعد بیعانه</text>
+                  <rect class="l-t l-el" style="--i:21" x="42" y="344" width="58" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:22" x="108" y="344" width="40" height="6" rx="3"/>
+                  <text class="n-note l-el" style="--i:23" x="178" y="120">زمان‌بندی‌شده</text>
+                  <circle class="l-circle l-el" style="--i:24" cx="302" cy="116" r="9"/>
+                  <text class="n-note l-el" style="--i:25" x="302" y="119" text-anchor="middle">۲</text>
+                  <rect class="l-card l-el" style="--i:26" x="178" y="138" width="134" height="72" rx="12"/>
+                  <text class="n-name l-el" style="--i:27" x="192" y="164">نصب اولیه</text>
+                  <rect class="l-t l-el" style="--i:28" x="192" y="176" width="58" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:29" x="258" y="176" width="40" height="6" rx="3"/>
+                  <rect class="l-card l-el" style="--i:30" x="178" y="222" width="134" height="72" rx="12"/>
+                  <text class="n-name l-el" style="--i:31" x="192" y="248">سفارش قطعه</text>
+                  <rect class="l-t l-el" style="--i:32" x="192" y="260" width="58" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:33" x="258" y="260" width="40" height="6" rx="3"/>
+                  <text class="n-note l-el" style="--i:34" x="328" y="120">در حال انجام</text>
+                  <circle class="l-circle l-el" style="--i:35" cx="452" cy="116" r="9"/>
+                  <text class="n-note l-el" style="--i:36" x="452" y="119" text-anchor="middle">۳</text>
+                  <rect class="l-card l-el" style="--i:37" x="328" y="138" width="134" height="72" rx="12"/>
+                  <text class="n-name l-el" style="--i:38" x="342" y="164">سیم‌کشی</text>
+                  <rect class="l-t l-el" style="--i:39" x="342" y="176" width="58" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:40" x="408" y="176" width="40" height="6" rx="3"/>
+                  <rect class="l-ghost l-el" style="--i:41" x="328" y="222" width="134" height="64" rx="12"/>
+                  <text class="n-note n-accent l-el" style="--i:42" x="395" y="258" text-anchor="middle">اینجا رها کنید</text>
+                  <rect class="l-card l-el" style="--i:43" x="328" y="298" width="134" height="72" rx="12"/>
+                  <text class="n-name l-el" style="--i:44" x="342" y="324">نصب نهایی</text>
+                  <rect class="l-t l-el" style="--i:45" x="342" y="336" width="58" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:46" x="408" y="336" width="40" height="6" rx="3"/>
+                  <text class="n-note l-el" style="--i:47" x="478" y="120">انجام‌شده</text>
+                  <circle class="l-circle l-el" style="--i:48" cx="602" cy="116" r="9"/>
+                  <text class="n-note l-el" style="--i:49" x="602" y="119" text-anchor="middle">۲</text>
+                  <rect class="l-card l-el" style="--i:50" x="478" y="138" width="134" height="72" rx="12"/>
+                  <text class="n-name l-el" style="--i:51" x="492" y="164">تحویل</text>
+                  <rect class="l-t l-el" style="--i:52" x="492" y="176" width="58" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:53" x="558" y="176" width="40" height="6" rx="3"/>
+                  <rect class="l-card l-el" style="--i:54" x="478" y="222" width="134" height="72" rx="12"/>
+                  <text class="n-name l-el" style="--i:55" x="492" y="248">فاکتور شد</text>
+                  <rect class="l-t l-el" style="--i:56" x="492" y="260" width="58" height="6" rx="3"/>
+                  <rect class="l-t l-el" style="--i:57" x="558" y="260" width="40" height="6" rx="3"/>
+                </g>
+
+                <!-- ── 03 · dashboard: the numbers a manager checks daily ── -->
+                <g class="wd-lay" data-lay="2" style="--st:0.0280s">
+                  <rect class="l-panel l-el" style="--i:0" x="20" y="16" width="78" height="388" rx="16"/>
+                  <rect class="l-llogo l-el" style="--i:1" x="42" y="36" width="22" height="22" rx="6"/>
+                  <rect class="l-lt l-el" style="--i:2" x="40" y="82" width="26" height="20" rx="6"/>
+                  <rect class="l-lt l-el" style="--i:3" x="40" y="112" width="26" height="20" rx="6"/>
+                  <rect class="l-lt l-el" style="--i:4" x="40" y="142" width="26" height="20" rx="6"/>
+                  <rect class="l-white l-el" style="--i:5" x="114" y="24" width="290" height="30" rx="15"/>
+                  <text class="n-note l-el" style="--i:6" x="132" y="43">جست‌وجو</text>
+                  <circle class="l-circle l-el" style="--i:7" cx="600" cy="39" r="15"/>
+                  <rect class="l-card l-el" style="--i:8" x="114" y="74" width="118" height="76" rx="12"/>
+                  <text class="n-note l-el" style="--i:9" x="132" y="100">درخواست‌ها</text>
+                  <text class="n-stat l-el" style="--i:10" x="132" y="128">۱۲۸</text>
+                  <rect class="l-card l-el" style="--i:11" x="246" y="74" width="118" height="76" rx="12"/>
+                  <text class="n-note l-el" style="--i:12" x="264" y="100">رزروشده</text>
+                  <text class="n-stat l-el" style="--i:13" x="264" y="128">۹۴</text>
+                  <rect class="l-card l-el" style="--i:14" x="378" y="74" width="118" height="76" rx="12"/>
+                  <text class="n-note l-el" style="--i:15" x="396" y="100">غیبت‌ها</text>
+                  <text class="n-stat l-el" style="--i:16" x="396" y="128">۳</text>
+                  <rect class="l-card l-el" style="--i:17" x="510" y="74" width="106" height="76" rx="12"/>
+                  <text class="n-note l-el" style="--i:18" x="528" y="100">درآمد</text>
+                  <text class="n-stat l-el" style="--i:19" x="528" y="128">۴۲ هزار</text>
+                  <rect class="l-white l-el" style="--i:20" x="114" y="164" width="330" height="160" rx="14"/>
+                  <text class="n-name l-el" style="--i:21" x="132" y="190">رزروها</text>
+                  <text class="n-note l-el" style="--i:22" x="132" y="204">شش هفته‌ی اخیر</text>
+                  <rect class="l-chart l-el" style="--i:23" x="140" y="252" width="26" height="48" rx="5"/>
+                  <rect class="l-chart l-el" style="--i:24" x="180" y="226" width="26" height="74" rx="5"/>
+                  <rect class="l-chart l-el" style="--i:25" x="220" y="264" width="26" height="36" rx="5"/>
+                  <rect class="l-chart l-el" style="--i:26" x="260" y="216" width="26" height="84" rx="5"/>
+                  <rect class="l-chart l-el" style="--i:27" x="300" y="244" width="26" height="56" rx="5"/>
+                  <rect class="l-chart l-el" style="--i:28" x="340" y="230" width="26" height="70" rx="5"/>
+                  <rect class="l-card l-el" style="--i:29" x="458" y="164" width="158" height="160" rx="14"/>
+                  <text class="n-name l-el" style="--i:30" x="476" y="190">منابع</text>
+                  <text class="n-note l-el" style="--i:31" x="476" y="214">جست‌وجو</text>
+                  <rect class="l-t l-el" style="--i:32" x="566" y="208" width="34" height="7" rx="3"/>
+                  <text class="n-note l-el" style="--i:33" x="476" y="236">معرفی</text>
+                  <rect class="l-t l-el" style="--i:34" x="566" y="230" width="34" height="7" rx="3"/>
+                  <text class="n-note l-el" style="--i:35" x="476" y="258">مستقیم</text>
+                  <rect class="l-t l-el" style="--i:36" x="566" y="252" width="34" height="7" rx="3"/>
+                  <text class="n-note l-el" style="--i:37" x="476" y="280">شبکه‌های اجتماعی</text>
+                  <rect class="l-t l-el" style="--i:38" x="566" y="274" width="34" height="7" rx="3"/>
+                  <text class="n-note l-el" style="--i:39" x="114" y="348">فعالیت‌های اخیر</text>
+                  <rect class="l-t l-el" style="--i:40" x="114" y="360" width="502" height="9" rx="4"/>
+                  <rect class="l-t l-el" style="--i:41" x="114" y="380" width="502" height="9" rx="4"/>
+                </g>
+
+                <!-- ── 04 · record detail: fields, then the audit trail beside them ── -->
+                <g class="wd-lay" data-lay="3" style="--st:0.0300s">
+                  <rect class="l-chip l-el" style="--i:0" x="28" y="20" width="76" height="26" rx="9"/>
+                  <text class="n-name l-el" style="--i:1" x="44" y="38">بازگشت</text>
+                  <rect class="l-cta l-el" style="--i:2" x="486" y="20" width="126" height="30" rx="15"/>
+                  <text class="n-name on-ink l-el" style="--i:3" x="549" y="39" text-anchor="middle">ذخیره‌ی تغییرات</text>
+                  <text class="n-title l-el" style="--i:4" x="28" y="76">کار ۲۸۴۱</text>
+                  <line class="l-rule" x1="20" y1="100" x2="620" y2="100"/>
+                  <text class="n-note l-el" style="--i:5" x="28" y="124">مشتری</text>
+                  <rect class="l-white l-el" style="--i:6" x="28" y="132" width="340" height="32" rx="8"/>
+                  <rect class="l-t l-el" style="--i:7" x="44" y="145" width="130" height="7" rx="3"/>
+                  <text class="n-note l-el" style="--i:8" x="28" y="182">خدمت</text>
+                  <rect class="l-white l-el" style="--i:9" x="28" y="190" width="340" height="32" rx="8"/>
+                  <rect class="l-t l-el" style="--i:10" x="44" y="203" width="130" height="7" rx="3"/>
+                  <text class="n-note l-el" style="--i:11" x="28" y="240">مسئول</text>
+                  <rect class="l-white l-el" style="--i:12" x="28" y="248" width="340" height="32" rx="8"/>
+                  <rect class="l-t l-el" style="--i:13" x="44" y="261" width="130" height="7" rx="3"/>
+                  <text class="n-note l-el" style="--i:14" x="28" y="298">سررسید</text>
+                  <rect class="l-white l-el" style="--i:15" x="28" y="306" width="340" height="32" rx="8"/>
+                  <rect class="l-t l-el" style="--i:16" x="44" y="319" width="130" height="7" rx="3"/>
+                  <text class="n-note l-el" style="--i:17" x="28" y="356">بیعانه</text>
+                  <rect class="l-white l-el" style="--i:18" x="28" y="364" width="162" height="32" rx="8"/>
+                  <rect class="l-t l-el" style="--i:19" x="44" y="377" width="60" height="7" rx="3"/>
+                  <text class="n-note l-el" style="--i:20" x="206" y="356">مانده</text>
+                  <rect class="l-white l-el" style="--i:21" x="206" y="364" width="162" height="32" rx="8"/>
+                  <rect class="l-t l-el" style="--i:22" x="222" y="377" width="60" height="7" rx="3"/>
+                  <rect class="l-card l-el" style="--i:23" x="396" y="118" width="216" height="278" rx="14"/>
+                  <text class="n-name l-el" style="--i:24" x="418" y="146">سابقه‌ی تغییرات</text>
+                  <line class="l-rule" x1="424" y1="176" x2="424" y2="358"/>
+                  <circle class="l-accent l-el" style="--i:25" cx="424" cy="182" r="6"/>
+                  <text class="n-name l-el" style="--i:26" x="444" y="180">ایجاد شد</text>
+                  <text class="n-note l-el" style="--i:27" x="444" y="193">سام</text>
+                  <circle class="l-circle l-el" style="--i:28" cx="424" cy="240" r="6"/>
+                  <text class="n-name l-el" style="--i:29" x="444" y="238">واگذار شد</text>
+                  <text class="n-note l-el" style="--i:30" x="444" y="251">پریا</text>
+                  <circle class="l-circle l-el" style="--i:31" cx="424" cy="298" r="6"/>
+                  <text class="n-name l-el" style="--i:32" x="444" y="296">بیعانه پرداخت شد</text>
+                  <text class="n-note l-el" style="--i:33" x="444" y="309">کارت</text>
+                  <circle class="l-circle l-el" style="--i:34" cx="424" cy="354" r="6"/>
+                  <text class="n-name l-el" style="--i:35" x="444" y="352">تأیید شد</text>
+                  <text class="n-note l-el" style="--i:36" x="444" y="365">خودکار</text>
+                </g>
+
+                <!-- ── 05 · roles and permissions: a matrix, not a settings page ── -->
+                <g class="wd-lay" data-lay="4" style="--st:0.0287s">
+                  <rect class="l-logo l-el" style="--i:0" x="28" y="18" width="24" height="24" rx="7"/>
+                  <text class="n-name l-el" style="--i:1" x="470" y="34">دسترسی</text>
+                  <rect class="l-dark l-el" style="--i:2" x="528" y="16" width="84" height="28" rx="14"/>
+                  <text class="n-name on-ink l-el" style="--i:3" x="570" y="34" text-anchor="middle">نقش جدید</text>
+                  <line class="l-rule" x1="20" y1="58" x2="620" y2="58"/>
+                  <text class="n-title l-el" style="--i:4" x="28" y="88">نقش‌ها و دسترسی‌ها</text>
+                  <text class="n-note l-el" style="--i:5" x="326" y="124" text-anchor="middle">مشاهده</text>
+                  <text class="n-note l-el" style="--i:6" x="408" y="124" text-anchor="middle">ویرایش</text>
+                  <text class="n-note l-el" style="--i:7" x="490" y="124" text-anchor="middle">تأیید</text>
+                  <text class="n-note l-el" style="--i:8" x="572" y="124" text-anchor="middle">خروجی</text>
+                  <line class="l-rule" x1="28" y1="140" x2="612" y2="140"/>
+                  <text class="n-name l-el" style="--i:9" x="28" y="168">مالک</text>
+                  <circle class="l-accent l-el" style="--i:10" cx="326" cy="164" r="7"/>
+                  <circle class="l-accent l-el" style="--i:11" cx="408" cy="164" r="7"/>
+                  <circle class="l-accent l-el" style="--i:12" cx="490" cy="164" r="7"/>
+                  <circle class="l-accent l-el" style="--i:13" cx="572" cy="164" r="7"/>
+                  <line class="l-rule" x1="28" y1="180" x2="612" y2="180"/>
+                  <text class="n-name l-el" style="--i:14" x="28" y="208">مدیر</text>
+                  <circle class="l-accent l-el" style="--i:15" cx="326" cy="204" r="7"/>
+                  <circle class="l-accent l-el" style="--i:16" cx="408" cy="204" r="7"/>
+                  <circle class="l-accent l-el" style="--i:17" cx="490" cy="204" r="7"/>
+                  <circle class="l-chip l-el" style="--i:18" cx="572" cy="204" r="7"/>
+                  <line class="l-rule" x1="28" y1="220" x2="612" y2="220"/>
+                  <text class="n-name l-el" style="--i:19" x="28" y="248">هماهنگ‌کننده</text>
+                  <circle class="l-accent l-el" style="--i:20" cx="326" cy="244" r="7"/>
+                  <circle class="l-accent l-el" style="--i:21" cx="408" cy="244" r="7"/>
+                  <circle class="l-chip l-el" style="--i:22" cx="490" cy="244" r="7"/>
+                  <circle class="l-chip l-el" style="--i:23" cx="572" cy="244" r="7"/>
+                  <line class="l-rule" x1="28" y1="260" x2="612" y2="260"/>
+                  <text class="n-name l-el" style="--i:24" x="28" y="288">تکنسین</text>
+                  <circle class="l-accent l-el" style="--i:25" cx="326" cy="284" r="7"/>
+                  <circle class="l-chip l-el" style="--i:26" cx="408" cy="284" r="7"/>
+                  <circle class="l-accent l-el" style="--i:27" cx="490" cy="284" r="7"/>
+                  <circle class="l-chip l-el" style="--i:28" cx="572" cy="284" r="7"/>
+                  <line class="l-rule" x1="28" y1="300" x2="612" y2="300"/>
+                  <text class="n-name l-el" style="--i:29" x="28" y="328">مالی</text>
+                  <circle class="l-accent l-el" style="--i:30" cx="326" cy="324" r="7"/>
+                  <circle class="l-accent l-el" style="--i:31" cx="408" cy="324" r="7"/>
+                  <circle class="l-chip l-el" style="--i:32" cx="490" cy="324" r="7"/>
+                  <circle class="l-chip l-el" style="--i:33" cx="572" cy="324" r="7"/>
+                  <line class="l-rule" x1="28" y1="340" x2="612" y2="340"/>
+                  <text class="n-name l-el" style="--i:34" x="28" y="368">فقط مشاهده</text>
+                  <circle class="l-accent l-el" style="--i:35" cx="326" cy="364" r="7"/>
+                  <circle class="l-chip l-el" style="--i:36" cx="408" cy="364" r="7"/>
+                  <circle class="l-chip l-el" style="--i:37" cx="490" cy="364" r="7"/>
+                  <circle class="l-chip l-el" style="--i:38" cx="572" cy="364" r="7"/>
+                  <rect class="l-cta l-el" style="--i:39" x="28" y="384" width="122" height="28" rx="14"/>
+                  <text class="n-name on-ink l-el" style="--i:40" x="89" y="402" text-anchor="middle">ذخیره‌ی نقش‌ها</text>
+                </g>
+
+                <!-- ── 06 · integration console: request, response, run log ── -->
+                <g class="wd-lay" data-lay="5" style="--st:0.0300s">
+                  <rect class="l-logo l-el" style="--i:0" x="28" y="18" width="24" height="24" rx="7"/>
+                  <rect class="l-chip l-el" style="--i:1" x="420" y="16" width="82" height="28" rx="9"/>
+                  <text class="n-name l-el" style="--i:2" x="436" y="34">درخواست</text>
+                  <rect class="l-chip l-el" style="--i:3" x="512" y="16" width="88" height="28" rx="9"/>
+                  <text class="n-name l-el" style="--i:4" x="528" y="34">پاسخ</text>
+                  <line class="l-rule" x1="20" y1="58" x2="620" y2="58"/>
+                  <rect class="l-panel l-el" style="--i:5" x="28" y="76" width="292" height="196" rx="14"/>
+                  <text class="n-note on-ink l-el" style="--i:6" x="48" y="100">POST /BOOKINGS</text>
+                  <rect class="l-lt l-el" style="--i:7" x="48" y="118" width="172" height="7" rx="3"/>
+                  <rect class="l-lt l-el" style="--i:8" x="48" y="139" width="132" height="7" rx="3"/>
+                  <rect class="l-lt l-el" style="--i:9" x="48" y="160" width="200" height="7" rx="3"/>
+                  <rect class="l-lt l-el" style="--i:10" x="48" y="181" width="92" height="7" rx="3"/>
+                  <rect class="l-lt l-el" style="--i:11" x="48" y="202" width="158" height="7" rx="3"/>
+                  <rect class="l-lt l-el" style="--i:12" x="48" y="223" width="118" height="7" rx="3"/>
+                  <rect class="l-lt l-el" style="--i:13" x="48" y="244" width="180" height="7" rx="3"/>
+                  <rect class="l-white l-el" style="--i:14" x="340" y="76" width="272" height="196" rx="14"/>
+                  <rect class="l-accent-chip l-el" style="--i:15" x="360" y="92" width="66" height="22" rx="11"/>
+                  <text class="n-note n-accent l-el" style="--i:16" x="393" y="107" text-anchor="middle">200 OK</text>
+                  <text class="n-note l-el" style="--i:17" x="440" y="107">142MS</text>
+                  <rect class="l-t l-el" style="--i:18" x="360" y="132" width="190" height="7" rx="3.5"/>
+                  <rect class="l-t l-el" style="--i:19" x="360" y="154" width="156" height="7" rx="3.5"/>
+                  <rect class="l-t l-el" style="--i:20" x="360" y="176" width="206" height="7" rx="3.5"/>
+                  <rect class="l-t l-el" style="--i:21" x="360" y="198" width="134" height="7" rx="3.5"/>
+                  <rect class="l-t l-el" style="--i:22" x="360" y="220" width="178" height="7" rx="3.5"/>
+                  <line class="l-rule" x1="28" y1="292" x2="612" y2="292"/>
+                  <text class="n-note l-el" style="--i:23" x="28" y="308">گزارش اجرا</text>
+                  <circle class="l-accent l-el" style="--i:24" cx="36" cy="326" r="4.5"/>
+                  <text class="n-name l-el" style="--i:25" x="54" y="330">رزرو ایجاد شد</text>
+                  <text class="n-note l-el" style="--i:26" x="612" y="330" text-anchor="end">همین حالا</text>
+                  <line class="l-rule" x1="28" y1="340" x2="612" y2="340"/>
+                  <circle class="l-accent l-el" style="--i:27" cx="36" cy="354" r="4.5"/>
+                  <text class="n-name l-el" style="--i:28" x="54" y="358">CRM به‌روز شد</text>
+                  <text class="n-note l-el" style="--i:29" x="612" y="358" text-anchor="end">۲ دقیقه پیش</text>
+                  <line class="l-rule" x1="28" y1="368" x2="612" y2="368"/>
+                  <circle class="l-circle l-el" style="--i:30" cx="36" cy="382" r="4.5"/>
+                  <text class="n-name l-el" style="--i:31" x="54" y="386">فاکتور در صف</text>
+                  <text class="n-note l-el" style="--i:32" x="612" y="386" text-anchor="end">تلاش دوباره تا ۳۰ ثانیه</text>
+                </g>
+
+                <!-- flashes once per layout, as the structure is laid out -->
+                <rect class="wd-wire" x="18" y="70" width="604" height="330" rx="10"/>
+              </svg>
+            </div>
+          </div>
+          <div class="wd-dots">
+            <i class="on"></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-panel reveal">
+      <div class="cta-grid-bg" aria-hidden="true"></div>
+      <div class="cta-orb cta-orb-1" aria-hidden="true"></div>
+      <div class="cta-orb cta-orb-2" aria-hidden="true"></div>
+      <div class="cta-content">
+        <h2>سامانه‌ای را بسازید که <span class="gold-word">مرحله‌ی بعدی</span> کسب‌وکارتان لازم دارد.</h2>
+        <p>
+          سی دقیقه، بدون هیچ تعهدی. سه سامانه‌ی پرارزش کسب‌وکارتان و ترتیب ساختشان را
+          با هم ترسیم می‌کنیم — و این نقشه مال شماست، چه با هم کار کنیم چه نه.
+        </p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-gold magnetic">
+            <span>رزرو جلسه‌ی مشاوره</span>
+            <svg class="rtl-flip" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="cta-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          در هر صورت، بعد از جلسه یک خلاصه‌ی مکتوب برایتان می‌فرستیم
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="سنجه — صفحه‌ی اصلی">
+          <img class="brand-mark" src="images/sanjeh-mark.svg" alt="" aria-hidden="true" />
+          <span class="wm-text">سنجه</span>
+        </a>
+        <p>استودیویی با مدیریت مستقیم بنیان‌گذار که وب‌سایت می‌سازد، و اتوماسیونی که پشت آن کار می‌کند.</p>
+      </div>
+      <div>
+        <h4>استودیو</h4>
+        <ul>
+          <li><a href="services.html">خدمات</a></li>
+          <li><a href="projects.html">نمونه‌کارها</a></li>
+          <li><a href="about.html">درباره‌ی ما</a></li>
+          <li><a href="contact.html">تماس</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>شرکت</h4>
+        <ul>
+          <li><a href="about.html">داستان ما</a></li>
+          <li><a href="about.html#founder">بنیان‌گذار</a></li>
+          <li><a href="contact.html#faq">پرسش‌های متداول</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>تماس</h4>
+        <ul>
+          <li><a href="mailto:info@precisasolutions.ca" dir="ltr">info@precisasolutions.ca</a></li>
+          <li><a href="contact.html">رزرو جلسه‌ی مشاوره</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-wordmark" aria-hidden="true">سنجه</div>
+
+    <div class="footer-bottom">
+      <span>© ۲۰۲۶ استودیو سنجه. تمامی حقوق محفوظ است.</span>
+      <span class="footer-legal">
+        <a href="https://precisasolutions.ca/privacy.html" hreflang="en">حریم خصوصی <small>(انگلیسی)</small></a>
+        <a href="https://precisasolutions.ca/terms.html" hreflang="en">شرایط استفاده <small>(انگلیسی)</small></a>
+        <a href="https://precisasolutions.ca/refund.html" hreflang="en">بازپرداخت <small>(انگلیسی)</small></a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/observe.js?v=75a89b3e"></script>
+<script src="assets/cookies.js?v=c6eeff89"></script>
+<script src="assets/main.js?v=ed1001ba"></script>
+<script src="assets/sanjeh-hero.js?v=9b650603"></script>
+<script src="assets/webdev.js?v=3b9b7a20"></script>
+</body>
+</html>

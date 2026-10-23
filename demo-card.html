@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-src 'none'" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<title>Card Checkout — Interaction Concept | Precisa Solutions</title>
+<meta name="description" content="An interactive checkout concept: a card face that fills as you type, tilts under the pointer, flips for the CVC, and collapses into an authorisation state." />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=3" />
+<link rel="apple-touch-icon" href="images/favicon-180.png?v=3" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink: #0f1729;
+    --ink-soft: #5b6577;
+    --ink-faint: #94a1b5;
+    --line: #e3e8f1;
+    --panel: #f7f9fc;
+
+    --blue: #4f6df5;
+    --blue-deep: #3b52d9;
+    --blue-pale: #eef1ff;
+    --green: #1fb573;
+    --red: #e5484d;
+
+    --sans: "Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 40px 20px;
+    font-family: var(--sans);
+    color: var(--ink);
+    background:
+      radial-gradient(120% 90% at 50% -10%, #1a2450 0%, #0c1230 46%, #05070f 100%),
+      #05070f;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page { width: 100%; max-width: 900px; }
+
+  .eyebrow {
+    margin: 0 0 8px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7c8ad6;
+  }
+
+  .heading {
+    margin: 0 0 34px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #f4f6ff;
+  }
+
+  .heading em {
+    font-style: normal;
+    background: linear-gradient(90deg, #7c93ff, #b6c3ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ================= checkout panel ================= */
+  .checkout {
+    position: relative;
+    border-radius: 24px;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 30px 70px -26px rgba(3, 5, 16, 0.85);
+    padding: 26px 30px 30px;
+  }
+
+  .checkout__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 20px;
+    margin-bottom: 26px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+
+  .brand { display: flex; align-items: center; gap: 9px; }
+
+  .brand__mark {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #5470ff, #3b52d9);
+    display: grid;
+    place-items: center;
+    color: #fff;
+    box-shadow: 0 4px 10px -4px rgba(59, 82, 217, 0.7);
+  }
+
+  .brand__word { font-size: 14.5px; font-weight: 800; letter-spacing: -0.01em; }
+  .brand__sub {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .steps { display: flex; align-items: center; gap: 8px; }
+
+  .step { display: flex; align-items: center; gap: 6px; }
+
+  .step__dot {
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    flex: none;
+  }
+
+  .step--done .step__dot { background: var(--green); color: #fff; }
+  .step--current .step__dot {
+    background: var(--blue);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 800;
+  }
+
+  .step__label { font-size: 13px; color: var(--ink-faint); font-weight: 500; }
+  .step--current .step__label {
+    color: var(--blue-deep);
+    font-weight: 700;
+    padding-bottom: 2px;
+    border-bottom: 2px solid var(--blue);
+  }
+
+  .step__rule { width: 20px; height: 1px; background: var(--line); }
+
+  /* ================= body grid ================= */
+  .checkout__body {
+    display: grid;
+    grid-template-columns: minmax(0, 360px) 1fr;
+    gap: 40px;
+    /* gap must ride along: it drops to 0 in the processing state, and
+       left untransitioned it snapped, shoving the form 40px sideways
+       on the first frame of the collapse */
+    transition:
+      grid-template-columns 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      gap 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .checkout.is-processing .checkout__body {
+    grid-template-columns: 1fr 0fr;
+    gap: 0;
+  }
+
+  @media (max-width: 720px) {
+    .checkout__body { grid-template-columns: 1fr; }
+    .checkout.is-processing .checkout__body { grid-template-columns: 1fr; }
+    /* single-column: the faded form still occupied its full height,
+       leaving a huge blank band under the status. No collapse
+       animation runs at this width anyway, so just drop it. */
+    .checkout.is-processing .pay-col { display: none; }
+  }
+
+  /* -------- left column: card + summary -------- */
+  .card-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* was padding-top: 8vh — a layout property with no transition, so
+     the card teleported down before the columns started moving.
+     translateY animates on the compositor and rides the same curve
+     as the collapse. */
+  .checkout.is-processing .card-col { transform: translateY(8vh); }
+
+  .card-slot {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 1.586;
+    perspective: 1100px;
+    container-type: inline-size;
+    transform: scale(var(--grow, 1));
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* a halo is a SPREAD SHADOW, never a radial fill: a gradient behind an
+     opaque card hides its own light under the card */
+  .glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background: transparent;
+    opacity: 0;
+    /* opacity only: interpolating the 62px-blur shadows re-blurred the
+       whole halo on the CPU for 24 frames on every keystroke near the
+       validity boundary. The shadow itself now switches instantly and
+       the fade does the easing — the colour classes stay sticky while
+       --on drops, so the fade-out keeps its shadow to fade with. */
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .glow--on { opacity: 1; }
+
+  .glow--ok {
+    box-shadow: 0 0 26px 4px #1fb573, 0 0 62px 18px rgba(31, 181, 115, 0.55);
+  }
+
+  .glow--bad {
+    box-shadow: 0 0 26px 4px #e5484d, 0 0 62px 18px rgba(229, 72, 77, 0.5);
+  }
+
+  .card__tilt {
+    width: 100%;
+    height: 100%;
+    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    /* springs back to neutral on release; .is-tracking below overrides
+       this to a near-instant transition so the tilt reads as attached
+       to the pointer instead of chasing it */
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+  }
+
+  .card__tilt.is-tracking {
+    transition: transform 0.08s linear;
+  }
+
+  .card__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.2, 0.9, 0.25, 1);
+  }
+
+  .card__inner.flipped { transform: rotateY(180deg); }
+
+  .card__face {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.5) inset,
+      0 18px 40px -16px rgba(10, 15, 40, 0.5);
+  }
+
+  .card__face--front {
+    background:
+      radial-gradient(130% 160% at 100% -10%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 52%),
+      linear-gradient(135deg, #f1f4ff 0%, #dde5ff 34%, #b4c6fb 68%, #8ba4f1 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.5) inset,
+      0 0 0 1px rgba(255, 255, 255, 0.35) inset,
+      0 18px 40px -16px rgba(10, 15, 40, 0.5);
+  }
+
+  .card__face--front::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(60% 55% at 82% 6%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 60%),
+      repeating-radial-gradient(140% 140% at 112% 128%, rgba(28, 39, 96, 0.055) 0 1px, rgba(28, 39, 96, 0) 1px 23px),
+      repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.12) 0 2px, rgba(255, 255, 255, 0) 2px 14px),
+      radial-gradient(rgba(20, 30, 70, 0.06) 0.6px, transparent 0.6px);
+    background-size: auto, auto, auto, 3px 3px;
+    pointer-events: none;
+  }
+
+  .card__face--back {
+    transform: rotateY(180deg);
+    background:
+      radial-gradient(120% 90% at 88% -6%, rgba(124, 147, 255, 0.14) 0%, rgba(124, 147, 255, 0) 55%),
+      linear-gradient(160deg, #242c48 0%, #171c30 58%, #101426 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.14) inset,
+      0 0 0 1px rgba(255, 255, 255, 0.07) inset,
+      0 18px 40px -16px rgba(10, 15, 40, 0.5);
+  }
+
+  .card__face--back::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(55% 45% at 20% 90%, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 60%),
+      repeating-radial-gradient(150% 150% at -14% 130%, rgba(255, 255, 255, 0.035) 0 1px, rgba(255, 255, 255, 0) 1px 26px),
+      radial-gradient(rgba(255, 255, 255, 0.05) 0.6px, transparent 0.6px);
+    background-size: auto, auto, 3px 3px;
+    pointer-events: none;
+  }
+
+  .card__watermark {
+    position: absolute;
+    top: 50%;
+    right: -13%;
+    width: 60%;
+    transform: translateY(-50%);
+    color: #1c2760;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+
+  /* signature: a specular sheen that tracks the pointer, riding the
+     same rAF the tilt writes into (--sx/--sy are unitless percents).
+     It moves by transform only, so the sweep is composited and never
+     repaints the face — in keeping with the Windows work above. */
+  .card__shine {
+    position: absolute;
+    left: -35%;
+    top: -35%;
+    width: 170%;
+    height: 170%;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(
+      closest-side,
+      rgba(255, 255, 255, 0.32) 0%,
+      rgba(255, 255, 255, 0.07) 46%,
+      rgba(255, 255, 255, 0) 72%
+    );
+    transform: translate3d(calc(var(--sx, 0) * 1%), calc(var(--sy, 0) * 1%), 0);
+    transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  .card__tilt.is-tracking .card__shine {
+    opacity: 1;
+    transition: opacity 0.35s ease, transform 0.08s linear;
+  }
+
+  .card__tilt.is-tracking .card__face--back .card__shine { opacity: 0.45; }
+
+  .chip {
+    position: absolute;
+    left: 7%;
+    top: 16%;
+    width: 15%;
+    aspect-ratio: 30 / 22;
+    display: block;
+    filter: drop-shadow(0 1px 1px rgba(20, 30, 70, 0.35));
+  }
+
+  .contactless {
+    position: absolute;
+    left: 26%;
+    top: 15%;
+    width: 8%;
+    color: rgba(30, 40, 90, 0.55);
+  }
+
+  .card__brand {
+    position: absolute;
+    right: 7%;
+    top: 8%;
+    text-align: right;
+    color: #1a2352;
+  }
+
+  .card__brand strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  .card__brand span {
+    display: block;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    opacity: 0.6;
+  }
+
+  /* embossed, not printed: a light highlight on the raised edge facing
+     the (top-left) light, a soft dark shadow on the edge falling away
+     from it, so the glyphs read as pressed into the card rather than
+     flat-printed on top of it */
+  .pan {
+    position: absolute;
+    left: 7%;
+    top: 47%;
+    right: 7%;
+    font-family: var(--mono);
+    font-size: clamp(13px, 5cqw, 18px);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #1c2760;
+    text-shadow:
+      -0.4px -0.5px 0 rgba(255, 255, 255, 0.85),
+      0.6px 1.1px 1.2px rgba(15, 25, 65, 0.5);
+    white-space: nowrap;
+  }
+
+  .pan__group { opacity: 1; }
+  .pan__group--empty { opacity: 0.35; }
+
+  .card__row {
+    position: absolute;
+    left: 7%;
+    right: 7%;
+    bottom: 9%;
+    display: flex;
+    align-items: flex-end;
+    gap: 18px;
+  }
+
+  .card__field span {
+    display: block;
+    font-size: 6.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: rgba(30, 40, 90, 0.5);
+    margin-bottom: 2px;
+  }
+
+  .card__field strong {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: #1c2760;
+    text-shadow:
+      -0.3px -0.4px 0 rgba(255, 255, 255, 0.85),
+      0.5px 0.9px 1px rgba(15, 25, 65, 0.5);
+    white-space: nowrap;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card__field--name { flex: 1; min-width: 0; }
+
+  .card__visa {
+    margin-left: auto;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: -0.02em;
+    color: #1c2760;
+  }
+
+  .card__face--back .visa-back {
+    position: absolute;
+    right: 7%;
+    bottom: 8%;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 13px;
+    color: #eef1ff;
+    opacity: 0.9;
+  }
+
+  /* real placement: on a 53.98mm-tall card the stripe sits ~5.5mm from
+     the top edge and runs ~12mm tall - roughly 10% / 22% of the card */
+  .magstripe {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10%;
+    height: 22%;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 16%, rgba(255, 255, 255, 0) 84%, rgba(255, 255, 255, 0.05) 100%),
+      repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.028) 0 1px, rgba(255, 255, 255, 0) 1px 4px),
+      #0a0d1a;
+  }
+
+  /* an iridescent security patch, tucked beside the signature strip.
+     Its rainbow slides with the same --sx/--sy the tilt writes, so it
+     "refracts" as the card moves under the light. */
+  .hologram {
+    position: absolute;
+    top: 59%;
+    right: 7%;
+    width: 9%;
+    aspect-ratio: 1;
+    border-radius: 2px;
+    background: linear-gradient(115deg, #f6b9db 0%, #ffe9a8 18%, #b7f3c4 38%, #a9d8ff 58%, #d4bbff 78%, #f6b9db 100%);
+    background-size: 260% 260%;
+    background-position: calc(50% + var(--sx, 0) * 1.4%) calc(50% + var(--sy, 0) * 1.4%);
+    opacity: 0.5;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+  }
+
+  .sig-strip {
+    position: absolute;
+    left: 7%;
+    right: 7%;
+    top: 40%;
+    height: 16%;
+    border-radius: 3px;
+    background:
+      repeating-linear-gradient(115deg, #f6f3ea 0 3px, #ece6d6 3px 6px);
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.35) inset,
+      0 1px 0 rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .sig-strip__micro {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .sig-strip__hint {
+    position: relative;
+    z-index: 1;
+    margin-left: 8px;
+    font-style: italic;
+    font-size: 9px;
+    color: #8891a8;
+  }
+
+  .cvc-box {
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: 6px;
+    min-width: 32px;
+    height: 20px;
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(10, 15, 30, 0.3) inset;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 6px;
+    font-family: var(--mono);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 11px;
+    color: #1a2352;
+    letter-spacing: 0.06em;
+  }
+
+  .legal {
+    position: absolute;
+    left: 7%;
+    right: 38%;
+    top: 76%;
+    font-size: clamp(6px, 2.1cqw, 7.5px);
+    line-height: 1.45;
+    color: rgba(238, 241, 255, 0.42);
+  }
+
+  /* -------- order summary -------- */
+  .summary {
+    width: 100%;
+    max-width: 340px;
+    margin-top: 22px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+  }
+
+  .summary__eyebrow {
+    margin: 0 0 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .summary__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .summary__row + .summary__row { margin-top: 9px; }
+
+  .summary__row small {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ink-faint);
+  }
+
+  .summary__row--ok span:last-child { color: var(--green); font-weight: 600; }
+
+  .summary__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  .summary__total span:first-child { font-size: 12.5px; font-weight: 600; color: var(--ink-soft); }
+  .summary__total strong { font-size: 20px; letter-spacing: -0.01em; }
+
+  /* -------- processing / result state -------- */
+  .status {
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 26px;
+    text-align: center;
+  }
+
+  .checkout.is-processing .status { display: flex; }
+  .checkout.is-processing .summary { display: none; }
+
+  .spinner {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2.5px solid var(--line);
+    border-top-color: var(--blue);
+    animation: spin 0.8s linear infinite;
+  }
+
+  .checkout.is-approved .spinner,
+  .checkout.is-declined .spinner { display: none; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .status__title { font-size: 14.5px; font-weight: 700; color: var(--ink); }
+  .status__sub { font-size: 12.5px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+  .result-icon {
+    display: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    animation: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes pop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+  .checkout.is-approved .result-icon--ok { display: flex; background: var(--green); }
+  .checkout.is-declined .result-icon--bad { display: flex; background: var(--red); }
+  .checkout.is-approved .status__title { color: #16794f; }
+  .checkout.is-declined .status__title { color: #b3272b; }
+
+  .retry-btn {
+    display: none;
+    margin-top: 4px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: #fff;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .retry-btn:hover { border-color: var(--ink-faint); background: var(--panel); }
+  .checkout.is-approved .retry-btn,
+  .checkout.is-declined .retry-btn { display: inline-block; }
+
+  /* -------- right column: form -------- */
+  .pay-col {
+    min-width: 0;
+    opacity: 1;
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0s;
+  }
+
+  /* visibility flips only after the fade completes, and flips back
+     instantly on return — without it the invisible form stayed in the
+     tab order, so keyboard users could focus fields they can't see */
+  .checkout.is-processing .pay-col {
+    opacity: 0;
+    transform: translateX(10px);
+    pointer-events: none;
+    overflow: hidden;
+    visibility: hidden;
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+  }
+
+  /* while the column animates back open, the width-locked form is
+     still wider than its track — keep it clipped until the lock lifts */
+  .checkout.is-expanding .pay-col { overflow: hidden; }
+
+  .pay-col h3 {
+    margin: 0 0 4px;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .pay-col__sub { margin: 0 0 20px; font-size: 13px; color: var(--ink-faint); }
+
+  label {
+    display: block;
+    margin: 0 0 6px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  label .hint {
+    text-transform: none;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--ink-faint);
+  }
+
+  .field { position: relative; margin-bottom: 16px; }
+
+  .field svg.prefix {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-faint);
+    pointer-events: none;
+  }
+
+  .field input {
+    width: 100%;
+    padding: 12px 14px 12px 38px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .field input::placeholder { color: #c2c9d8; }
+
+  .field input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3.5px rgba(79, 109, 245, 0.14);
+  }
+
+  .field input.invalid { border-color: var(--red); }
+
+  .field--pan input { font-family: var(--mono); letter-spacing: 0.03em; padding-right: 46px; }
+
+  .field__badge {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 12px;
+    color: #3b52d9;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .field__badge.show { opacity: 1; }
+
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .check-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 4px 0 20px;
+  }
+
+  .check-row input {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--blue);
+    cursor: pointer;
+  }
+
+  .check-row label {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .check-row small { display: block; margin-top: 1px; font-size: 11.5px; font-weight: 400; color: var(--ink-faint); }
+
+  /* ============ pay button ============ */
+  .pay-btn {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 15px 18px;
+    border: 0;
+    border-radius: 14px;
+    cursor: pointer;
+    background: linear-gradient(180deg, #5470ff 0%, #3b52d9 100%);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.25) inset,
+      0 10px 24px -10px rgba(59, 82, 217, 0.75);
+    /* transform only — the hover glow crossfades on ::before below
+       instead of re-blurring the shadow stack on the CPU */
+    transition: transform 0.2s ease;
+    isolation: isolate;
+  }
+
+  .pay-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 16px 30px -10px rgba(59, 82, 217, 0.85);
+  }
+
+  .pay-btn:hover { transform: translateY(-1px); }
+  .pay-btn:hover::before { opacity: 1; }
+  .pay-btn:active { transform: translateY(0); }
+  .pay-btn.shake { animation: shake 0.4s; }
+
+  @keyframes shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+  }
+
+  .trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+
+  .trust {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-weight: 600;
+  }
+
+  .trust-note { text-align: center; margin: 6px 0 0; font-size: 11px; color: var(--ink-faint); }
+
+  .form-msg {
+    min-height: 16px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--red);
+    margin-top: 8px;
+  }
+
+  /* ================= demo strip below panel ================= */
+  .demo {
+    margin-top: 22px;
+    text-align: center;
+  }
+
+  .demo__caption {
+    margin: 0 0 12px;
+    font-size: 13px;
+    font-style: italic;
+    color: #9aa5d6;
+  }
+
+  .demo__pills { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+  .pill {
+    padding: 8px 15px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    color: #d7dcf5;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .pill:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.28); }
+  .pill--bad { color: #f4b3b5; }
+
+  /* Embedded on projects.html inside an iframe: the panel around it
+     already carries a title, and the column is narrow, so the page
+     furniture goes and every band tightens up. */
+  .is-embed body { padding: 14px 12px; }
+  .is-embed .eyebrow,
+  .is-embed .heading { display: none; }
+  .is-embed .checkout { padding: 16px 16px 20px; border-radius: 18px; }
+  .is-embed .checkout__top { padding-bottom: 14px; margin-bottom: 18px; }
+  .is-embed .checkout__body { gap: 24px; }
+  .is-embed .summary { margin-top: 16px; padding: 14px 16px; }
+  .is-embed .demo { margin-top: 16px; }
+  .is-embed .demo__caption { margin-bottom: 9px; font-size: 12px; }
+  .is-embed .pill { padding: 7px 12px; font-size: 10.5px; }
+
+  /* Narrow frame (the embedded panel on a phone is ~340px): the step
+     rail is the first thing to break — "Your bag" wrapped onto a second
+     line and dragged the whole header taller. Shrinking the type and the
+     rules fits all three labels on one line, which keeps the progress
+     readable rather than hiding two thirds of it. */
+  @media (max-width: 380px) {
+    .checkout__top { gap: 12px; padding-bottom: 14px; margin-bottom: 16px; }
+    .steps { gap: 6px; }
+    .step { gap: 5px; }
+    .step__label { font-size: 11px; }
+    .step__dot { width: 17px; height: 17px; }
+    .step__rule { width: 12px; }
+  }
+
+  /* Motion-free mode. Applied as a class by the script (see
+     HONOR_REDUCED_MOTION there) instead of a media query, so the same
+     flag governs CSS and JS — on Windows the OS "Animation effects"
+     switch reports prefers-reduced-motion and was freezing all of
+     this even when the site wanted it on. */
+  .reduce-motion .card-slot,
+  .reduce-motion .card__tilt,
+  .reduce-motion .card__tilt.is-tracking,
+  .reduce-motion .card__inner,
+  .reduce-motion .card__shine,
+  .reduce-motion .checkout__body,
+  .reduce-motion .card-col,
+  .reduce-motion .pay-col,
+  .reduce-motion .glow { transition: none !important; }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">Card Info</p>
+  <h1 class="heading">Payment Method <em>Preview</em></h1>
+
+  <div class="checkout" id="checkout">
+    <div class="checkout__top">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="2" />
+            <path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18.1 5.9l-1.7 1.7M7.6 16.4l-1.7 1.7M18.1 18.1l-1.7-1.7M7.6 7.6 5.9 5.9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </span>
+        <span class="brand__word">COBALT</span>
+        <span class="brand__sub">Checkout</span>
+      </div>
+
+      <div class="steps">
+        <div class="step step--done">
+          <span class="step__dot" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M4 12.6 9.4 18 20 6.4" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </span>
+          <span class="step__label">Your bag</span>
+        </div>
+        <span class="step__rule"></span>
+        <div class="step step--done">
+          <span class="step__dot" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M4 12.6 9.4 18 20 6.4" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </span>
+          <span class="step__label">Delivery</span>
+        </div>
+        <span class="step__rule"></span>
+        <div class="step step--current">
+          <span class="step__dot">3</span>
+          <span class="step__label">Payment</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkout__body">
+      <div class="card-col">
+        <div class="card-slot" id="cardSlot" aria-hidden="true">
+          <span class="glow" id="glow"></span>
+          <div class="card__tilt" id="cardTilt">
+            <div class="card__inner" id="cardInner">
+              <div class="card__face card__face--front">
+                <svg class="card__watermark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.1" />
+                  <path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18.1 5.9l-1.7 1.7M7.6 16.4l-1.7 1.7M18.1 18.1l-1.7-1.7M7.6 7.6 5.9 5.9" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" />
+                  <circle cx="12" cy="12" r="8.7" stroke="currentColor" stroke-width="0.45" opacity="0.7" />
+                  <circle cx="12" cy="12" r="10.6" stroke="currentColor" stroke-width="0.3" opacity="0.45" />
+                </svg>
+                <svg class="chip" viewBox="0 0 30 22">
+                  <defs>
+                    <linearGradient id="chipGrad" x1="0" y1="0" x2="30" y2="22" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#f4f0dc" />
+                      <stop offset="0.5" stop-color="#dccd9c" />
+                      <stop offset="1" stop-color="#b39f6b" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="0.6" y="0.6" width="28.8" height="20.8" rx="3.2" fill="url(#chipGrad)" stroke="#8a7748" stroke-width="0.5" />
+                  <path d="M10.2 0.6V21.4M19.8 0.6V21.4M0.6 11H29.4M0.6 6.4H10.2M19.8 6.4H29.4M0.6 15.6H10.2M19.8 15.6H29.4" fill="none" stroke="#8a7748" stroke-width="0.5" opacity="0.85" />
+                  <rect x="11.6" y="7.4" width="6.8" height="7.2" rx="1.6" fill="none" stroke="#8a7748" stroke-width="0.5" opacity="0.85" />
+                  <rect x="0.6" y="0.6" width="28.8" height="7" rx="3" fill="#fff" opacity="0.25" />
+                </svg>
+                <svg class="contactless" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8 5.5a9 9 0 0 1 0 13M12 2.2a12.5 12.5 0 0 1 0 19.6M4 9a5 5 0 0 1 0 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+                <div class="card__brand">
+                  <strong>COBALT</strong>
+                  <span>RESERVE</span>
+                </div>
+
+                <div class="pan" id="panDisplay">•••• •••• •••• ••••</div>
+
+                <div class="card__row">
+                  <div class="card__field card__field--name">
+                    <span>Cardholder</span>
+                    <strong id="nameDisplay">YOUR NAME</strong>
+                  </div>
+                  <div class="card__field">
+                    <span>Expires</span>
+                    <strong id="expiryDisplay">••/••</strong>
+                  </div>
+                  <span class="card__visa">VISA</span>
+                </div>
+                <span class="card__shine" aria-hidden="true"></span>
+              </div>
+
+              <div class="card__face card__face--back">
+                <div class="magstripe"></div>
+                <div class="hologram"></div>
+                <div class="sig-strip">
+                  <svg class="sig-strip__micro" viewBox="0 0 100 20" preserveAspectRatio="none">
+                    <defs>
+                      <pattern id="microCobalt" width="26" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)">
+                        <text x="0" y="6" font-size="5" font-family="Inter, sans-serif" font-weight="700" fill="#8fa0c8" opacity="0.4">COBALT</text>
+                      </pattern>
+                    </defs>
+                    <rect width="100" height="20" fill="url(#microCobalt)" />
+                  </svg>
+                  <span class="sig-strip__hint">Authorized Signature</span>
+                  <span class="cvc-box" id="cvcDisplay"></span>
+                </div>
+                <p class="legal">Issued by Cobalt Financial under license from Visa. If found, return to any Cobalt branch.</p>
+                <span class="visa-back">VISA</span>
+                <span class="card__shine" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary" id="summary">
+          <p class="summary__eyebrow">Your order</p>
+          <div class="summary__row">
+            <span>Reserve membership<small>Annual · renews Aug 2027</small></span>
+            <span>$1,180.00</span>
+          </div>
+          <div class="summary__row summary__row--ok">
+            <span>Priority delivery</span>
+            <span>Included</span>
+          </div>
+          <div class="summary__row">
+            <span>Estimated tax</span>
+            <span>$68.00</span>
+          </div>
+          <div class="summary__total">
+            <span>Total due today</span>
+            <strong id="summaryTotal">$1,248.00</strong>
+          </div>
+        </div>
+
+        <div class="status" id="status" aria-live="polite">
+          <div class="spinner" id="spinner"></div>
+          <span class="result-icon result-icon--ok" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12.6 9.4 18 20 6.4" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </span>
+          <span class="result-icon result-icon--bad" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" /></svg>
+          </span>
+          <span class="status__title" id="statusTitle">Authorising with your bank</span>
+          <span class="status__sub" id="statusSub">Visa •••• 4242 · $1,248.00</span>
+          <button class="retry-btn" id="retryBtn" type="button">Try again</button>
+        </div>
+      </div>
+
+      <div class="pay-col">
+        <div class="pay-col__lock" id="payLock">
+        <h3>Payment details</h3>
+        <p class="pay-col__sub">Enter your card to complete the transaction.</p>
+
+        <form id="payForm" novalidate>
+          <label for="ccName">Cardholder Name</label>
+          <div class="field">
+            <svg class="prefix" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.8" /><path d="M4.5 20c1.6-3.6 5-5.5 7.5-5.5s5.9 1.9 7.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+            <input type="text" id="ccName" autocomplete="cc-name" placeholder="A. Hasib" value="A. Hasib" />
+          </div>
+
+          <label for="ccNumber">Card Number</label>
+          <div class="field field--pan">
+            <svg class="prefix" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2" stroke="currentColor" stroke-width="1.8" /><path d="M2.5 9.5h19" stroke="currentColor" stroke-width="1.8" /></svg>
+            <input type="text" id="ccNumber" autocomplete="cc-number" inputmode="numeric" placeholder="4242 4242 4242 4242" value="4242 4242 4242 4242" maxlength="19" />
+            <span class="field__badge" id="brandBadge">VISA</span>
+          </div>
+
+          <div class="row2">
+            <div>
+              <label for="ccExpiry">Expiry Date</label>
+              <div class="field">
+                <svg class="prefix" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8" /><path d="M3 9.5h18M8 3v3M16 3v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+                <input type="text" id="ccExpiry" autocomplete="cc-exp" inputmode="numeric" placeholder="MM / YY" value="12 / 28" maxlength="7" />
+              </div>
+            </div>
+            <div>
+              <label for="ccCvc">CVC <span class="hint">· back of card</span></label>
+              <div class="field">
+                <svg class="prefix" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2" stroke="currentColor" stroke-width="1.8" /><path d="M7.5 10.5V7a4.5 4.5 0 0 1 9 0v3.5" stroke="currentColor" stroke-width="1.8" /></svg>
+                <input type="text" id="ccCvc" autocomplete="cc-csc" inputmode="numeric" placeholder="•••" maxlength="4" />
+              </div>
+            </div>
+          </div>
+
+          <div class="check-row">
+            <input type="checkbox" id="saveCard" checked />
+            <label for="saveCard">Save this card for next time<small>Stored by Cobalt, never by the merchant</small></label>
+          </div>
+
+          <button class="pay-btn" type="submit" id="payBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2" stroke="currentColor" stroke-width="1.8" /><path d="M7.5 10.5V7a4.5 4.5 0 0 1 9 0v3.5" stroke="currentColor" stroke-width="1.8" /></svg>
+            <span id="payLabel">Pay $1,248.00</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </button>
+
+          <p class="form-msg" id="formMsg" aria-live="polite"></p>
+
+          <div class="trust-row">
+            <span class="trust"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.6-3 8.4-7 9-4-.6-7-4.4-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.6" /></svg>PCI-DSS Level 1</span>
+            <span class="trust"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="4.5" y="10.5" width="15" height="10" rx="2" stroke="currentColor" stroke-width="1.6" /><path d="M7.5 10.5V7a4.5 4.5 0 0 1 9 0v3.5" stroke="currentColor" stroke-width="1.6" /></svg>256-bit TLS</span>
+          </div>
+          <p class="trust-note">Cobalt never stores your CVC</p>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo">
+    <p class="demo__caption">Type a card. Reach for the CVC.</p>
+    <div class="demo__pills">
+      <button class="pill" type="button" data-fill="4242424242424242">4242 4242 4242 4242 approves</button>
+      <button class="pill pill--bad" type="button" data-fill="4000000000000002">4000 0000 0000 0002 declines</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/demo-card.js?v=81b758b1"></script>
+</body>
+</html>

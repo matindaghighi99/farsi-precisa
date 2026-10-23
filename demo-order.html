@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-src 'none'" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<title>Order Button — Interaction Concept | Precisa Solutions</title>
+<meta name="description" content="An interactive order-button concept: one timeline drives a delivery van, its wheels, its suspension and its cargo, from press to confirmed." />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=3" />
+<link rel="apple-touch-icon" href="images/favicon-180.png?v=3" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=Marcellus+SC&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink: #1a140d;
+    --ink-soft: #5f5346;
+    --ink-faint: #9a8b7a;
+    --line: #e7dccb;
+    --amber: #c08526;
+    --amber-deep: #9a6a18;
+    --ok: #4a7c52;
+
+    --sans: "Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 28px;
+    font-family: var(--sans);
+    color: var(--ink);
+    background:
+      radial-gradient(130% 95% at 50% -12%, #3a2d1d 0%, #1c1610 44%, #0b0908 100%),
+      #0b0908;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* embedded on projects.html inside an iframe — the panel supplies the
+     frame, so the outer margin can come down */
+  .is-embed body { padding: 16px 12px; }
+  .is-embed .order-card { padding: 24px 22px 22px; border-radius: 20px; }
+  .is-embed h2 { font-size: 25px; margin-bottom: 20px; }
+
+  .order-card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 34px 34px 30px;
+    border-radius: 26px;
+    background: linear-gradient(180deg, #fefcf7 0%, #f7f1e4 100%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.85) inset,
+      0 2px 5px rgba(12, 9, 6, 0.18),
+      0 34px 70px -22px rgba(8, 6, 4, 0.72);
+  }
+
+  .eyebrow {
+    margin: 0 0 8px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  h2 {
+    margin: 0 0 26px;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 600;
+    font-variation-settings: "opsz" 40, "wght" 600;
+    letter-spacing: -0.018em;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  /* ---------- line item ---------- */
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fffdf8;
+    box-shadow: 0 1px 2px rgba(26, 20, 13, 0.05) inset;
+  }
+
+  .item__thumb {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #2d2419 0%, #14100b 100%);
+    box-shadow: 0 1px 0 rgba(255, 236, 200, 0.16) inset;
+  }
+
+  .item__name {
+    margin: 0;
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  .item__meta {
+    margin: 3px 0 0;
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+
+  .item__price {
+    margin-left: auto;
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    font-variation-settings: "opsz" 20, "wght" 600;
+  }
+
+  /* ---------- quantity ---------- */
+  .qty-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+  }
+
+  .qty-row__label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .stepper {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fffdf8;
+    box-shadow: 0 1px 2px rgba(26, 20, 13, 0.05) inset;
+  }
+
+  .stepper button {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+  }
+
+  .stepper button:hover:not(:disabled) {
+    background: #1e1810;
+    color: #f7f1e4;
+  }
+
+  .stepper button:disabled {
+    color: #ccbfab;
+    cursor: default;
+  }
+
+  .stepper button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(192, 133, 38, 0.35);
+  }
+
+  .stepper output {
+    min-width: 30px;
+    text-align: center;
+    font-size: 14.5px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- totals ---------- */
+  .totals {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+
+  .totals__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .totals__row + .totals__row { margin-top: 8px; }
+
+  .totals__row span:last-child { font-variant-numeric: tabular-nums; }
+
+  .totals__row--free span:last-child { color: var(--ok); }
+
+  .totals__row--grand {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  .totals__row--grand span:first-child {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .totals__row--grand span:last-child {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 600;
+    font-variation-settings: "opsz" 30, "wght" 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* ============ premium "depot van" order button ============ */
+  .cta {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin-top: 26px;
+    /* % padding resolves against WIDTH on all four sides, so the inner
+       track holds a fixed ratio at any button size. Thinning the bezel
+       widens that ratio to 3.42:1, so the scene viewBox tracks it. */
+    padding: 1.42%;
+    aspect-ratio: 16 / 5;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    isolation: isolate;
+    background: linear-gradient(180deg, #3d3122 0%, #1f1810 46%, #0f0b08 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 236, 200, 0.18) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.65) inset,
+      0 0 0 1px rgba(255, 226, 178, 0.1),
+      0 2px 4px rgba(10, 7, 4, 0.45),
+      0 12px 24px -8px rgba(10, 7, 4, 0.6),
+      0 26px 48px -20px rgba(150, 96, 26, 0.5);
+    /* transform only: it composites on the GPU. Transitioning the
+       box-shadow stack meant re-blurring six shadows on the CPU for
+       half a second on every hover — mouse-only cost, so iOS never
+       paid it but Windows did, right as the drive-in starts. */
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* The hover glow lives on its own layer and cross-fades in via
+     opacity (composited) instead of interpolating shadow geometry.
+     Outset shadows paint outside the box, so z-index -1 behind the
+     bezel still shows them; isolation on .cta keeps -1 contained. */
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow:
+      0 18px 32px -10px rgba(10, 7, 4, 0.62),
+      0 34px 60px -22px rgba(178, 116, 32, 0.62);
+  }
+
+  /* specular sheen across the bezel */
+  .cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      104deg,
+      rgba(255, 240, 210, 0) 34%,
+      rgba(255, 240, 210, 0.12) 47%,
+      rgba(255, 240, 210, 0) 60%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .cta:hover { transform: translateY(-2px); }
+  .cta:hover::before { opacity: 1; }
+
+  .cta:hover::after { opacity: 1; }
+  .cta:active { transform: translateY(0); }
+
+  .cta:focus-visible {
+    outline: none;
+    box-shadow:
+      0 1px 0 rgba(255, 236, 200, 0.18) inset,
+      0 0 0 1px rgba(255, 226, 178, 0.1),
+      0 0 0 4px rgba(192, 133, 38, 0.45),
+      0 12px 24px -8px rgba(10, 7, 4, 0.6);
+  }
+
+  /* the street lives inside the track's own clip */
+  .cta__track {
+    position: relative;
+    flex: 1;
+    align-self: stretch;
+    border-radius: 999px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #fdfaf3 0%, #f5efe1 58%, #eae1cd 100%);
+    box-shadow:
+      0 2px 5px rgba(26, 18, 8, 0.26) inset,
+      0 -1px 0 rgba(255, 255, 255, 0.7) inset;
+  }
+
+  .cta__scene {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Vignette and film grain used to live inside the SVG, stacked over
+     the moving parts — so every frame's dirty region re-composited a
+     live feTurbulence filter. As track overlays they rasterize once
+     (the grain tile is a tiny SVG image the browser caches) and the
+     per-frame repaint only touches actual scene geometry. */
+  .cta__track::before,
+  .cta__track::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .cta__track::before {
+    z-index: 1;
+    background: radial-gradient(
+      ellipse 72% 72% at 50% 48%,
+      rgba(58, 42, 18, 0) 50%,
+      rgba(58, 42, 18, 0.3) 100%
+    );
+  }
+
+  .cta__track::after {
+    z-index: 2;
+    opacity: 0.17;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='128' height='128'><filter id='n' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.14 0 0 0 0 0.11 0 0 0 0 0.07 1 0 0 0 0'/></filter><rect width='128' height='128' filter='url(%23n)'/></svg>");
+  }
+
+  .cta__label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    /* Marcellus SC: classical Roman capitals. It ships in one weight
+       only, so font-weight stays at 400 and the extra weight comes from
+       an outline stroke instead — that dilates the letterforms evenly,
+       where the browser's synthetic bold would smear them sideways.
+       currentColor keeps the stroke in step with the done-state colour. */
+    font-family: "Marcellus SC", "Trajan Pro", "Fraunces", "Iowan Old Style", Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+    -webkit-text-stroke: 0.5px currentColor;
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #241c12;
+    /* letterpress: the label sits on cream, so a light lower edge
+       reads as debossed rather than as a drop shadow */
+    text-shadow: 0 1px 0 rgba(255, 253, 246, 0.95);
+    pointer-events: none;
+    transition:
+      opacity 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* tracking adds a trailing gap after the last glyph; pull it back so
+     the label stays optically centred */
+  .cta__text {
+    letter-spacing: 0.16em;
+    margin-right: -0.16em;
+  }
+
+  .cta__label[data-state="run"] {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+
+  .cta__label[data-state="done"] { color: #2f5c37; }
+
+  .cta__check {
+    width: 0;
+    height: 15px;
+    margin-right: 0;
+    overflow: hidden;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    transition:
+      stroke-dashoffset 0.5s ease 0.16s,
+      width 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+      margin-right 0.36s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cta__label[data-state="done"] .cta__check {
+    width: 15px;
+    margin-right: 8px;
+    stroke-dashoffset: 0;
+  }
+
+  /* --- scene paint --- */
+  .road__lip { fill: rgba(236, 196, 128, 0.22); }
+  .road__ticks {
+    stroke: rgba(250, 244, 232, 0.3);
+    stroke-width: 1.8;
+    stroke-dasharray: 11 9;
+    stroke-linecap: round;
+  }
+  .shell { stroke: #2a2118; stroke-width: 1.4; stroke-linejoin: round; }
+  .depot {
+    font-family: var(--sans);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 0.72px;
+    fill: #a2947f;
+  }
+  .tire { fill: #14100b; }
+  .rim { fill: #b9ad9c; }
+  .nave { fill: #1c160f; }
+  .spoke { fill: none; stroke: #6f6558; stroke-width: 1.1; stroke-linecap: round; }
+
+  #boxShadow { transition: opacity 0.3s ease; }
+  /* No will-change here: these nodes animate via the SVG transform
+     ATTRIBUTE, which is repainted rather than composited, so layer
+     promotion buys nothing — and on desktop Chromium it has caused
+     stale/blank-layer glitches on inner SVG elements. */
+  /* ============ end order button ============ */
+
+  .fineprint {
+    margin: 16px 0 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+
+  .message {
+    margin-top: 14px;
+    min-height: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ok);
+  }
+
+  /* Narrow frame (the embedded panel on a phone is ~340px): the line
+     item is the first thing to break — the name wrapped to two lines and
+     pushed "340 g" onto a third. Trimming the thumb and the gaps buys
+     back the ~40px that keeps both on one line each. */
+  @media (max-width: 380px) {
+    .order-card { padding: 20px 16px 18px; }
+    .item { gap: 10px; padding: 11px; }
+    .item__thumb { width: 38px; height: 38px; border-radius: 10px; }
+    .item__name { font-size: 13.5px; }
+    .item__meta { font-size: 11px; }
+    .item__price { font-size: 15.5px; }
+    h2 { font-size: 23px; margin-bottom: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta, .cta__label, .cta__check, .cta::after { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="order-card">
+  <p class="eyebrow">Depot Roasters</p>
+  <h2>Your Order</h2>
+
+  <div class="item">
+    <span class="item__thumb" aria-hidden="true">
+      <svg width="22" height="22" viewBox="-11 -11 22 22">
+        <rect x="-9" y="-9" width="18" height="18" rx="2.4" fill="#e0a34a" />
+        <rect x="-9" y="-1.2" width="18" height="2.4" fill="#a96b1c" opacity="0.75" />
+        <rect x="-1.2" y="-9" width="2.4" height="18" fill="#a96b1c" opacity="0.75" />
+        <path d="M-9,-6.6 h18" stroke="#fff0d2" stroke-opacity="0.4" stroke-width="1.2" />
+      </svg>
+    </span>
+    <div>
+      <p class="item__name">Signature Blend</p>
+      <p class="item__meta">Whole bean · 340 g</p>
+    </div>
+    <span class="item__price">$24.00</span>
+  </div>
+
+  <form id="orderForm">
+    <div class="qty-row">
+      <span class="qty-row__label" id="qtyLabel">Quantity</span>
+      <div class="stepper" role="group" aria-labelledby="qtyLabel">
+        <button type="button" id="qtyDown" aria-label="Decrease quantity">&minus;</button>
+        <output id="qtyValue" aria-live="polite">1</output>
+        <button type="button" id="qtyUp" aria-label="Increase quantity">+</button>
+      </div>
+    </div>
+
+    <div class="totals">
+      <div class="totals__row">
+        <span>Subtotal</span>
+        <span id="subtotal">$24.00</span>
+      </div>
+      <div class="totals__row totals__row--free">
+        <span>Delivery</span>
+        <span>Free</span>
+      </div>
+      <div class="totals__row totals__row--grand">
+        <span>Total</span>
+        <span id="total">$24.00</span>
+      </div>
+    </div>
+
+    <button class="cta" type="submit" id="orderBtn">
+      <span class="cta__track">
+        <svg class="cta__scene" viewBox="0 0 342 100" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="roadGrad" gradientUnits="userSpaceOnUse" x1="0" y1="86" x2="0" y2="100">
+              <stop offset="0" stop-color="#2d2419" />
+              <stop offset="0.45" stop-color="#1a1410" />
+              <stop offset="1" stop-color="#0f0b08" />
+            </linearGradient>
+
+            <linearGradient id="bodyGrad" gradientUnits="userSpaceOnUse" x1="0" y1="27" x2="0" y2="76">
+              <stop offset="0" stop-color="#fffdf8" />
+              <stop offset="0.52" stop-color="#f7f1e4" />
+              <stop offset="1" stop-color="#e4d9c3" />
+            </linearGradient>
+
+            <linearGradient id="stripeGrad" gradientUnits="userSpaceOnUse" x1="0" y1="64" x2="0" y2="71">
+              <stop offset="0" stop-color="#f7b95c" />
+              <stop offset="1" stop-color="#d4871f" />
+            </linearGradient>
+
+            <linearGradient id="glassGrad" gradientUnits="userSpaceOnUse" x1="88" y1="44" x2="122" y2="56">
+              <stop offset="0" stop-color="#413628" />
+              <stop offset="0.55" stop-color="#1b1610" />
+              <stop offset="1" stop-color="#2c241a" />
+            </linearGradient>
+
+            <linearGradient id="boxGrad" gradientUnits="userSpaceOnUse" x1="0" y1="-9" x2="0" y2="9">
+              <stop offset="0" stop-color="#f0b567" />
+              <stop offset="1" stop-color="#cf8a2e" />
+            </linearGradient>
+
+            <linearGradient id="bayGrad" gradientUnits="userSpaceOnUse" x1="0" y1="29" x2="0" y2="64">
+              <stop offset="0" stop-color="#0d0a07" />
+              <stop offset="0.55" stop-color="#241c14" />
+              <stop offset="1" stop-color="#181209" />
+            </linearGradient>
+
+            <linearGradient id="beamGrad" gradientUnits="userSpaceOnUse" x1="131" y1="0" x2="243" y2="0">
+              <stop offset="0" stop-color="#ffe6a8" stop-opacity="0.6" />
+              <stop offset="0.45" stop-color="#ffe6a8" stop-opacity="0.2" />
+              <stop offset="1" stop-color="#ffe6a8" stop-opacity="0" />
+            </linearGradient>
+
+            <pattern id="slats" width="4" height="3.4" patternUnits="userSpaceOnUse">
+              <rect width="4" height="3.4" fill="#eae4d6" />
+              <rect y="2.5" width="4" height="0.9" fill="#c9c0ad" />
+            </pattern>
+
+            <radialGradient id="blobShadow">
+              <stop offset="0" stop-color="#160f07" stop-opacity="0.42" />
+              <stop offset="0.65" stop-color="#160f07" stop-opacity="0.16" />
+              <stop offset="1" stop-color="#160f07" stop-opacity="0" />
+            </radialGradient>
+
+            <radialGradient id="lampGlow">
+              <stop offset="0" stop-color="#fff4d2" stop-opacity="0.95" />
+              <stop offset="1" stop-color="#fff4d2" stop-opacity="0" />
+            </radialGradient>
+
+            <radialGradient id="tailGlow">
+              <stop offset="0" stop-color="#ff6a45" stop-opacity="0.85" />
+              <stop offset="1" stop-color="#ff6a45" stop-opacity="0" />
+            </radialGradient>
+
+            <!-- the roll-up door disappears into the top of its own frame -->
+            <clipPath id="bayClip" clipPathUnits="userSpaceOnUse">
+              <rect x="42" y="29" width="40" height="35" rx="2" />
+            </clipPath>
+          </defs>
+
+          <!-- the road and the parcel wait below the frame until pressed -->
+          <g id="ground">
+            <rect fill="url(#roadGrad)" x="0" y="86" width="342" height="14" />
+            <rect class="road__lip" x="0" y="86" width="342" height="0.8" />
+            <line class="road__ticks" x1="0" y1="94" x2="342" y2="94" />
+            <ellipse id="boxShadow" cx="238" cy="86.6" rx="15" ry="3.2" fill="url(#blobShadow)" />
+          </g>
+
+          <g id="van">
+            <ellipse cx="67" cy="86.8" rx="72" ry="4.4" fill="url(#blobShadow)" />
+
+            <g id="vanBody">
+              <rect class="shell" x="4" y="27" width="82" height="49" rx="4" fill="url(#bodyGrad)" />
+              <path
+                class="shell"
+                fill="url(#bodyGrad)"
+                d="M86,76 L86,43 L112,43 L124,55 L128,55 Q131,55 131,58 L131,72 Q131,76 127,76 Z" />
+
+              <!-- cargo bay: a hole in the side, with the door in front of it -->
+              <rect x="42" y="29" width="40" height="35" rx="2" fill="url(#bayGrad)" />
+
+              <!-- once loaded, the parcel sits behind the door -->
+              <g id="boxSlotBay"></g>
+
+              <g clip-path="url(#bayClip)">
+                <g id="door">
+                  <rect x="42" y="29" width="40" height="35" fill="url(#slats)" />
+                  <rect x="42" y="60.6" width="40" height="3.4" fill="#b3aa96" />
+                  <rect x="42" y="29" width="40" height="1" fill="#fffdf6" opacity="0.5" />
+                </g>
+              </g>
+              <rect
+                x="42" y="29" width="40" height="35" rx="2"
+                fill="none" stroke="#2a2118" stroke-width="1.3" />
+
+              <text class="depot" x="10" y="49">DEPOT</text>
+
+              <rect x="90" y="46" width="16" height="8" rx="1.6" fill="url(#glassGrad)" />
+              <path d="M111.5,46 L111.5,54 L119.5,54 Z" fill="url(#glassGrad)" />
+
+              <rect x="4" y="64" width="126" height="7" fill="url(#stripeGrad)" />
+              <rect x="4" y="64" width="126" height="1" fill="#fff0d2" opacity="0.45" />
+
+              <!-- lamps, dark until switched on -->
+              <rect x="126.4" y="57.4" width="4.6" height="6" rx="1.8" fill="#7d7361" />
+              <rect x="4.2" y="57.4" width="3.4" height="5.2" rx="1.4" fill="#6d5348" />
+
+              <!-- mid-leap the parcel passes on the near side of the van,
+                   so it has to sit above every body detail -->
+              <g id="boxSlotFly"></g>
+
+              <g id="lights" opacity="0">
+                <path d="M131,60 L243,41 L243,88 Z" fill="url(#beamGrad)" />
+                <ellipse cx="130" cy="60.4" rx="11" ry="8" fill="url(#lampGlow)" />
+                <rect x="126.4" y="57.4" width="4.6" height="6" rx="1.8" fill="#fff6dc" />
+                <ellipse cx="5.9" cy="60" rx="7" ry="5.5" fill="url(#tailGlow)" />
+                <rect x="4.2" y="57.4" width="3.4" height="5.2" rx="1.4" fill="#ff7a52" />
+              </g>
+            </g>
+
+            <g transform="translate(30 76.5)">
+              <g class="wheel" id="wheelA">
+                <circle class="tire" r="9.5" />
+                <circle class="rim" r="4.8" />
+                <path class="spoke" d="M0,-4.4 V4.4 M-4.4,0 H4.4" />
+                <circle class="nave" r="1.7" />
+              </g>
+            </g>
+            <g transform="translate(110 76.5)">
+              <g class="wheel" id="wheelB">
+                <circle class="tire" r="9.5" />
+                <circle class="rim" r="4.8" />
+                <path class="spoke" d="M0,-4.4 V4.4 M-4.4,0 H4.4" />
+                <circle class="nave" r="1.7" />
+              </g>
+            </g>
+          </g>
+
+          <!-- parked on the road until the hop hands it to the van -->
+          <g id="boxHome">
+            <g id="box">
+              <rect x="-9" y="-9" width="18" height="18" rx="2.4" fill="url(#boxGrad)" />
+              <rect x="-9" y="-1.2" width="18" height="2.4" fill="#a96b1c" opacity="0.75" />
+              <rect x="-1.2" y="-9" width="2.4" height="18" fill="#a96b1c" opacity="0.75" />
+              <path d="M-9,-6.6 h18" stroke="#fff0d2" stroke-opacity="0.4" stroke-width="1.2" />
+            </g>
+          </g>
+        </svg>
+      </span>
+
+      <span class="cta__label" id="ctaLabel" data-state="idle">
+        <svg class="cta__check" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 12.6 L9.4 18 L20 6.4" />
+        </svg>
+        <span class="cta__text" id="ctaText">Order Now</span>
+      </span>
+    </button>
+  </form>
+
+  <p class="fineprint">Roasted to order · ships within 24 hours</p>
+  <div class="message" id="message"></div>
+</div>
+
+<script src="assets/demo-order.js?v=ac0fc581"></script>
+</body>
+</html>

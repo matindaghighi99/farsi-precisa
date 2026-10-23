@@ -1,0 +1,13 @@
+# Copy to ".dev.vars" for local development with:  npx wrangler pages dev .
+# .dev.vars holds secrets — never commit it. In production these are set in
+# Cloudflare → this Pages project → Settings → Variables and secrets.
+# Use the same values as the main Precisa site so Persian leads land in the
+# same Supabase table (source "contact-form-fa") and the same inbox.
+
+SUPABASE_URL=https://YOUR-PROJECT-ref.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-secret-key
+
+# Email notifications via Resend (leads still save to Supabase without these)
+RESEND_API_KEY=
+TO_EMAIL=info@precisasolutions.ca
+FROM_EMAIL=leads@precisasolutions.ca
