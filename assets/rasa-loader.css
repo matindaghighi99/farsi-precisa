@@ -1,0 +1,197 @@
+/* ============================================================
+   رسا intro — the home page preloader.
+   main.js adds .is-go once the logo and font are ready, drives --p
+   (0–100, the progress ring and counter) and adds .done to open the
+   iris from the logo's centre (--cx/--cy) onto the page.
+   ============================================================ */
+@property --iris { syntax: '<length>'; inherits: false; initial-value: 0px; }
+
+.rl {
+  --p: 0;
+  --cx: 50%; --cy: 45%;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  position: fixed; inset: 0; z-index: 10000;
+  display: grid; place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 50% at 50% 42%, #0d2163 0%, rgba(13, 33, 99, 0) 70%),
+    radial-gradient(120% 90% at 50% 120%, #08133a 0%, rgba(8, 19, 58, 0) 60%),
+    #040a1c;
+  color: #fff;
+  -webkit-mask: radial-gradient(circle at var(--cx) var(--cy), transparent var(--iris), #000 calc(var(--iris) + 1.5px));
+          mask: radial-gradient(circle at var(--cx) var(--cy), transparent var(--iris), #000 calc(var(--iris) + 1.5px));
+}
+/* fine dot grid, fading out from the centre */
+.rl::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(rgba(150, 185, 255, .14) 1px, transparent 1.2px) 0 0 / 26px 26px;
+  -webkit-mask: radial-gradient(55% 55% at 50% 45%, #000 0%, transparent 100%);
+          mask: radial-gradient(55% 55% at 50% 45%, #000 0%, transparent 100%);
+  opacity: 0;
+}
+.rl-glow {
+  position: absolute; left: 50%; top: 42%;
+  width: min(760px, 140vw); aspect-ratio: 1;
+  translate: -50% -50%;
+  background: radial-gradient(circle, rgba(59, 123, 255, .34) 0%, rgba(29, 79, 208, .14) 32%, transparent 62%);
+  opacity: 0; scale: .6;
+}
+
+.rl-core { position: relative; display: flex; flex-direction: column; align-items: center; }
+
+.rl-emblem {
+  --size: clamp(176px, 46vw, 264px);
+  position: relative;
+  width: var(--size); height: var(--size);
+  display: grid; place-items: center;
+  perspective: 900px;
+}
+
+/* a soft backlight, so the blue logo lifts off the navy */
+.rl-emblem::before {
+  content: ''; position: absolute; inset: 12%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(130, 175, 255, .42) 0%, rgba(59, 123, 255, .16) 45%, transparent 70%);
+  opacity: 0;
+}
+.rl.is-go .rl-emblem::before { animation: rl-fade 1.2s ease .3s forwards; }
+
+/* the progress ring, drawn from the top */
+.rl-ring {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  rotate: -90deg;
+  overflow: visible;
+  opacity: 0;
+}
+.rl-track { fill: none; stroke: rgba(160, 190, 255, .1); stroke-width: 1.2; }
+.rl-arc {
+  fill: none; stroke: url(#rlGrad); stroke-width: 2.4; stroke-linecap: round;
+  stroke-dasharray: 100; stroke-dashoffset: calc(100 - var(--p));
+}
+/* the bright point leading the ring */
+.rl-head {
+  position: absolute; left: 50%; top: 50%;
+  width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px 2px rgba(156, 194, 255, .9), 0 0 22px 6px rgba(59, 123, 255, .55);
+  transform: rotate(calc(var(--p) * 3.6deg)) translateY(calc(var(--size) * -.48));
+  opacity: 0;
+}
+
+/* sound-wave rings: رسا, a voice that carries */
+.rl-wave {
+  position: absolute; inset: 14%;
+  border-radius: 50%;
+  border: 1px solid rgba(110, 160, 255, .45);
+  opacity: 0;
+}
+
+.rl-logo {
+  position: relative;
+  width: 64%; aspect-ratio: 1;
+  opacity: 0;
+  transform: rotateY(-38deg) rotateX(12deg) scale(.72) translateY(16px);
+  filter: blur(12px);
+  transform-style: preserve-3d;
+}
+.rl-logo img {
+  display: block; width: 100%; height: 100%;
+  filter: drop-shadow(0 18px 28px rgba(0, 10, 50, .55));
+}
+/* a band of light that glints across the logo, clipped to its shape */
+.rl-sheen {
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, .7) 50%, transparent 62%) no-repeat;
+  background-size: 260% 100%;
+  background-position: 160% 0;
+  -webkit-mask: url('../images/rasa-mark-480.webp') center / contain no-repeat;
+          mask: url('../images/rasa-mark-480.webp') center / contain no-repeat;
+  mix-blend-mode: soft-light;
+  opacity: 0;
+}
+
+.rl-word {
+  margin-top: clamp(18px, 4vh, 30px);
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: clamp(2.3rem, 7.5vw, 3.4rem);
+  line-height: 1.1;
+  background: linear-gradient(180deg, #ffffff 30%, #b9cdf5);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  clip-path: inset(-10% -5% -20% 105%);   /* revealed from the right, as it is read */
+  filter: blur(6px);
+}
+.rl-sub {
+  margin-top: 8px;
+  font-family: var(--font-body, 'Vazirmatn', sans-serif);
+  font-size: clamp(.82rem, 2.6vw, .95rem);
+  color: #8ea6d8;
+  opacity: 0; translate: 0 8px;
+}
+.rl-count {
+  margin-top: clamp(22px, 5vh, 38px);
+  font-family: 'Vazirmatn', sans-serif;
+  font-size: .78rem;
+  font-variant-numeric: tabular-nums;
+  color: rgba(200, 215, 245, .5);
+  letter-spacing: .02em;
+  opacity: 0;
+  min-width: 4ch; text-align: center;
+}
+
+/* ---------- the entrance ---------- */
+.rl.is-go::before { animation: rl-fade 1.6s ease .1s forwards; }
+.rl.is-go .rl-glow { animation: rl-glow 1.6s var(--ease) forwards, rl-breathe 3.2s ease-in-out 1.6s infinite; }
+.rl.is-go .rl-logo {
+  animation: rl-logo 1.25s var(--ease) .08s forwards, rl-float 3.4s ease-in-out 1.35s infinite;
+}
+.rl.is-go .rl-sheen { animation: rl-sheen 1.15s cubic-bezier(.45, 0, .2, 1) .95s forwards; }
+.rl.is-go .rl-ring { animation: rl-fade .8s ease .25s forwards; }
+.rl.is-go .rl-head { animation: rl-fade .5s ease .35s forwards; }
+.rl.is-go .rl-wave { animation: rl-wave 2.6s cubic-bezier(.2, .6, .3, 1) .7s infinite; }
+.rl.is-go .rl-wave:nth-child(2) { animation-delay: 1.57s; }
+.rl.is-go .rl-wave:nth-child(3) { animation-delay: 2.44s; }
+.rl.is-go .rl-word { animation: rl-word 1s var(--ease) .5s forwards; }
+.rl.is-go .rl-sub { animation: rl-rise .8s var(--ease) .85s forwards; }
+.rl.is-go .rl-count { animation: rl-fade .6s ease .9s forwards; }
+
+@keyframes rl-fade { to { opacity: 1; } }
+@keyframes rl-glow { to { opacity: 1; scale: 1; } }
+@keyframes rl-breathe { 50% { scale: 1.08; opacity: .8; } }
+@keyframes rl-logo {
+  to { opacity: 1; transform: rotateY(0) rotateX(0) scale(1) translateY(0); filter: blur(0); }
+}
+@keyframes rl-float {
+  0%, 100% { transform: translateY(0) rotateY(0); }
+  50%      { transform: translateY(-5px) rotateY(6deg); }
+}
+@keyframes rl-sheen {
+  0%   { opacity: 1; background-position: 160% 0; }
+  100% { opacity: 1; background-position: -60% 0; }
+}
+@keyframes rl-wave {
+  0%   { opacity: 0; scale: .9; }
+  15%  { opacity: .7; }
+  100% { opacity: 0; scale: 1.9; }
+}
+@keyframes rl-word { to { clip-path: inset(-10% -5% -20% -5%); filter: blur(0); } }
+@keyframes rl-rise { to { opacity: 1; translate: 0 0; } }
+
+/* ---------- the exit: an iris opens from the logo onto the page ---------- */
+.rl.done {
+  transition: --iris 1s cubic-bezier(.7, 0, .2, 1), opacity .35s ease .75s;
+  --iris: 150vmax;
+  opacity: 0;   /* fallback where --iris cannot animate */
+}
+.rl-emblem { transition: transform .7s cubic-bezier(.7, 0, .2, 1), opacity .45s ease .15s; }
+.rl.done .rl-emblem { transform: scale(1.22); opacity: 0; }
+.rl.done .rl-core > :not(.rl-emblem),
+.rl.done .rl-ring, .rl.done .rl-head, .rl.done .rl-wave {
+  transition: opacity .3s ease; opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rl { display: none; }
+}

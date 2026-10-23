@@ -24,7 +24,7 @@ function assetHash(full) {
 }
 
 // (href|src)="assets/name.css" or "images/rasa-….svg", with an optional existing ?query
-const REF = /((?:href|src)=")(assets\/[^"?]+\.(?:css|js)|images\/rasa-[^"?]+\.(?:svg|png))(?:\?[^"]*)?(")/g;
+const REF = /((?:href|src)=")(assets\/[^"?]+\.(?:css|js)|images\/rasa-[^"?]+\.(?:svg|png|webp))(?:\?[^"]*)?(")/g;
 
 let filesChanged = 0;
 let refsStamped = 0;

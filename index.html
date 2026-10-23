@@ -7,12 +7,14 @@
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <title>رسا — سامانه‌های هوش مصنوعی و وب‌سایت برای کسب‌وکارهای امروزی</title>
 <meta name="description" content="رسا استودیویی است که با مدیریت مستقیم بنیان‌گذارش، وب‌سایت‌های پرسرعت و سامانه‌های هوش مصنوعیِ پشت آن‌ها را می‌سازد — دستیار تلفنی، اتوماسیون CRM، نوبت‌دهی و گزارش زنده." />
+<link rel="preload" as="image" href="images/rasa-mark-480.webp?v=74a420d5" type="image/webp" />
 <link rel="icon" type="image/png" sizes="32x32" href="images/rasa-favicon-32.png?v=c6a90423" />
 <link rel="icon" type="image/png" sizes="192x192" href="images/rasa-favicon-192.png?v=aa01a1bd" />
 <link rel="apple-touch-icon" href="images/rasa-favicon-180.png?v=b11100e2" />
 <link rel="stylesheet" href="assets/styles.css?v=d7fb3064" />
 <link rel="stylesheet" href="assets/enhance.css?v=0a8f33a8" />
 <link rel="stylesheet" href="assets/fa.css?v=b3ec5f79" />
+<link rel="stylesheet" href="assets/rasa-loader.css?v=59e18a69" />
 <link rel="stylesheet" href="assets/rasa-hero.css?v=4fd5076a" />
 </head>
 <body class="home locked">
@@ -22,13 +24,30 @@
 
 <div class="grain" aria-hidden="true"></div>
 
-<!-- Preloader -->
-<div class="preloader" id="preloader" aria-hidden="true">
-  <div class="preloader-lockup">
-    <div class="preloader-word">
-      <span>رسا</span>
+<!-- Preloader: the رسا intro (assets/rasa-loader.css, driven by main.js) -->
+<div class="rl" id="preloader" aria-hidden="true">
+  <div class="rl-glow"></div>
+  <div class="rl-core">
+    <div class="rl-emblem">
+      <span class="rl-wave"></span><span class="rl-wave"></span><span class="rl-wave"></span>
+      <svg class="rl-ring" viewBox="0 0 200 200">
+        <defs>
+          <linearGradient id="rlGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#9cc2ff"/><stop offset=".5" stop-color="#3b7bff"/><stop offset="1" stop-color="#1d4fd0"/>
+          </linearGradient>
+        </defs>
+        <circle class="rl-track" cx="100" cy="100" r="96" pathLength="100"/>
+        <circle class="rl-arc" cx="100" cy="100" r="96" pathLength="100"/>
+      </svg>
+      <span class="rl-head"></span>
+      <div class="rl-logo">
+        <img src="images/rasa-mark-480.webp?v=74a420d5" alt="" width="480" height="480" decoding="async" />
+        <span class="rl-sheen"></span>
+      </div>
     </div>
-    <div class="preloader-sub">استودیو سامانه‌های هوشمند</div>
+    <div class="rl-word">رسا</div>
+    <div class="rl-sub">استودیو سامانه‌های هوشمند</div>
+    <div class="rl-count"><span class="rl-num">۰</span>٪</div>
   </div>
 </div>
 
@@ -1352,7 +1371,7 @@
 
 <script src="assets/observe.js?v=75a89b3e"></script>
 <script src="assets/cookies.js?v=c6eeff89"></script>
-<script src="assets/main.js?v=ed1001ba"></script>
+<script src="assets/main.js?v=d5700f16"></script>
 <script src="assets/rasa-hero.js?v=e4237e9c"></script>
 <script src="assets/webdev.js?v=3b9b7a20"></script>
 </body>

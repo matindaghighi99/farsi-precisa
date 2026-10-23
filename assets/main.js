@@ -9,38 +9,62 @@
   /* ---------- Preloader (home only) ---------- */
   const preloader = document.getElementById('preloader');
   if (preloader) {
-    const finishLoad = () => {
-      if (!document.body.classList.contains('locked')) return;
+    /* The رسا intro (assets/rasa-loader.css). It starts once the logo and
+       the display font are ready, so neither pops in late; the ring and
+       counter follow real progress — they run to 92% on a clock and only
+       close once the page has loaded. FLOOR lets the entrance play out
+       (logo, sheen, wordmark); CAP stops a slow load holding the page. */
+    const FLOOR = 2100;
+    const CAP   = 4200;
+    const IRIS  = 1000;   /* the exit: .done opens the iris (rasa-loader.css) */
+    const num   = preloader.querySelector('.rl-num');
+    const faDigits = (n) => String(n).replace(/\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[d]);
+    let loaded = document.readyState === 'complete';
+    let closed = false;
+    window.addEventListener('load', () => { loaded = true; });
+
+    const close = () => {
+      if (closed) return;
+      closed = true;
+      const emblem = preloader.querySelector('.rl-emblem').getBoundingClientRect();
+      preloader.style.setProperty('--cx', (emblem.left + emblem.width / 2) + 'px');
+      preloader.style.setProperty('--cy', (emblem.top + emblem.height / 2) + 'px');
       preloader.classList.add('done');
       document.body.classList.remove('locked');
-      setTimeout(() => preloader.remove(), 1050);
+      setTimeout(() => preloader.remove(), IRIS + 150);
     };
 
     if (reduceMotion) {
       preloader.remove();
       document.body.classList.remove('locked');
     } else {
-      /* The wordmark is the whole preloader now — no bar to fill, so it
-         clears once the letters have landed instead of waiting out a
-         simulated load. FLOOR is the last letter settling (~.83s) plus a
-         short beat: leaving before then cuts the wordmark off mid-rise,
-         and leaving immediately after makes the hero's entrance feel
-         rushed, since the panel lifts upward and the headline is the last
-         thing uncovered. CAP stops a slow 'load' from holding the page. */
-      const FLOOR = 1100;
-      const CAP   = 2200;
-      const start = Date.now();
-      let loaded  = document.readyState === 'complete';
-
-      const tryFinish = () => {
-        const waited = Date.now() - start;
-        if (waited < FLOOR) { setTimeout(tryFinish, FLOOR - waited); return; }
-        if (loaded || waited >= CAP) finishLoad();
+      const go = () => {
+        if (preloader.classList.contains('is-go')) return;
+        preloader.classList.add('is-go');
+        const start = performance.now();
+        let p = 0;
+        const tick = (now) => {
+          if (closed) return;
+          const t = Math.min((now - start) / FLOOR, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const goal = loaded ? 100 * eased : Math.min(92, 100 * eased);
+          p += (goal - p) * 0.12;
+          if (loaded && t >= 1 && p > 99.4) p = 100;
+          preloader.style.setProperty('--p', p.toFixed(2));
+          num.textContent = faDigits(Math.round(p));
+          if (p === 100) { setTimeout(close, 260); return; }
+          if (now - start >= CAP) { close(); return; }
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
       };
-
-      window.addEventListener('load', () => { loaded = true; tryFinish(); });
-      setTimeout(tryFinish, FLOOR);
-      setTimeout(finishLoad, CAP);
+      const logo = preloader.querySelector('.rl-logo img');
+      Promise.all([
+        logo.decode ? logo.decode().catch(() => {}) : null,
+        document.fonts ? document.fonts.load('800 1em Estedad').catch(() => {}) : null,
+      ]).then(go);
+      setTimeout(go, 900);              /* don't wait on a slow logo or font */
+      setTimeout(close, CAP + 900);     /* safety net */
     }
   }
 
