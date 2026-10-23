@@ -18,11 +18,12 @@
    ============================================================ */
 
 .sj-hero {
-  /* the sample client's own brand — deliberately not ours */
-  --c-deep:   #0B3B36;
-  --c-teal:   #0F766E;
-  --c-bright: #14B8A6;
-  --c-mint:   #E6FAF5;
+  /* the sample client's palette: the site's own blues, so the scene
+     reads as part of the page (--c-teal is the clinic's main colour) */
+  --c-deep:   #0B1A3A;
+  --c-teal:   #1D4FD0;
+  --c-bright: #3B7BFF;
+  --c-mint:   #EAF1FF;
   position: relative;
   min-height: min(100svh, 920px);
   display: flex; align-items: center;
@@ -36,7 +37,7 @@
   position: absolute; inset: -25% -10%;
   background:
     radial-gradient(32% 36% at 25% 50%, rgba(59,120,238,.20), rgba(59,120,238,0) 70%),
-    radial-gradient(24% 28% at 10% 84%, rgba(20,184,166,.14), rgba(20,184,166,0) 70%),
+    radial-gradient(24% 28% at 10% 84%, rgba(56,152,255,.14), rgba(56,152,255,0) 70%),
     radial-gradient(28% 32% at 46% 14%, rgba(129,140,248,.12), rgba(129,140,248,0) 70%),
     radial-gradient(34% 38% at 90% 80%, rgba(96,165,250,.11), rgba(96,165,250,0) 72%);
   animation: sj-aurora 24s ease-in-out infinite alternate;
@@ -171,7 +172,7 @@
 .sj-shadow {
   position: absolute; inset: 6% 2% -8% 2%;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(12,21,36,.30), rgba(12,21,36,.1) 60%, rgba(12,21,36,0));
+  background: radial-gradient(closest-side, rgba(16,40,120,.28), rgba(16,40,120,.09) 60%, rgba(16,40,120,0));
   transform: translate3d(0, 34px, -80px);
   pointer-events: none;
 }
@@ -240,7 +241,7 @@
    copy block (layer 2) is lifted by one more step. */
 .sj-s-bg {
   position: absolute; inset: 0 1px 1px; border-radius: 0 0 15px 15px;
-  background: linear-gradient(180deg, var(--c-mint) 0%, rgba(230,250,245,.45) 42%, rgba(230,250,245,0) 68%);
+  background: linear-gradient(180deg, var(--c-mint) 0%, rgba(234,241,255,.45) 42%, rgba(234,241,255,0) 68%);
   transform: translateZ(calc(var(--g) - 1px));
   transition: transform .9s var(--sj-ease);
 }
@@ -257,11 +258,11 @@
   background: var(--c-teal); color: #fff;
 }
 .sj-s-logo svg { width: 12px; height: 12px; }
-.sj-s-menu { display: flex; gap: 14px; font-size: 9.5px; color: rgba(11,59,54,.65); }
+.sj-s-menu { display: flex; gap: 14px; font-size: 9.5px; color: rgba(11,26,58,.65); }
 .sj-s-btn {
   padding: 5px 10px; border-radius: 8px;
   background: #fff;
-  border: 1px solid rgba(15,118,110,.35);
+  border: 1px solid rgba(29,79,208,.35);
   font-size: 9px; font-weight: 700; color: var(--c-teal);
   transform: translateZ(var(--g));
   transition: transform .9s var(--sj-ease) .12s;
@@ -278,17 +279,17 @@
 }
 .sj-s-kicker {
   padding: 3px 8px; border-radius: 6px;
-  background: rgba(20,184,166,.14);
+  background: rgba(59,123,255,.14);
   font-size: 8.5px; font-weight: 700; color: var(--c-teal);
 }
 .sj-s-title { margin-top: 8px; font-size: 20px; font-weight: 800; line-height: 1.45; color: var(--c-deep); }
-.sj-s-sub { margin-top: 6px; font-size: 9.5px; line-height: 1.8; color: rgba(11,59,54,.68); }
+.sj-s-sub { margin-top: 6px; font-size: 9.5px; line-height: 1.8; color: rgba(11,26,58,.68); }
 .sj-s-cta {
   margin-top: 10px;
   padding: 7px 13px; border-radius: 9px;
   background: var(--c-teal); color: #fff;
   font-size: 9.5px; font-weight: 700;
-  box-shadow: 0 8px 18px -8px rgba(15,118,110,.7);
+  box-shadow: 0 8px 18px -8px rgba(29,79,208,.7);
   transform: translateZ(var(--g));
   transition: transform .9s var(--sj-ease) .12s, box-shadow .3s;
 }
@@ -299,7 +300,7 @@
 }
 .sj-s-photo {                          /* the clinic's picture: a tooth on mint */
   position: absolute; inset: 0; border-radius: 16px; overflow: hidden;
-  box-shadow: 0 14px 26px -16px rgba(11,59,54,.55);
+  box-shadow: 0 14px 26px -16px rgba(11,26,58,.55);
 }
 .sj-art { display: block; width: 100%; height: 100%; }
 .sj-s-title, .sj-s-logo { font-family: var(--font-display); }
@@ -307,7 +308,7 @@
   position: absolute; right: 8px; bottom: 8px;
   padding: 4px 8px; border-radius: 8px;
   background: #fff; font-size: 8.5px; font-weight: 700; color: var(--c-deep);
-  box-shadow: 0 6px 14px -6px rgba(11,59,54,.4);
+  box-shadow: 0 6px 14px -6px rgba(11,26,58,.4);
   transform: translateZ(calc(var(--g) * 2));
   transition: transform .9s var(--sj-ease) .12s;
 }
@@ -316,7 +317,7 @@
   position: relative;
   display: flex; align-items: center; gap: 7px;
   padding: 9px; border-radius: 11px;
-  background: #fff; border: 1px solid rgba(11,59,54,.08);
+  background: #fff; border: 1px solid rgba(11,26,58,.08);
   font-size: 9.5px; font-weight: 700;
   transform: translateZ(var(--g));
   transition: transform .9s var(--sj-ease), box-shadow .3s;
@@ -331,8 +332,8 @@
 .sj-s-cards svg { width: 13px; height: 13px; }
 
 /* a little life under the pointer: cards lift, the button glows */
-.sj-s-cards > span:hover { transform: translateZ(calc(var(--g) + 12px)); box-shadow: 0 14px 22px -14px rgba(11,59,54,.45); transition-duration: .45s; }
-.sj-s-cta:hover { box-shadow: 0 10px 26px -6px rgba(20,184,166,.9); }
+.sj-s-cards > span:hover { transform: translateZ(calc(var(--g) + 12px)); box-shadow: 0 14px 22px -14px rgba(11,26,58,.45); transition-duration: .45s; }
+.sj-s-cta:hover { box-shadow: 0 10px 26px -6px rgba(59,123,255,.9); }
 
 /* the layers view: a glass sheet per layer, each with its name… */
 .sj-sheet {
@@ -494,7 +495,7 @@
   position: absolute; inset: 6px;
   font-size: 8px; line-height: 1.6;
   border-radius: 23px; overflow: hidden;
-  background: #F3FAF8;
+  background: #F5F8FF;
   color: var(--c-deep);
   text-align: right;
   -webkit-user-select: none; user-select: none;
@@ -517,13 +518,13 @@
   height: 2.9em; padding: 0 1.7em;
   display: flex; align-items: center; justify-content: space-between;
   direction: ltr;
-  background: linear-gradient(#F3FAF8 60%, rgba(243,250,248,0));
+  background: linear-gradient(#F5F8FF 60%, rgba(245,248,255,0));
 }
 .sj-p-status b { font: 700 1.05em/1 var(--font-display); }
 .sj-p-screen.is-menu .sj-p-status { background: none; }
-/* under the sheet the bar takes the dimmed colour of the page (#F3FAF8
+/* under the sheet the bar takes the dimmed colour of the page (#F5F8FF
    under the dimmer below), so nothing scrolls into view behind it */
-.sj-p-screen.is-sheet .sj-p-status { color: #fff; background: linear-gradient(rgb(152,163,161) 62%, rgba(152,163,161,0)); }
+.sj-p-screen.is-sheet .sj-p-status { color: #fff; background: linear-gradient(rgb(154,159,173) 62%, rgba(154,159,173,0)); }
 .sj-p-screen.is-sheet .sj-p-batt, .sj-p-screen.is-sheet .sj-p-batt::after { border-color: rgba(255,255,255,.7); }
 .sj-p-screen.is-sheet .sj-p-batt::after { background: rgba(255,255,255,.7); }
 .sj-p-status > span { display: inline-flex; align-items: center; gap: .4em; }
@@ -534,13 +535,13 @@
 .sj-p-status .sj-p-wifi { width: 1.05em; height: 1.05em; }
 .sj-p-batt {
   position: relative; width: 1.75em; height: .85em; padding: .1em;
-  border: .09em solid rgba(11,59,54,.55); border-radius: .28em;
+  border: .09em solid rgba(11,26,58,.55); border-radius: .28em;
 }
 .sj-p-batt i { display: block; width: 78%; height: 100%; border-radius: .14em; background: currentColor; }
 .sj-p-batt::after {
   content: ''; position: absolute; right: -.3em; top: 50%;
   width: .15em; height: .36em; margin-top: -.18em;
-  border-radius: 0 .1em .1em 0; background: rgba(11,59,54,.55);
+  border-radius: 0 .1em .1em 0; background: rgba(11,26,58,.55);
 }
 .sj-p-island {
   position: absolute; top: .6em; left: 50%; z-index: 11;
@@ -568,7 +569,7 @@
 .sj-p-menu-btn {
   width: 2.7em; height: 2.7em; border-radius: .9em;
   display: grid; place-items: center;
-  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.1);
+  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,26,58,.1);
 }
 .sj-p-menu-btn i {
   width: 1.15em; height: .15em; border-radius: .1em; background: currentColor;
@@ -577,60 +578,60 @@
 .sj-p-hero { margin-top: 1.5em; }
 .sj-p-kicker {
   display: inline-block; padding: .3em .8em; border-radius: .7em;
-  background: rgba(20,184,166,.14); color: var(--c-teal);
+  background: rgba(59,123,255,.14); color: var(--c-teal);
   font-size: .85em; font-weight: 700;
 }
 .sj-p-title { display: block; margin-top: .55em; font: 800 1.85em/1.42 var(--font-display); }
-.sj-p-sub { margin-top: .45em; font-size: .95em; line-height: 1.75; color: rgba(11,59,54,.7); }
+.sj-p-sub { margin-top: .45em; font-size: .95em; line-height: 1.75; color: rgba(11,26,58,.7); }
 .sj-p-cta {
   margin-top: .9em; padding: .75em 1.3em;
   border-radius: .9em;
   background: var(--c-teal); color: #fff;
   font: 700 1em/1.2 var(--font-display);
-  box-shadow: 0 .8em 1.6em -.8em rgba(15,118,110,.85);
+  box-shadow: 0 .8em 1.6em -.8em rgba(29,79,208,.85);
   transition: transform .2s, box-shadow .2s;
 }
-.sj-p-cta:hover { box-shadow: 0 1em 2em -.8em rgba(20,184,166,.95); }
+.sj-p-cta:hover { box-shadow: 0 1em 2em -.8em rgba(59,123,255,.95); }
 .sj-p-cta:active, .sj-p-book:active { transform: scale(.97); }
 .sj-p-art {
   position: relative; margin-top: 1.2em; height: 9.6em;
   border-radius: 1.4em; overflow: hidden;
-  box-shadow: 0 1em 2em -1.2em rgba(11,59,54,.5);
+  box-shadow: 0 1em 2em -1.2em rgba(11,26,58,.5);
 }
 .sj-p-rate {
   position: absolute; left: .7em; bottom: .7em;
   padding: .35em .7em; border-radius: .7em;
   background: #fff;
   font: 800 .85em/1.2 var(--font-display);
-  box-shadow: 0 .6em 1.2em -.6em rgba(11,59,54,.5);
+  box-shadow: 0 .6em 1.2em -.6em rgba(11,26,58,.5);
 }
-.sj-p-rate small { font: 500 .85em var(--font-body); color: rgba(11,59,54,.6); }
+.sj-p-rate small { font: 500 .85em var(--font-body); color: rgba(11,26,58,.6); }
 .sj-p-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5em; margin-top: 1.2em; padding: 0; list-style: none; }
-.sj-p-stats li { padding: .7em .3em; border-radius: 1em; background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.07); text-align: center; }
+.sj-p-stats li { padding: .7em .3em; border-radius: 1em; background: #fff; box-shadow: inset 0 0 0 1px rgba(11,26,58,.07); text-align: center; }
 .sj-p-stats b { display: block; font: 800 1.05em/1.3 var(--font-display); }
-.sj-p-stats span { font-size: .78em; color: rgba(11,59,54,.6); }
+.sj-p-stats span { font-size: .78em; color: rgba(11,26,58,.6); }
 .sj-p-sec { margin-top: 1.7em; }
 .sj-p-sec h4 { margin-bottom: .7em; font: 800 1.15em/1.4 var(--font-display); }
 .sj-p-svc {
   display: flex; align-items: center; gap: .8em;
   width: 100%; margin-bottom: .5em; padding: .75em .8em;
   border-radius: 1.1em;
-  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.08);
+  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,26,58,.08);
   transition: box-shadow .2s, transform .2s;
 }
-.sj-p-svc:hover { box-shadow: inset 0 0 0 1px rgba(15,118,110,.45); }
+.sj-p-svc:hover { box-shadow: inset 0 0 0 1px rgba(29,79,208,.45); }
 .sj-p-svc:active { transform: scale(.985); }
 .sj-p-svc > i { width: 2.6em; height: 2.6em; border-radius: .85em; display: grid; place-items: center; flex: none; background: var(--c-mint); color: var(--c-teal); }
 .sj-p-svc > i svg { width: 1.35em; height: 1.35em; }
 .sj-p-svc > span { flex: 1; display: flex; flex-direction: column; }
 .sj-p-svc b { font-size: 1em; font-weight: 800; }
-.sj-p-svc small { font-size: .8em; color: rgba(11,59,54,.6); }
-.sj-p-svc > svg { width: 1.1em; height: 1.1em; color: rgba(11,59,54,.4); }
+.sj-p-svc small { font-size: .8em; color: rgba(11,26,58,.6); }
+.sj-p-svc > svg { width: 1.1em; height: 1.1em; color: rgba(11,26,58,.4); }
 .sj-p-docs { display: grid; grid-template-columns: 1fr 1fr; gap: .6em; }
 .sj-p-doc {
   display: flex; flex-direction: column; align-items: center;
   padding: .9em .5em; border-radius: 1.1em;
-  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.07);
+  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,26,58,.07);
   text-align: center;
 }
 .sj-p-ava {
@@ -640,11 +641,11 @@
   background: linear-gradient(135deg, hsl(var(--h) 62% 52%), hsl(calc(var(--h) + 30) 60% 36%));
 }
 .sj-p-doc b { font-size: .88em; font-weight: 800; }
-.sj-p-doc small { font-size: .75em; color: rgba(11,59,54,.6); }
-.sj-p-quote { padding: .9em 1em; border-radius: 1.1em; background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.07); }
+.sj-p-doc small { font-size: .75em; color: rgba(11,26,58,.6); }
+.sj-p-quote { padding: .9em 1em; border-radius: 1.1em; background: #fff; box-shadow: inset 0 0 0 1px rgba(11,26,58,.07); }
 .sj-p-quote > span { color: #F59E0B; font-size: .9em; }
 .sj-p-quote p { margin-top: .3em; font-size: .92em; line-height: 1.8; }
-.sj-p-quote small { font-size: .78em; color: rgba(11,59,54,.6); }
+.sj-p-quote small { font-size: .78em; color: rgba(11,26,58,.6); }
 .sj-p-contact p { display: flex; align-items: center; gap: .5em; margin-top: .4em; font-size: .9em; }
 .sj-p-contact svg { width: 1.2em; height: 1.2em; color: var(--c-teal); }
 
@@ -652,7 +653,7 @@
 .sj-p-bar {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 4;
   padding: 1.4em 1.3em 1.6em;
-  background: linear-gradient(rgba(243,250,248,0), #F3FAF8 45%);
+  background: linear-gradient(rgba(245,248,255,0), #F5F8FF 45%);
 }
 .sj-p-book {
   display: flex; align-items: center; justify-content: center; gap: .5em;
@@ -660,7 +661,7 @@
   border-radius: 1em;
   background: var(--c-deep); color: #fff;
   font: 800 1em/1.2 var(--font-display);
-  box-shadow: 0 .8em 1.6em -.8em rgba(11,59,54,.7);
+  box-shadow: 0 .8em 1.6em -.8em rgba(11,26,58,.7);
   transition: transform .2s;
 }
 .sj-p-book svg { width: 1.15em; height: 1.15em; }
@@ -670,7 +671,7 @@
   position: absolute; inset: 0; z-index: 7;
   display: flex; flex-direction: column;
   padding: 3.3em 1.4em 2em;
-  background: rgba(243,250,248,.98);
+  background: rgba(245,248,255,.98);
   transform: translateX(100%); visibility: hidden;
   transition: transform .45s cubic-bezier(.2, .9, .2, 1), visibility 0s .45s;
 }
@@ -679,12 +680,12 @@
 .sj-p-menu header button {
   width: 2.7em; height: 2.7em; border-radius: .9em;
   display: grid; place-items: center;
-  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.1);
+  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,26,58,.1);
 }
 .sj-p-menu header svg { width: 1.2em; height: 1.2em; }
 .sj-p-menu > button:not(.sj-p-cta) {
   padding: .6em .2em;
-  border-bottom: 1px solid rgba(11,59,54,.08);
+  border-bottom: 1px solid rgba(11,26,58,.08);
   font: 800 1.35em/1.4 var(--font-display);
 }
 .sj-p-menu .sj-p-cta { margin-top: 1.2em; text-align: center; }
@@ -692,7 +693,7 @@
 /* the booking sheet */
 .sj-p-dim {
   position: absolute; inset: 0; z-index: 7;
-  background: rgba(4,20,18,.38);
+  background: rgba(6,14,40,.38);
   opacity: 0; visibility: hidden;
   transition: opacity .35s, visibility 0s .35s;
 }
@@ -703,7 +704,7 @@
   padding: 1.4em 1.3em 2em;
   border-radius: 1.7em 1.7em 0 0;
   background: #fff;
-  box-shadow: 0 -1.5em 3em -1em rgba(4,20,18,.35);
+  box-shadow: 0 -1.5em 3em -1em rgba(6,14,40,.35);
   transform: translateY(105%); visibility: hidden;
   transition: transform .5s cubic-bezier(.2, .9, .2, 1), visibility 0s .5s;
 }
@@ -711,21 +712,21 @@
 .sj-p-sheet::before {                          /* the grabber */
   content: ''; position: absolute; top: .55em; left: 50%;
   width: 3.4em; height: .3em; margin-left: -1.7em;
-  border-radius: 1em; background: rgba(11,59,54,.15);
+  border-radius: 1em; background: rgba(11,26,58,.15);
 }
 .sj-p-form header { display: flex; align-items: center; justify-content: space-between; }
 .sj-p-form header b { font: 800 1.2em/1.4 var(--font-display); }
-.sj-p-form header button { width: 2.4em; height: 2.4em; border-radius: 50%; display: grid; place-items: center; background: #F1F5F4; }
+.sj-p-form header button { width: 2.4em; height: 2.4em; border-radius: 50%; display: grid; place-items: center; background: #EEF2FA; }
 .sj-p-form header svg { width: 1.1em; height: 1.1em; }
 .sj-p-sheet::-webkit-scrollbar { display: none; }
 .sj-p-step { margin-top: .75em; }
-.sj-p-step > span { display: block; margin-bottom: .4em; font-size: .82em; font-weight: 700; color: rgba(11,59,54,.6); }
+.sj-p-step > span { display: block; margin-bottom: .4em; font-size: .82em; font-weight: 700; color: rgba(11,26,58,.6); }
 .sj-p-chips { display: flex; flex-wrap: wrap; gap: .4em; }
 .sj-p-chips button {
   display: inline-flex; align-items: center; gap: .3em;
   padding: .45em .85em;
   border-radius: 2em;
-  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,59,54,.16);
+  background: #fff; box-shadow: inset 0 0 0 1px rgba(11,26,58,.16);
   font-size: .88em; font-weight: 600;
   transition: background .2s, color .2s, box-shadow .2s;
 }
@@ -745,7 +746,7 @@
   text-align: center;
   transition: background .2s, color .2s;
 }
-.sj-p-confirm:disabled { background: rgba(11,59,54,.14); color: rgba(11,59,54,.45); cursor: not-allowed; }
+.sj-p-confirm:disabled { background: rgba(11,26,58,.14); color: rgba(11,26,58,.45); cursor: not-allowed; }
 .sj-p-confirm.is-loading::before {
   content: ''; display: inline-block;
   width: .9em; height: .9em; margin-left: .5em; vertical-align: -.12em;
@@ -765,7 +766,7 @@
 @keyframes sj-draw { to { stroke-dashoffset: 0; } }
 .sj-p-done b { display: block; font: 800 1.3em/1.4 var(--font-display); }
 .sj-p-summary { margin-top: .3em; font-size: .95em; }
-.sj-p-done small { display: block; margin-top: .3em; font-size: .78em; color: rgba(11,59,54,.6); }
+.sj-p-done small { display: block; margin-top: .3em; font-size: .78em; color: rgba(11,26,58,.6); }
 .sj-p-done .sj-p-cta { margin-top: 1em; }
 
 /* a notification drops in when the booking is made */
@@ -784,9 +785,11 @@
 .sj-p-push > i svg { width: 1.3em; height: 1.3em; }
 .sj-p-push > span { display: flex; flex-direction: column; font-size: .82em; line-height: 1.55; }
 .sj-p-push b { font-weight: 800; }
-.sj-p-push b small { margin-right: .4em; font-weight: 500; color: rgba(11,59,54,.5); }
+.sj-p-push b small { margin-right: .4em; font-weight: 500; color: rgba(11,26,58,.5); }
 
-/* ── floating cubes, after the tiles of the Rasa mark ─────────────── */
+/* ── floating orbs, glossy like the رسا logo ─────────────────────────
+   (the markup keeps its cube faces; they are hidden, and the box that
+   used to turn is lit as a sphere and only bobs) */
 .sj-cube {
   position: absolute; left: var(--x); top: var(--y);
   width: var(--s); height: var(--s);
@@ -796,20 +799,17 @@
 }
 .sj-hero.is-phone .sj-cube { transform: translateZ(var(--z)) scale(0); }
 .sj-cube > i { position: absolute; inset: 0; animation: sj-bob calc(var(--t) * .37) ease-in-out infinite alternate; }
-.sj-cube > i > i { position: absolute; inset: 0; animation: sj-turn var(--t) linear infinite; }
-.sj-cube > i > i > i {
+.sj-cube > i > i {
   position: absolute; inset: 0;
-  border-radius: 2px;
-  background: linear-gradient(135deg, #5B9BFF, #2563EB 55%, #1E3A8A);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.28);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 27%, rgba(255,255,255,.95) 0, rgba(255,255,255,0) 18%),
+    radial-gradient(circle at 40% 35%, #8DB6FF 0%, #3B7BFF 32%, #1D4FD0 60%, #0B2A8C 100%);
+  box-shadow:
+    inset calc(var(--s) * -.08) calc(var(--s) * -.12) calc(var(--s) * .22) rgba(5,15,60,.45),
+    0 calc(var(--s) * .35) calc(var(--s) * .7) calc(var(--s) * -.2) rgba(29,79,208,.5);
 }
-.sj-cube > i > i > i:nth-child(1) { transform: translateZ(calc(var(--s) / 2)); }
-.sj-cube > i > i > i:nth-child(2) { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); background: #1B3487; }
-.sj-cube > i > i > i:nth-child(3) { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); background: linear-gradient(135deg, #3B82F6, #1D4ED8); }
-.sj-cube > i > i > i:nth-child(4) { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); background: linear-gradient(135deg, #2F6BE0, #173A9E); }
-.sj-cube > i > i > i:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); background: linear-gradient(135deg, #A5CBFF, #4C8DFF); }
-.sj-cube > i > i > i:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); background: #142B70; }
-@keyframes sj-turn { to { transform: rotateX(360deg) rotateY(720deg); } }
+.sj-cube > i > i > i { display: none; }
 @keyframes sj-bob { from { transform: translateY(-8px); } to { transform: translateY(8px); } }
 
 /* the way back from the phone, beside it */
@@ -876,7 +876,7 @@
 html.sj-pm-lock { overflow: hidden; }
 html.sj-pm-lock .msbug-fab { visibility: hidden; }
 .sj-pm {
-  --c-deep: #0B3B36; --c-teal: #0F766E; --c-bright: #14B8A6; --c-mint: #E6FAF5;
+  --c-deep: #0B1A3A; --c-teal: #1D4FD0; --c-bright: #3B7BFF; --c-mint: #EAF1FF;
   position: fixed; inset: 0; z-index: 9600;
   display: grid; place-items: center;
   background: rgba(8,13,26,.55);
