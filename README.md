@@ -13,6 +13,7 @@ with two small Cloudflare Pages Functions for its forms. No build step.
 | `projects.html` | projects / portfolio |
 | `about.html` | about |
 | `contact.html` | contact form (the intake console) |
+| `terms.html`, `privacy.html`, `refund.html` | terms, privacy policy, refund policy |
 
 `demo-card.html`, `demo-code.html` and `demo-order.html` are the interaction
 concepts `projects.html` shows in frames.
@@ -69,8 +70,16 @@ For local testing with the functions: copy `.dev.vars.example` to
 `cookies.js` and the other files in `assets/` came from the main Precisa site
 (`matindaghighi99/precisa`), where the scripts switch to Persian on pages
 with `<html lang="fa">`. They are copies here: a change to one site does not
-reach the other. The Privacy, Terms and Refund links point to the English
-pages on precisasolutions.ca.
+reach the other.
+
+## Legal pages
+
+`terms.html` (شرایط و قوانین), `privacy.html` (حریم خصوصی) and `refund.html`
+(بازپرداخت و انصراف) are written for Iranian law (governing law: the
+Islamic Republic of Iran; forum: the courts of Tehran). They follow the e-commerce
+law's 7-working-day right of withdrawal (Art. 37) and its personal-data rules
+(Arts. 58–59). Have a lawyer review them, and add the business's registered
+details (address, national ID, eNamad) once it has them.
 
 ## Fonts
 
