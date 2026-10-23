@@ -7,9 +7,10 @@
 
 /* Fonts are self-hosted on purpose: Google Fonts is unreliable from
    inside Iran.
-   · 'Estedad' sets headings, buttons and labels: sharp and modern,
-     designed for Persian, cut down to Persian + basic Latin and weights
-     300–900 (74 KB). Licence: fonts/estedad/OFL.txt
+   · 'Baloo Bhaijaan 2' sets headings, buttons and labels: bold and
+     rounded, with full Persian coverage; one variable file for weights
+     400–800 (71 KB; heavier requests settle on 800).
+     Licence: fonts/baloo-bhaijaan-2/OFL.txt
    · 'Vazirmatn' sets the running text, one variable file for every
      weight. Licence: fonts/vazirmatn/OFL.txt
      The Persian copy writes its numbers in Persian numerals itself.
@@ -19,7 +20,7 @@
      styles size their text columns with is measured from the "0" glyph,
      and the Persian zero is a dot — every capped heading and paragraph
      came out a third narrower. */
-@font-face { font-family: 'Estedad'; font-style: normal; font-weight: 300 900; font-display: swap; src: url('fonts/estedad/Estedad-Variable.woff2') format('woff2'); }
+@font-face { font-family: 'Baloo Bhaijaan 2'; font-style: normal; font-weight: 400 800; font-display: swap; src: url('fonts/baloo-bhaijaan-2/BalooBhaijaan2-Variable.woff2') format('woff2'); }
 @font-face { font-family: 'Vazirmatn'; font-style: normal; font-weight: 100 900; font-display: swap; src: url('fonts/vazirmatn/Vazirmatn-Variable.woff2') format('woff2'); }
 @font-face { font-family: 'Rasa Digits'; font-weight: 300; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Light.woff2') format('woff2'); }
 @font-face { font-family: 'Rasa Digits'; font-weight: 400; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Regular.woff2') format('woff2'); }
@@ -28,8 +29,8 @@
 @font-face { font-family: 'Rasa Digits'; font-weight: 700; font-display: swap; unicode-range: U+0030-0039; src: url('fonts/vazirmatn/Vazirmatn-FD-digits-Bold.woff2') format('woff2'); }
 
 :root {
-  --font-display: 'Estedad', 'Vazirmatn', Tahoma, sans-serif;
-  --font-brand:   'Estedad', 'Vazirmatn', Tahoma, sans-serif;
+  --font-display: 'Baloo Bhaijaan 2', 'Vazirmatn', Tahoma, sans-serif;
+  --font-brand:   'Baloo Bhaijaan 2', 'Vazirmatn', Tahoma, sans-serif;
   --font-body:    'Vazirmatn', Tahoma, sans-serif;
   --font-mono:    'Vazirmatn', Tahoma, sans-serif;
 }

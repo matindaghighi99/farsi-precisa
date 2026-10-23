@@ -61,7 +61,7 @@
       const logo = preloader.querySelector('.rl-logo img');
       Promise.all([
         logo.decode ? logo.decode().catch(() => {}) : null,
-        document.fonts ? document.fonts.load('800 1em Estedad').catch(() => {}) : null,
+        document.fonts ? document.fonts.load('800 1em "Baloo Bhaijaan 2"').catch(() => {}) : null,
       ]).then(go);
       setTimeout(go, 900);              /* don't wait on a slow logo or font */
       setTimeout(close, CAP + 900);     /* safety net */

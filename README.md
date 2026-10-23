@@ -86,5 +86,5 @@ details (address, national ID, eNamad) once it has them.
 Self-hosted (Google Fonts is unreliable from inside Iran), both under the SIL
 Open Font License:
 
-- Estedad by Amin Abedi — headings and buttons (`assets/fonts/estedad/OFL.txt`)
+- Baloo Bhaijaan 2 by Ek Type — headings and buttons (`assets/fonts/baloo-bhaijaan-2/OFL.txt`)
 - Vazirmatn by Saber Rastikerdar — running text (`assets/fonts/vazirmatn/OFL.txt`)
